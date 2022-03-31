@@ -1,0 +1,14 @@
+{
+  "git": {
+    "commitMessage": "Chore: Release v${version}"
+  },
+  "npm": {
+    "publish": true,
+    "publishargs": [
+      "--registry=https://registry.npmjs.org"
+    ]
+  },
+  "github": {
+    "release": true
+  }
+}

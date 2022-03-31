@@ -1,0 +1,28 @@
+name: Release
+
+on: workflow_dispatch
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.TOKEN_PUSH_GH }}
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.0.0
+        with:
+          node-version-file: .nvmrc
+          token: ${{ secrets.NPM_TOKEN }}
+          always-auth: true
+          registry-url: 'https://registry.npmjs.org'
+      - name: git config
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+      - run: yarn install
+      - run: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_PUSH_GH }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

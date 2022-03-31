@@ -1,9 +1,27 @@
 {
-  "name": "frontend-library",
+  "name": "@mym-tech/frontend-library",
   "version": "0.0.1",
   "description": "MYM's Frontend Components library.",
   "main": "index.js",
-  "repository": "git@github.com:MYM-Tech/frontend-library.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MYM-Tech/frontend-library.git"
+  },
   "author": "MYM Team <quentin@mym.fans>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MYM-Tech/frontend-library/issues"
+  },
+  "homepage": "https://github.com/MYM-Tech/frontend-library#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "release-it": "^14.13.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
 }
