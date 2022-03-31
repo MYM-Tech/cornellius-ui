@@ -1,0 +1,9 @@
+{
+  "name": "frontend-library",
+  "version": "0.0.1",
+  "description": "MYM's Frontend Components library.",
+  "main": "index.js",
+  "repository": "git@github.com:MYM-Tech/frontend-library.git",
+  "author": "MYM Team <quentin@mym.fans>",
+  "license": "MIT"
+}
