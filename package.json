@@ -1,6 +1,6 @@
 {
   "name": "@mym-tech/frontend-components-library",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "MYM's Frontend Components library.",
   "main": "index.js",
   "repository": {
