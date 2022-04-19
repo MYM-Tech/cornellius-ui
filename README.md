@@ -11,3 +11,4 @@ It should always start by the type of work you'll do (`feat`, `chore`, `build`, 
 Example: `feat/add-user-company`.
 
 [1]: https://medium.com/better-programming/string-case-styles-camel-pascal-snake-and-kebab-case-981407998841
+
