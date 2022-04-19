@@ -1,0 +1,7 @@
+.card {
+    background-color: aquamarine;
+    border: 1px solid rebeccapurple;
+    border-radius: 8px;
+    min-height: 80px;
+    width: 100%;
+}

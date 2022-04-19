@@ -1,5 +1,5 @@
 import Page from "../components/Page";
 import HW from "../components/HelloWorld";
+import { Card } from "../components/Card/Card"
 
-
-export default {HW, Page}
+export default {HW, Page, Card}
