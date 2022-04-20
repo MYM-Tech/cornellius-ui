@@ -1,12 +1,5 @@
-import { App } from 'vue'
-import components from "./App/index"
+import Page from "./components/Page";
+import HW from "./components/HelloWorld";
+import { Card } from "./components/Card/Card"
 
-const plugin = {
-    install (Vue: App) {
-      for (const component in components) {
-          Vue.component(component)
-      }
-    }
-  }
-  
-export default plugin;
+export {HW, Page, Card}

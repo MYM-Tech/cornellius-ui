@@ -1,0 +1,13 @@
+.card {
+    border: 1px solid white;
+    border-radius: 8px;
+    min-height: 80px;
+    width: 100%;
+    &__primary {
+        background-color: #2776FF;
+        border: 1px solid #2776FF;
+    } 
+    &__nonBoderRadius {
+        border-radius: none;
+    }
+}
