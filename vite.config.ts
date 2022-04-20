@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -9,13 +11,24 @@ export default defineConfig({
   esbuild: {
     jsxFactory: 'h',
     jsxFragment: 'Fragment'
+  
   },
-  css:{
+  test: {
+    globals: true,
+    environment: 'happy-dom',
+    transformMode: {
+      web: [/.[tj]sx$/],
+    },
+  },
+  css: {
     devSourcemap: false
   },
-  plugins: [vue({
-   customElement: true 
-  }), vueJsx()],
+  plugins: [
+    vue({
+      customElement: true
+    }),
+    vueJsx()
+  ],
   build: {
     lib: {
       name: 'fuji-lib',
@@ -29,9 +42,9 @@ export default defineConfig({
         // Since we publish our ./src folder, there's no point
         // in bloating sourcemaps with another copy of it.
         sourcemapExcludeSources: true,
-          globals: {
-              vue: 'Vue',
-          },
+        globals: {
+          vue: 'Vue',
+        },
       },
     },
     sourcemap: true,
@@ -40,5 +53,5 @@ export default defineConfig({
     // Leave minification up to applications.
     minify: true,
     ssr: false
-  }
+  },
 })
