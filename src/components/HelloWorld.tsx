@@ -25,10 +25,7 @@ const HelloWorld: FunctionalComponent<{ msg: string}> = ({ msg }, slots) => {
             </p>
 
             <button type="button" onClick={() => count.value++}>count is: {count.value }</button>
-            <p>
-                Edit
-                <code>components/HelloWorld.vue</code> to test hot module replacement.
-            </p>
+        
         </>
     )
 }

@@ -23,7 +23,6 @@
     "lint:style": "stylelint src/**/*.{css,scss,vue}"
   },
   "devDependencies": {
-    "release-it": "^14.13.1",
     "@babel/core": "^7.17.9",
     "@types/node": "^17.0.25",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
@@ -32,8 +31,14 @@
     "@vitejs/plugin-vue-jsx": "^1.3.10",
     "@vue/eslint-config-typescript": "^10.0.0",
     "babel-loader": "^8.2.4",
+    "classnames": "^2.3.1",
     "eslint": "^8.13.0",
     "eslint-plugin-vue": "^8.6.0",
+    "release-it": "^14.13.1",
+    "sass": "^1.50.1",
+    "stylelint": "^14.7.1",
+    "stylelint-config-recommended": "^7.0.0",
+    "stylelint-config-standard": "^25.0.0",
     "typescript": "^4.6.3",
     "vite": "^2.9.2",
     "vue-loader": "^17.0.0",
@@ -58,12 +63,12 @@
     "dist"
   ],
   "types": "./dist/index.d.ts",
-  "main": "./cornellius-ui.umd.js",
-  "module": "./cornellius-ui.es.js",
+  "main": "./dist/cornellius-ui.umd.js",
+  "module": "./dist/cornellius-ui.es.js",
   "exports": {
     ".": {
-      "import": "./cornellius-ui.es.js",
-      "require": "./cornellius-ui.umd.js"
+      "import": "./dist/cornellius-ui.es.js",
+      "require": "./dist/cornellius-ui.umd.js"
     }
   }
 }
