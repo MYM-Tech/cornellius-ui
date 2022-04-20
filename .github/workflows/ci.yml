@@ -31,4 +31,4 @@ jobs:
       - name: Build
         run: yarn build
       - name: lint-ts
-        run: yarn type:check
+        run: yarn vue-tsc
