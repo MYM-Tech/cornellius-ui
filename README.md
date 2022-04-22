@@ -44,9 +44,9 @@ JSX in Vue, is something innovative, since the framework took its first steps, V
 
 The only problem with this is that there are not so many libraries that are adapted to the use of jsx in components that are responsive or mobile first. What a headache, we can use jsx but not quite complete in a project.
 
-For those coming from react et who want to get into Vue 3 without losing their way of writing, JSX is great but it is limited only to the logic, if you want to build your components then you must create them from scratch.
+For those coming from React wanting to get into Vue 3 without losing their way of writing, JSX is great but it is limited only to the logic, if you want to build your components then you must create them from scratch.
 
-This library is dedicated to the good implementation of components created for mobile-first (responsive) ready to use, easy to edit or customize, and in JSX.
+This library is dedicated to the good implementation of mobile-first (responsive), ready to use, and easy to edit/customize JSX components.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -54,8 +54,7 @@ This library is dedicated to the good implementation of components created for m
 
 ### Built With
 
-For this library, we have given ourselves the task of creating it with the help of the following tools
-
+This library uses the following tools
 
 * [Vue 3](https://vuejs.org/)
 * [Vite](https://vitejs.dev/)
@@ -74,8 +73,6 @@ For this library, we have given ourselves the task of creating it with the help 
 
 ### Installation
 
-To install this library
-
 * npm
   ```sh
   npm install cornellius@latest 
@@ -93,19 +90,19 @@ To install this library
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-
-In a project with vue 3 and jsx, in the return of your function where you put the html.
+In a project with Vue 3 and JSX, import components you use and use them in your component return.
 
    ```jsx
-   import CorInput from 'cornellius'
-   const componentX = ()=> {
+   import CorInput from 'cornellius';
+
+   const componentX = () => {
        return (
            <>
-           <CorInput
-                placeholder={'Aa'}
-                onSubmit={()=>{'do something'}}
-                value={0}
-           />
+             <CorInput
+                  placeholder={'Aa'}
+                  onSubmit={()=>{'do something'}}
+                  value={0}
+             />
            </>
        )
    }
@@ -123,20 +120,20 @@ In a project with vue 3 and jsx, in the return of your function where you put th
     - [ ] Basics Inputs
     - [ ] Layout systems
     - [ ] Basics Cards
-- [ ] Wave of components 2 
+- [ ] Wave 2 
     - [ ] Complex Inputs
     - [ ] Lazy load
     - [ ] Infinite Scroll
-- [ ] Wave of components 3
+- [ ] Wave 3
     - [ ] Modals, popups & dialogs
     - [ ] Toaster & banner
-- [ ] Wave of components 4
+- [ ] Wave 4
     - [ ] Navigation, Menu & tab-bar
     - [ ] Collapse
- - [ ] Wave of components 5
+ - [ ] Wave 5
     - [ ] Empty states handlers
 
-See the [open issues](https://github.com/MYM-Tech/frontend-library/issues/) for a full list of proposed features (and known issues).
+See [open issues](https://github.com/MYM-Tech/frontend-library/issues/) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -147,7 +144,7 @@ See the [open issues](https://github.com/MYM-Tech/frontend-library/issues/) for 
 
 ### Branch naming convention
 
-You branch should have a name that reflects it's purpose.
+You branch should have a name that reflects its purpose.
 
 It should always start by the type of work you'll do (`feat`, `chore`, `build`, `fix`, `docs`, `refacto`), followed by a slash (`/`) and a very quick summary of the subject in [kebab case][1].
 
@@ -158,39 +155,39 @@ Example: `feat/add-user-company`.
 
 ### Local Testing
 
-For teste the component you need install [verdaccio](https://verdaccio.org/fr-fr/). Then lance Verdaccio in one terminal for local test. Then in the project you should use 
+To test components, you'll need to install [verdaccio](https://verdaccio.org/fr-fr/). Install and launch it in a terminal for local test. Then, install your local package in the project you want to use Cornellius. 
 
 ```sh
 npm publish --registry http://localhost:4873  
 ```
 
-create a file .npmrc with
+Create a .npmrc file with the following:
 
 ```sh
 registry=http://localhost:4873
 ```
 
-then in your terminal use:
+In your terminal run:
 
 ```sh
 npm set registry http://localhost:4873
 ```
 
-and in the project with vue 3 where you want use, use the follow command to install:
+Then in your Vue 3 project use the following command to install Cornellius:
 
 ```sh
 npm i cornellius@0.0.1 --registry http://localhost:4873 
 
 ```
 
-***remember: to rollback your registry of npm and continue to install others packages you need re-set the normal reggisty with:***
+***remember: to rollback your NPM registry and continue to install other packages you'll need reset the normal registy with:***
 
 ```sh
 npm set registry https://registry.npmjs.org/
 ```
-and delete the ***.npmrc*** file or commented it
+and delete or comment the ***.npmrc*** file.
 
-then use the component that you want tested. and enjoy it.
+You should now be able to use cornelius components in your Vue 3 project.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
