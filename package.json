@@ -32,6 +32,7 @@
     "@storybook/builder-vite": "^0.1.29",
     "@storybook/vue3": "^6.4.22",
     "@types/node": "^17.0.25",
+    "@types/react": "file:types-fix/types__react",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
     "@vitejs/plugin-vue": "^2.3.1",
@@ -39,10 +40,13 @@
     "@vue/eslint-config-typescript": "^10.0.0",
     "@vue/test-utils": "^2.0.0-rc.20",
     "babel-loader": "^8.2.4",
-    "classnames": "^2.3.1",
     "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-storybook": "^0.5.11",
     "eslint-plugin-vue": "^8.6.0",
     "happy-dom": "^2.55.0",
+    "eslint-plugin-vuejs-accessibility": "^1.1.1",
     "release-it": "^14.13.1",
     "sass": "^1.50.1",
     "storybook-builder-vite": "^0.1.23",
@@ -67,6 +71,8 @@
     "*": "prettier -w -u"
   },
   "dependencies": {
+    "@vue/eslint-config-airbnb": "^6.0.0",
+    "classnames": "^2.3.1",
     "vue": "^3.2.25"
   },
   "peerDependencies": {
