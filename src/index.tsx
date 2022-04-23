@@ -1,5 +1,7 @@
-import Page from "./components/Page";
-import HW from "./components/HelloWorld";
 import { Card } from "./components/Card/Card"
+import { Content } from "./components/LayoutSystem/Content/Content"
+import { MainLayout } from "./components/LayoutSystem/MainLayout/MainLayout"
+import { Sidebar } from "./components/LayoutSystem/Sidebar/Sidebar"
 
-export {HW, Page, Card}
+
+export {Card, Content, MainLayout, Sidebar}
