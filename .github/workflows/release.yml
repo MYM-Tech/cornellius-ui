@@ -22,6 +22,7 @@ jobs:
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
       - run: yarn install
+      - run: rm -rf node_modules/@types/react
       - run: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_PUSH_GH }}

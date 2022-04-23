@@ -1,5 +1,5 @@
 {
-  "name": "cornellius",
+  "name": "@mym-tech/fcornellius-ui",
   "version": "0.0.1",
   "description": "MYM's Frontend Components library.",
   "repository": {
@@ -19,7 +19,7 @@
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "preview": "vite preview",
     "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore .",
-    "lint:markup": "vue-tsc --noEmit",
+    "lint:markup": "vue-tsc",
     "lint:style": "stylelint src/**/*.{css,scss,vue}",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -29,6 +29,7 @@
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-links": "^6.4.22",
+    "@storybook/builder-vite": "^0.1.29",
     "@storybook/vue3": "^6.4.22",
     "@types/node": "^17.0.25",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
@@ -51,6 +52,7 @@
     "ts-loader": "^9.2.8",
     "typescript": "^4.6.3",
     "vite": "^2.9.2",
+    "vite-plugin-css-injected-by-js": "^1.4.0",
     "vitest": "^0.9.3",
     "vue-loader": "^16.8.3",
     "vue-tsc": "^0.34.8"
