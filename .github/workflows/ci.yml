@@ -28,11 +28,11 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Run the tests
         run: yarn test
-      - name: Build
-        run: yarn build
       - name: lint-ts
         run: yarn vue-tsc
       - name: Lint scripts
         run: yarn lint:script
       - name: Lint style
         run: yarn lint:style
+      - name: Build
+        run: yarn build
