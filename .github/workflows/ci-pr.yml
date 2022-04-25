@@ -28,10 +28,15 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Run the tests
         run: yarn test
+<<<<<<< HEAD:.github/workflows/ci-pr.yml
       - name: Test storybook
         run: yarn build-storybook
       - name: lint-ts
         run: yarn lint:markup
+=======
+      - name: lint-ts
+        run: yarn vue-tsc
+>>>>>>> 13ac9cc (Build: deploy storybook in gitpage):.github/workflows/CI.yml
       - name: Lint scripts
         run: yarn lint:script
       - name: Lint style

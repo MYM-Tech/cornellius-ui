@@ -24,7 +24,7 @@
     "lint:markup": "vue-tsc",
     "lint:style": "stylelint src/**/*.{css,scss,vue} --fix",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o docs-storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -40,6 +40,8 @@
     "@vue/eslint-config-typescript": "^10.0.0",
     "@vue/test-utils": "^2.0.0-rc.20",
     "babel-loader": "^8.2.4",
+    "chromatic": "^6.5.4",
+    "classnames": "^2.3.1",
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
