@@ -1,5 +1,4 @@
-import { createApp } from 'vue'
-import Page from './components/Page'
+import { createApp } from 'vue';
+import Page from './components/Page';
 
-
-createApp(Page).mount('#app')
+createApp(Page).mount('#app');
