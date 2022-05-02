@@ -1,0 +1,25 @@
+@import '../Input.module';
+
+.cor_input_number {
+    @extend .cor_input;
+
+    input {
+        min-width: 160px;
+    }
+
+    &__status {
+        @extend .cor_input__status;
+    }
+
+    &--success {
+        @extend .cor_input--success;
+    }
+
+    &--warning {
+        @extend .cor_input--warning;
+    }
+
+    &--error {
+        @extend .cor_input--error;
+    }
+}
