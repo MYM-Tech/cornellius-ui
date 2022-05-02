@@ -1,0 +1,62 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "lint:script",
+			"problemMatcher": [],
+			"label": "lint:script",
+			"detail": "eslint --ext .ts,vue --ignore-path .gitignore . --fix",
+			"group": "build"
+		},
+		{
+			"type": "npm",
+			"script": "lint:style",
+			"problemMatcher": [],
+			"label": "lint:style",
+			"detail": "stylelint src/**/*.{css,scss,vue} --fix",
+			"group": "build"
+		},
+		{
+			"type": "npm",
+			"script": "lint:markup",
+			"problemMatcher": [],
+			"label": "lint:markup",
+			"detail": "vue-tsc",
+			"group": "build"
+		},
+		{
+			"type": "npm",
+			"script": "test",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "test",
+			"detail": "vitest"
+		},
+		{
+			"type": "npm",
+			"script": "install",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "install",
+			"detail": "yarn postinstall"
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "build",
+			"detail": "vite build && vue-tsc --emitDeclarationOnly"
+		},
+		{
+			"label": "ci",
+			"type": "shell",
+			"dependsOrder": "sequence",
+			"dependsOn": ["install", "lint:markup", "lint:style", "lint:script", "test", "build"]
+		  }
+	]
+}

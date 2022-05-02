@@ -149,3 +149,7 @@ Temporary Items
 .apdisk
 .npmrc
 package-lock.json
+
+# storybook
+
+storybook-static/
