@@ -38,5 +38,3 @@ jobs:
         run: yarn lint:style
       - name: Build
         run: yarn build
-      - name: lint-ts
-        run: yarn vue-tsc
