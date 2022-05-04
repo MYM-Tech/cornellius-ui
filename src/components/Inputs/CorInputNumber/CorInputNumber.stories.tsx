@@ -16,6 +16,7 @@ export default {
         onSubmit: { action: 'onSubmit' },
         min: { type: 'number' },
         max: { type: 'number' },
+        showButtons: { type: 'boolean', defaultValue: true },
     },
 } as Meta;
 

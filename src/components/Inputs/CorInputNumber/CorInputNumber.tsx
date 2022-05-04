@@ -12,6 +12,7 @@ const CorInputText: FunctionalComponent<CorInputNumberProps> = ({
     placeholder,
     value,
     status,
+    showButtons = true,
     onChange,
     onSubmit,
 }) => {
@@ -19,12 +20,11 @@ const CorInputText: FunctionalComponent<CorInputNumberProps> = ({
         [CSS['cor_input_number--success']]: status === 'success',
         [CSS['cor_input_number--warning']]: status === 'warning',
         [CSS['cor_input_number--error']]: status === 'error',
+        [CSS['cor_input_number--no-btn']]: !showButtons,
     });
 
     const onInput = (e: Event) => {
         if (!onChange) return;
-
-        e.preventDefault();
 
         const inputElement = e.target as HTMLInputElement;
         onChange(inputElement.value);

@@ -3,8 +3,16 @@
 .cor_input_number {
     @extend .cor_input;
 
+    &--no-btn {
+        input::-webkit-inner-spin-button,
+        input::-webkit-outer-spin-button {
+            appearance: none;
+        }
+    }
+
     input {
         min-width: 160px;
+        position: relative;
     }
 
     &__status {
