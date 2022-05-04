@@ -3,7 +3,7 @@ import { FunctionalComponent } from 'vue';
 import CSS from './CorInputMoney.module.scss';
 import { CorInputMoneyProps } from './CorInputMoney.types';
 
-const CorInputText: FunctionalComponent<CorInputMoneyProps> = ({
+const CorInputMoney: FunctionalComponent<CorInputMoneyProps> = ({
     disabled,
     label,
     statusMessage,
@@ -58,4 +58,4 @@ const CorInputText: FunctionalComponent<CorInputMoneyProps> = ({
     );
 };
 
-export default CorInputText;
+export default CorInputMoney;
