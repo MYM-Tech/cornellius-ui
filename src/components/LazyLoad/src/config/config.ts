@@ -1,13 +1,11 @@
-import { propsInterface } from "../interfaces/config"
-import { imageConfigInterface } from "../interfaces/image"
-
+import { imageConfigInterface } from '../interfaces/image';
 
 export const ObserverOptionsDafault = {
-  rootMargin: '0px',
-  threshold: 0
-}
+    rootMargin: '0px',
+    threshold: 0,
+};
 
-export const baseConfig: propsInterface = {
+export const baseConfig = {
     errorImageUrl: '',
     loadingImageUrl: '',
     errorClasses: [],
@@ -17,15 +15,15 @@ export const baseConfig: propsInterface = {
     onLoad: undefined,
     watchUpdate: true,
     observerOptions: ObserverOptionsDafault,
-    lifecycle: {}
-  }
+    lifecycle: {},
+};
 
-
-  export const defaultConfig: imageConfigInterface = Object.assign({
+export const defaultConfig: imageConfigInterface = {
     timeout: 200,
     preLoad: 0.3,
     component: false,
     sorted: true,
     debounce: false,
-    afterListen: undefined
-  }, baseConfig)
+    afterListen: undefined,
+    ...baseConfig,
+};
