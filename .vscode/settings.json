@@ -9,5 +9,8 @@
     ],
     "stylelint.validate": [
         "scss",
-    ]
+    ],
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    }
 }
