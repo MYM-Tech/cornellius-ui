@@ -1,12 +1,15 @@
-import { propsInterface } from "./config"
-import { ExtComponentPublicInstance, ExtHTMLElement } from "./Element"
+import { ExtHTMLElement, propsInterface } from './config';
+import { ExtComponentPublicInstance } from './element';
 
 export interface imageConfigInterface extends propsInterface {
-    timeout: number
-    preLoad: number
-    component: boolean
-    sorted: boolean
-    debounce: boolean
-    afterListen?: (event: Event | undefined, lazyElMap: Map<string, Set<ExtHTMLElement>>, lazyVmMap: Map<string, Set<ExtComponentPublicInstance>>) => void
+    timeout: number;
+    preLoad: number;
+    component: boolean;
+    sorted: boolean;
+    debounce: boolean;
+    afterListen?: (
+        event: Event | undefined,
+        lazyElMap: Map<string, Set<ExtHTMLElement>>,
+        lazyVmMap: Map<string, Set<ExtComponentPublicInstance>>
+    ) => void;
 }
- 

@@ -1,3 +1,5 @@
-import LazyLoad from 'lazy-load-vue3';
+// import LazyLoad from 'lazy-load-vue3';
 
-export default LazyLoad;
+import lazyImage from "./src/lazyImage/lazyImage";
+
+export default lazyImage;

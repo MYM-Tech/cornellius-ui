@@ -1,20 +1,19 @@
+import { expect, it } from 'vitest';
 
-import { expect, it } from "vitest";
+import { baseConfig, ObserverOptionsDafault } from '../../config/config';
+import mergeValues from '../mergeValue';
 
-import { baseConfig, ObserverOptionsDafault } from "../../config/config";
-import { mergeValues } from "../mergeValue";
-
-it("should return a object with the new props", ()=> {
+it('should return a object with the new props', () => {
     const defaultValue = baseConfig;
     const newValue = {
-        errorImageUrl: 'https//mym.fans',
-        loadingImageUrl: 'hola',
-    }
-    const propsMerged = mergeValues(defaultValue, newValue)
+        errorImageUrl: 'https://mym.fans/build/images/mym.e5c01898.svg',
+        loadingImageUrl: 'https://mym.fans/build/images/mym.e5c01898.svg',
+    };
+    const propsMerged = mergeValues(defaultValue, newValue);
 
     const expectedResult = {
-        errorImageUrl: 'https//mym.fans',
-        loadingImageUrl: 'hola',
+        errorImageUrl: 'https://mym.fans/build/images/mym.e5c01898.svg',
+        loadingImageUrl: 'https://mym.fans/build/images/mym.e5c01898.svg',
         errorClasses: [],
         loadingClasses: [],
         loadedClasses: [],
@@ -22,9 +21,8 @@ it("should return a object with the new props", ()=> {
         onLoad: undefined,
         watchUpdate: true,
         observerOptions: ObserverOptionsDafault,
-        lifecycle: {}
-    }
+        lifecycle: {},
+    };
 
-    
-    expect(propsMerged).toStrictEqual(expectedResult)
-})
+    expect(propsMerged).toStrictEqual(expectedResult);
+});

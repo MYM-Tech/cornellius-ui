@@ -1,4 +1,3 @@
-
-export function checkIsImgTag( el: HTMLElement): boolean {
-    return 'img' === el.tagName.toLowerCase()
+export default function checkIsImgTag(el: HTMLElement): boolean {
+    return el.tagName.toLowerCase() === 'img';
 }

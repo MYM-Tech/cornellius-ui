@@ -1,10 +1,12 @@
+/* eslint-disable no-shadow */
+
 export enum LifecycleStatus {
-    WAITINGLOAD= "waitingLoad",
+    WAITINGLOAD = 'waitingLoad',
     LOADING = 'loading',
     LOADED = 'loaded',
-    ERROR = 'error'
-  }
-  
-  export type Lifecycle = {
-    [x in LifecycleStatus]?: (el?:HTMLElement) => void;
-  };
+    ERROR = 'error',
+}
+
+export type Lifecycle = {
+    [x in LifecycleStatus]?: (el?: HTMLElement) => void;
+};
