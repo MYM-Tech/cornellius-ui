@@ -118,14 +118,15 @@ In a project with Vue 3 and JSX, import components you use and use them in your 
 - [x] Add initial config
 - [ ] Wave 1 first components
     - [ ] Basics Inputs
-    - [ ] Layout systems
-    - [ ] Basics Cards
+    - [x] Layout systems
+    - [x] Basics Cards
+    - [ ] Modals
 - [ ] Wave 2 
     - [ ] Complex Inputs
     - [ ] Lazy load
     - [ ] Infinite Scroll
 - [ ] Wave 3
-    - [ ] Modals, popups & dialogs
+    - [ ] Popups & dialogs
     - [ ] Toaster & banner
 - [ ] Wave 4
     - [ ] Navigation, Menu & tab-bar
