@@ -21,9 +21,12 @@ export default function (value: propsInterface) {
     nextTick().then(() => handlerInitialConfig(value));
 
     function mount(el: HTMLElement, binding: DirectiveBinding<string | ValueFormatterObject>): void {
-        const { src, loadingUrl, errorUrl, lifecycle } = parsingConfiguration(binding.value)
-        handlerLifecycle(LifecycleStatus.LOADING, lifecycle, el)
-        el.setAttribute('src', loadingUrl || baseConfig.loadingImageUrl!)
+        const { src, loadingUrl, errorUrl, lifecycle } = parsingConfiguration(binding.value);
+
+        handlerLifecycle(LifecycleStatus.LOADING, lifecycle, el);
+
+        el.setAttribute('src', loadingUrl || baseConfig.loadingImageUrl!);
+        
         if (!checkIntersectionObserver) {
             handlerImage(el, src, errorUrl, lifecycle)
             if (baseConfig.watchUpdate) {

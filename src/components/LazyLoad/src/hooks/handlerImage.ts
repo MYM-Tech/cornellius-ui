@@ -28,7 +28,7 @@ export function handlerImage(el: HTMLElement, src: string, error?: string, lifec
             }
         })
       } else {
-        el.style.backgroundImage = setImageBackground(src)
+        setImageBackground(el, src)
       }
 }
 
