@@ -1,12 +1,10 @@
-import { nextTick } from 'vue';
 import { DirectiveBinding } from '@vue/runtime-core';
 
 import { baseConfig } from '../config/config';
 
 import parsingConfiguration from '../tools/parsingConfiguration';
 import { LifecycleStatus } from '../interfaces/lifecycle';
-import { checkIntersectionObserver } from '../tools/checkIntersectionObserver';
-import { ArrayElements } from '../config/virtualElements';
+import checkIntersectionObserver from '../tools/checkIntersectionObserver';
 
 import { propsInterface, valueInput } from '../interfaces/config';
 import handleInitialConfig from '../hooks/handleInitialConfig';
@@ -15,7 +13,9 @@ import handleImage from '../hooks/handleImage';
 import handleIntersectionObserver from '../hooks/handleIntersectionObserver';
 
 export default function lazyImage(value: propsInterface) {
-    nextTick().then(() => handleInitialConfig(value));
+    handleInitialConfig(value);
+
+    const virtualArrayImage = new WeakMap<HTMLElement>();
 
     function mount(el: HTMLElement, binding: DirectiveBinding<string | valueInput>): void {
         const { src, loadingUrl, errorUrl, lifecycle } = parsingConfiguration(binding.value);
@@ -24,24 +24,25 @@ export default function lazyImage(value: propsInterface) {
 
         el.setAttribute('src', loadingUrl);
 
-        if (!checkIntersectionObserver) {
+        if (!checkIntersectionObserver()) {
             handleImage(el, src, errorUrl, lifecycle);
             if (baseConfig.watchUpdate) {
+                /* TODO: refactor do something if IntersectionObserver is not supported */
                 throw new Error('Not support IntersectionObserver!');
             }
         }
-        /* refactor do something if IntersectionObserver is not supported */
-        handleIntersectionObserver(el, src, errorUrl, lifecycle);
+
+        handleIntersectionObserver(el, src, errorUrl, virtualArrayImage, lifecycle);
     }
 
     function unmount(el: HTMLElement) {
-        ArrayElements.get(el)?.unobserve(el);
-        ArrayElements.delete(el);
+        virtualArrayImage.get(el)?.unobserve(el);
+        virtualArrayImage.delete(el);
     }
     function update(el: HTMLElement, binding: DirectiveBinding<string | valueInput>): void {
-        ArrayElements.get(el)?.unobserve(el);
+        virtualArrayImage.get(el)?.unobserve(el);
         const { src, errorUrl, lifecycle } = parsingConfiguration(binding.value);
-        handleIntersectionObserver(el, src, errorUrl, lifecycle);
+        handleIntersectionObserver(el, src, errorUrl, virtualArrayImage, lifecycle);
     }
 
     return { mount, unmount, update };

@@ -1,5 +1,5 @@
+/* eslint-disable */
 import { defaultConfig } from '../config/config';
-import { ArrayElements } from '../config/virtualElements';
 import { Lifecycle } from '../interfaces/lifecycle';
 import handleImage from './handleImage';
 
@@ -7,19 +7,27 @@ export default function handleIntersectionObserver(
     el: HTMLElement,
     src: string,
     error: string,
+    ArrayElements: WeakMap<HTMLElement, any>,
     lifecycle?: Lifecycle
 ) {
-    ArrayElements.set(
-        el,
-        new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    ArrayElements.get(el)?.unobserve(entry.target);
-                    handleImage(el, src, error, lifecycle);
-                }
-            });
-        }, defaultConfig.observerOptions)
+    const settingImageIfIntersection: IntersectionObserverCallback = (entries) => {
+        entries.forEach((entry) => {
+            const { isIntersecting, target } = entry;
+            if (!isIntersecting) {
+                return;
+            }
+            
+            handleImage(el, src, error, lifecycle);
+            observer.unobserve(target);
+        });
+    };
+
+    const observer = new IntersectionObserver(
+        settingImageIfIntersection,
+        defaultConfig.observerOptions
     );
 
-    ArrayElements.get(el)?.observer(el);
+    ArrayElements.set(el, observer);
+
+    observer.observe(el);
 }
