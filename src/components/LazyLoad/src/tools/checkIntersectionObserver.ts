@@ -1,4 +1,4 @@
-export const inBrowser = typeof window !== 'undefined' && window !== null;
+const inBrowser = typeof window !== 'undefined' && window !== null;
 
 /**
  * this code is snippet from https://github.com/murongg/vue3-lazyload/blob/bf89256b25856b2a79f7c1e75b6658f3debd51d8/src/util.ts#L44
@@ -6,7 +6,7 @@ export const inBrowser = typeof window !== 'undefined' && window !== null;
  * @returns { boolean }
  */
 
-export function checkIntersectionObserver(): boolean {
+export default function checkIntersectionObserver(): boolean {
     if (
         inBrowser &&
         'IntersectionObserver' in window &&
