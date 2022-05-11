@@ -1,4 +1,4 @@
-export interface CorRadioInputProps {
+export interface CorInputRadioProps {
     id: string;
     label: string;
     checked?: boolean;

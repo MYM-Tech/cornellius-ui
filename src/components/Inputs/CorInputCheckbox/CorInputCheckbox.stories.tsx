@@ -1,35 +1,35 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import CorCheckboxInput from './CorCheckboxInput';
-import { CorCheckboxInputProps } from './CorCheckboxInput.types';
+import CorInputCheckbox from './CorInputCheckbox';
+import { CorInputCheckboxProps } from './CorInputCheckbox.types';
 
 export default {
     title: 'Inputs/Input Checkbox',
-    component: CorCheckboxInput,
+    component: CorInputCheckbox,
     argTypes: {
         label: { type: 'string' },
         disabled: { type: 'boolean' },
     },
 } as Meta;
 
-const Template: StoryFn<CorCheckboxInputProps> = (args) => ({
-    components: { CorCheckboxInput },
+const Template: StoryFn<CorInputCheckboxProps> = (args) => ({
+    components: { CorInputCheckbox },
     setup() {
         return { args };
     },
-    template: `<CorCheckboxInput v-bind="args" />`,
+    template: `<CorInputCheckbox v-bind="args" />`,
 });
 
 const MultiTemplate: StoryFn = () => ({
-    components: { CorCheckboxInput },
+    components: { CorInputCheckbox },
     setup() {
         return {};
     },
     template: `
         <div>
-            <CorCheckboxInput label="First input" name="story" checked />
-            <CorCheckboxInput label="Second input" name="story" />
-            <CorCheckboxInput label="Third input" name="story" />
-            <CorCheckboxInput label="Fourth input" name="story" />
+            <CorInputCheckbox label="First input" name="story" checked />
+            <CorInputCheckbox label="Second input" name="story" />
+            <CorInputCheckbox label="Third input" name="story" />
+            <CorInputCheckbox label="Fourth input" name="story" />
         </div>
     `,
 });
