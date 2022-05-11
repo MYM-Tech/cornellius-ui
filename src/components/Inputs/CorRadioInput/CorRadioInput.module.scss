@@ -1,0 +1,43 @@
+@import '../../../variables';
+
+.cor_radio_input {
+    margin-bottom: 12px;
+
+    input[type='radio'] {
+        appearance: none;
+        border: solid 1px black;
+        border-radius: 50%;
+        display: grid;
+        height: 16px;
+        margin: 0;
+        place-content: center;
+        width: 16px;
+
+        &:disabled {
+            background: $grey-8;
+            border: solid 1px $grey-6;
+        }
+
+        &::before {
+            border-radius: 50%;
+            box-shadow: inset 8px 8px $blue-5;
+            content: '';
+            height: 8px;
+            transform: scale(0);
+            transition: transform 0.1s ease-in-out;
+            width: 8px;
+        }
+
+        &:checked::before {
+            transform: scale(1);
+        }
+    }
+
+    label {
+        display: grid;
+        font-size: 14px;
+        gap: 12px;
+        grid-template-columns: 1em auto;
+        line-height: 1.2;
+    }
+}
