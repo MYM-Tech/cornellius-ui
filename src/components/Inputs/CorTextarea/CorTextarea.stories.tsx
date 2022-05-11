@@ -1,33 +1,28 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import CorInputMoney from './CorInputMoney';
-import { CorInputMoneyProps } from './CorInputMoney.types';
+import CorTextarea from './CorTextarea';
+import { CorTextareaProps } from './CorTextarea.types';
 
 export default {
-    title: 'Inputs/Input Money',
-    component: CorInputMoney,
+    title: 'Inputs/Textarea',
+    component: CorTextarea,
     argTypes: {
         label: { type: 'string' },
         disabled: { type: 'boolean' },
         placeholder: { type: 'string' },
-        value: { type: 'number' },
+        value: { type: 'string' },
         status: { control: 'select', options: ['success', 'warning', 'error', undefined] },
         statusMessage: { type: 'string' },
         onChange: { action: 'onChange' },
         onSubmit: { action: 'onSubmit' },
-        min: { type: 'number' },
-        max: { type: 'number' },
-        showButtons: { type: 'boolean', defaultValue: true },
-        symbolPosition: { control: 'select', options: ['left', 'right'] },
-        symbol: { type: 'string', defaultValue: '$' },
     },
 } as Meta;
 
-const Template: StoryFn<CorInputMoneyProps> = (args) => ({
-    components: { CorInputMoney },
+const Template: StoryFn<CorTextareaProps> = (args) => ({
+    components: { CorTextarea },
     setup() {
         return { args };
     },
-    template: `<CorInputMoney v-bind="args" />`,
+    template: `<CorTextarea v-bind="args" />`,
 });
 
 export const Default = Template.bind({});
@@ -39,7 +34,16 @@ Default.args = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-    label: 'Disabled money input',
+    label: 'Disabled textarea',
     disabled: true,
     value: 'Not editable',
+};
+
+export const ErrorWithMessage = Template.bind({});
+ErrorWithMessage.args = {
+    label: 'Input with error message',
+    disabled: false,
+    status: 'error',
+    statusMessage: 'This is an error message',
+    value: 'Wrong value',
 };

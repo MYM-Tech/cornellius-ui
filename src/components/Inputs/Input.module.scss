@@ -1,7 +1,8 @@
 @import '../../variables';
 
 .cor_input {
-    input {
+    input,
+    textarea {
         background: $grey-9;
         border: solid 1px $grey-8;
         border-radius: 2px;
@@ -29,7 +30,8 @@
             color: $status-success;
         }
 
-        input {
+        input,
+        textarea {
             border: solid 1px $status-success;
             color: $status-success;
         }
@@ -40,7 +42,8 @@
             color: $status-warning;
         }
 
-        input {
+        input,
+        textarea {
             border: solid 1px $status-warning;
             color: $status-warning;
         }
@@ -51,19 +54,23 @@
             color: $status-error;
         }
 
-        input {
+        input,
+        textarea {
             border: solid 1px $status-error;
             color: $status-error;
         }
     }
 
     input:focus,
-    input:focus-visible {
+    input:focus-visible,
+    textarea:focus,
+    textarea:focus-visible {
         border: $primary-blue solid 1px;
         outline: none;
     }
 
-    input:disabled {
+    input:disabled,
+    textarea:disabled {
         background: $grey-8;
         color: $grey-2;
     }
