@@ -1,35 +1,35 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import CorRadioInput from './CorRadioInput';
-import { CorRadioInputProps } from './CorRadioInput.types';
+import CorInputRadio from './CorInputRadio';
+import { CorInputRadioProps } from './CorInputRadio.types';
 
 export default {
     title: 'Inputs/Input Radio',
-    component: CorRadioInput,
+    component: CorInputRadio,
     argTypes: {
         label: { type: 'string' },
         disabled: { type: 'boolean' },
     },
 } as Meta;
 
-const Template: StoryFn<CorRadioInputProps> = (args) => ({
-    components: { CorRadioInput },
+const Template: StoryFn<CorInputRadioProps> = (args) => ({
+    components: { CorInputRadio },
     setup() {
         return { args };
     },
-    template: `<CorRadioInput v-bind="args" />`,
+    template: `<CorInputRadio v-bind="args" />`,
 });
 
 const MultiTemplate: StoryFn = () => ({
-    components: { CorRadioInput },
+    components: { CorInputRadio },
     setup() {
         return {};
     },
     template: `
         <div>
-            <CorRadioInput label="First input" name="story" checked />
-            <CorRadioInput label="Second input" name="story" />
-            <CorRadioInput label="Third input" name="story" />
-            <CorRadioInput label="Fourth input" name="story" />
+            <CorInputRadio label="First input" name="story" checked />
+            <CorInputRadio label="Second input" name="story" />
+            <CorInputRadio label="Third input" name="story" />
+            <CorInputRadio label="Fourth input" name="story" />
         </div>
     `,
 });

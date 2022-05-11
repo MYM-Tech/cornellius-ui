@@ -1,4 +1,4 @@
-export interface CorCheckboxInputProps {
+export interface CorInputCheckboxProps {
     id: string;
     label: string;
     checked?: boolean;

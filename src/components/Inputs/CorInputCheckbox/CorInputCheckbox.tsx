@@ -1,9 +1,10 @@
 import classNames from 'classnames';
 import { FunctionalComponent } from 'vue';
-import { CorRadioInputProps } from './CorRadioInput.types';
-import CSS from './CorRadioInput.module.scss';
+import { CorInputCheckboxProps } from './CorInputCheckbox.types';
+import CSS from './CorInputCheckbox.module.scss';
+import CorCheckIcon from '../../Icons/CorCheckIcon/CorCheckIcon';
 
-const CorRadioInput: FunctionalComponent<CorRadioInputProps> = ({
+const CorInputCheckbox: FunctionalComponent<CorInputCheckboxProps> = ({
     id,
     label,
     checked,
@@ -11,23 +12,24 @@ const CorRadioInput: FunctionalComponent<CorRadioInputProps> = ({
     name,
     onChange,
 }) => {
-    const classes = classNames(CSS.cor_radio_input);
+    const classes = classNames(CSS.cor_input_checkbox);
 
     return (
         <div class={classes}>
             <label>
                 <input
-                    type="radio"
+                    type="checkbox"
                     id={id}
                     checked={checked}
-                    name={name}
                     onChange={onChange}
+                    name={name}
                     disabled={disabled}
                 />
+                <CorCheckIcon />
                 {label}
             </label>
         </div>
     );
 };
 
-export default CorRadioInput;
+export default CorInputCheckbox;
