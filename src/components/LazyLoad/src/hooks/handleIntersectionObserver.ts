@@ -1,8 +1,16 @@
 /* eslint-disable */
 import { defaultConfig } from '../config/config';
-import { Lifecycle } from '../interfaces/lifecycle';
+import { Lifecycle } from '../interfaces/lifecycle.type';
 import handleImage from './handleImage';
 
+/**
+ * 
+ * @param el { HTMLElement }
+ * @param src { string }
+ * @param error { string }
+ * @param ArrayElements { WeakMap<HTMLElement, any> }
+ * @param lifecycle { Lifecycle }
+ */
 export default function handleIntersectionObserver(
     el: HTMLElement,
     src: string,
@@ -24,7 +32,7 @@ export default function handleIntersectionObserver(
 
     const observer = new IntersectionObserver(
         settingImageIfIntersection,
-        defaultConfig.observerOptions
+        defaultConfig.observerOptions,
     );
 
     ArrayElements.set(el, observer);

@@ -1,6 +1,7 @@
-import { imageConfigInterface } from '../interfaces/image';
+import { ObserverOptionsDafaultProps } from '../interfaces/config.type';
+import { ImageConfigInterface } from '../interfaces/image.type';
 
-export const ObserverOptionsDafault = {
+export const ObserverOptionsDafault: ObserverOptionsDafaultProps = {
     rootMargin: '0px',
     threshold: 0,
 };
@@ -18,7 +19,7 @@ export const baseConfig = {
     lifecycle: {},
 };
 
-export const defaultConfig: imageConfigInterface = {
+export const defaultConfig: ImageConfigInterface = {
     timeout: 200,
     preLoad: 0.3,
     component: false,

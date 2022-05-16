@@ -35,14 +35,6 @@
 		},
 		{
 			"type": "npm",
-			"script": "install",
-			"group": "build",
-			"problemMatcher": [],
-			"label": "install",
-			"detail": "yarn postinstall"
-		},
-		{
-			"type": "npm",
 			"script": "build",
 			"group": {
 				"kind": "build",
@@ -56,7 +48,7 @@
 			"label": "ci",
 			"type": "shell",
 			"dependsOrder": "sequence",
-			"dependsOn": ["install", "lint:markup", "lint:style", "lint:script", "test", "build"]
+			"dependsOn": ["lint:markup", "lint:style", "lint:script", "test", "build"]
 		  }
 	]
 }

@@ -6,7 +6,7 @@ describe('handle Image test', () => {
         const imgTag = document.createElement('img');
         const src = 'https://mym.fans/build/images/mym.e5c01898.svg';
         const errorUrl = 'https://mym.fans/build/images/mym.e5c01898.svg';
-        const lifecycle= {}
+        const lifecycle = {};
         handleImage(imgTag, src, errorUrl, lifecycle);
         expect(imgTag.src).toBe(src);
     });

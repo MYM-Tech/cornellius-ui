@@ -1,9 +1,9 @@
 import { App } from 'vue';
-import { propsInterface } from './interfaces/config';
+import { PropsInterface } from './interfaces/config.type';
 import lazyImage from './lazyImage/lazyImage';
 
 export default {
-    install(Vue: App, options: propsInterface) {
+    install(Vue: App, options: PropsInterface) {
         const lazy = lazyImage(options);
 
         Vue.config.globalProperties.$Lazyload = lazy;

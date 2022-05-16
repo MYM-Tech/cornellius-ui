@@ -15,7 +15,7 @@
   "scripts": {
     "postinstall": "rm -rf ./node_modules/@types/react",
     "install": "yarn postinstall",
-    "test": "vitest",
+    "test": "vitest run",
     "release": "release-it",
     "dev": "vite",
     "build": "vite build && vue-tsc --emitDeclarationOnly",

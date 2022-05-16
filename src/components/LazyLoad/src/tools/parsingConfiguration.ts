@@ -1,9 +1,9 @@
 import { baseConfig } from '../config/config';
-import { parsingConfigurationResult, valueInput } from '../interfaces/config';
+import { ParsingConfigurationResult, ValueInput } from '../interfaces/config.type';
 
 export default function parsingConfiguration(
-    value: valueInput | string
-): parsingConfigurationResult {
+    value: ValueInput | string
+): ParsingConfigurationResult {
     let src = value as string;
     let loadingUrl = baseConfig.loadingImageUrl;
     let errorUrl = baseConfig.errorImageUrl;
