@@ -13,6 +13,7 @@ const CorInputText: FunctionalComponent<CorInputNumberProps> = ({
     value,
     status,
     showButtons = true,
+    step,
     onChange,
     onSubmit,
 }) => {
@@ -39,6 +40,7 @@ const CorInputText: FunctionalComponent<CorInputNumberProps> = ({
                 placeholder={placeholder}
                 min={min}
                 max={max}
+                step={step}
                 type="number"
                 onInput={onInput}
                 onSubmit={onSubmit}
