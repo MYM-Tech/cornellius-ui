@@ -4,5 +4,6 @@ export interface CorInputRadioProps {
     checked?: boolean;
     disabled?: boolean;
     name: string;
+    radioPosition?: 'left' | 'right';
     onChange?(e: Event): void;
 }

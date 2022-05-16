@@ -9,9 +9,12 @@ const CorInputRadio: FunctionalComponent<CorInputRadioProps> = ({
     checked,
     disabled,
     name,
+    radioPosition = 'left',
     onChange,
 }) => {
-    const classes = classNames(CSS.cor_input_radio);
+    const classes = classNames(CSS.cor_input_radio, {
+        [CSS['cor_input_radio--right']]: radioPosition === 'right',
+    });
 
     return (
         <div class={classes}>

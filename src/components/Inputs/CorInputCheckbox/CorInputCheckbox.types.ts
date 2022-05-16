@@ -7,5 +7,6 @@ export interface CorInputCheckboxProps {
     disabled?: boolean;
     name: string;
     customIcon?: VNode | VNode[];
+    checkPosition?: 'left' | 'right';
     onChange?(e: Event): void;
 }

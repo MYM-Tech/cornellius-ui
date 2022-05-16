@@ -8,6 +8,7 @@ export default {
     argTypes: {
         label: { type: 'string' },
         disabled: { type: 'boolean' },
+        checkPosition: { control: 'select', options: ['left', 'right'] },
     },
 } as Meta;
 
@@ -19,17 +20,17 @@ const Template: StoryFn<CorInputCheckboxProps> = (args) => ({
     template: `<CorInputCheckbox v-bind="args" />`,
 });
 
-const MultiTemplate: StoryFn = () => ({
+const MultiTemplate: StoryFn = (args) => ({
     components: { CorInputCheckbox },
     setup() {
-        return {};
+        return { args };
     },
     template: `
         <div>
-            <CorInputCheckbox label="First input" name="story" checked />
-            <CorInputCheckbox label="Second input" name="story" />
-            <CorInputCheckbox label="Third input" name="story" />
-            <CorInputCheckbox label="Fourth input" name="story" />
+            <CorInputCheckbox :checkPosition="args.checkPosition" label="First input" name="story" checked />
+            <CorInputCheckbox :checkPosition="args.checkPosition" label="Second input" name="story" />
+            <CorInputCheckbox :checkPosition="args.checkPosition" label="Third input" name="story" />
+            <CorInputCheckbox :checkPosition="args.checkPosition" label="Fourth input" name="story" />
         </div>
     `,
 });
