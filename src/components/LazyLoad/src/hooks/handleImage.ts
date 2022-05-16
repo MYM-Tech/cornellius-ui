@@ -1,9 +1,17 @@
-import { Lifecycle, LifecycleStatus } from '../interfaces/lifecycle';
+import { Lifecycle, LifecycleStatus } from '../interfaces/lifecycle.type';
 import checkIsImgTag from '../tools/checkIsImgTag';
 import listenImageStatus from '../tools/listenImageStatus';
 import setAttributeSrc from '../tools/setAttributeSrc';
 import setImageBackground from '../tools/setImageBackground';
 import handleLifecycle from './handleLifecycle';
+
+/**
+ * 
+ * @param el { HTMLElement }
+ * @param src { sting }
+ * @param error { sting }
+ * @param lifecycle { Lifecycle }
+ */
 
 export default function handleImage(
     el: HTMLElement,
@@ -11,13 +19,14 @@ export default function handleImage(
     error?: string,
     lifecycle?: Lifecycle
 ) {
+
     if (checkIsImgTag(el)) {
-        if (src) {
-            const preSrc = el.getAttribute('src');
-            if (preSrc !== src) {
-                setAttributeSrc(el, src);
-            }
+        const preSrc = src && el.getAttribute('src');
+        
+        if (preSrc !== src) {
+            setAttributeSrc(el, src);
         }
+        
         listenImageStatus(
             el as HTMLImageElement,
             () => {

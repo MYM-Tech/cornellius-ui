@@ -1,10 +1,10 @@
-import { Lifecycle, LifecycleStatus } from '../interfaces/lifecycle';
+import { Lifecycle, LifecycleStatus } from '../interfaces/lifecycle.type';
 
 /**
  *
- * @param life
- * @param lifecycle
- * @param el
+ * @param life { LifecycleStatus }
+ * @param lifecycle { Lifecycle }
+ * @param el { HTMLElement }
  */
 export default function handleLifecycle(
     life: LifecycleStatus,

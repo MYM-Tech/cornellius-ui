@@ -1,5 +1,5 @@
 import { ComponentPublicInstance } from 'vue';
-import { ExtHTMLElement } from './config';
+import { ExtHTMLElement } from './config.type';
 
 export interface ExtComponentPublicInstance extends ComponentPublicInstance {
     isLoaded: boolean;

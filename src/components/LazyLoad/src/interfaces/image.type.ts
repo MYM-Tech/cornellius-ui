@@ -1,7 +1,7 @@
-import { ExtHTMLElement, propsInterface } from './config';
-import { ExtComponentPublicInstance } from './element';
+import { ExtHTMLElement, PropsInterface } from './config.type';
+import { ExtComponentPublicInstance } from './element.type';
 
-export interface imageConfigInterface extends propsInterface {
+export interface ImageConfigInterface extends PropsInterface {
     timeout: number;
     preLoad: number;
     component: boolean;
