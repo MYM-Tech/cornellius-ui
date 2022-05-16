@@ -10,6 +10,7 @@ const CorInputCheckbox: FunctionalComponent<CorInputCheckboxProps> = ({
     checked,
     disabled,
     name,
+    customIcon,
     onChange,
 }) => {
     const classes = classNames(CSS.cor_input_checkbox);
@@ -25,7 +26,7 @@ const CorInputCheckbox: FunctionalComponent<CorInputCheckboxProps> = ({
                     name={name}
                     disabled={disabled}
                 />
-                <CorCheckIcon />
+                {customIcon || <CorCheckIcon />}
                 {label}
             </label>
         </div>
