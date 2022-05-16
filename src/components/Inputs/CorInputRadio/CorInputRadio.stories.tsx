@@ -8,6 +8,7 @@ export default {
     argTypes: {
         label: { type: 'string' },
         disabled: { type: 'boolean' },
+        radioPosition: { control: 'select', options: ['left', 'right'] },
     },
 } as Meta;
 
@@ -19,17 +20,17 @@ const Template: StoryFn<CorInputRadioProps> = (args) => ({
     template: `<CorInputRadio v-bind="args" />`,
 });
 
-const MultiTemplate: StoryFn = () => ({
+const MultiTemplate: StoryFn = (args) => ({
     components: { CorInputRadio },
     setup() {
-        return {};
+        return { args };
     },
     template: `
         <div>
-            <CorInputRadio label="First input" name="story" checked />
-            <CorInputRadio label="Second input" name="story" />
-            <CorInputRadio label="Third input" name="story" />
-            <CorInputRadio label="Fourth input" name="story" />
+            <CorInputRadio :radioPosition="args.radioPosition" label="First input" name="story" checked />
+            <CorInputRadio :radioPosition="args.radioPosition" label="Second input" name="story" />
+            <CorInputRadio :radioPosition="args.radioPosition" label="Third input" name="story" />
+            <CorInputRadio :radioPosition="args.radioPosition" label="Fourth input" name="story" />
         </div>
     `,
 });
