@@ -25,5 +25,6 @@
     },
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
-    }
+    },
+    "jestrunner.jestCommand": "npx vitest"
 }

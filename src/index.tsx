@@ -9,6 +9,7 @@ import CorInputNumber from './components/Inputs/CorInputNumber/CorInputNumber';
 import CorTextarea from './components/Inputs/CorTextarea/CorTextarea';
 import CorInputRadio from './components/Inputs/CorInputRadio/CorInputRadio';
 import CorInputCheckbox from './components/Inputs/CorInputCheckbox/CorInputCheckbox';
+import CorInputMoney from './components/Inputs/CorInputMoney/CorInputMoney';
 import { CorModal, handleModalState } from './components/Modal/CorModal/CorModal';
 import CorButton from './components/CorButton/CorButton';
 
@@ -23,6 +24,7 @@ export {
     CorTextarea,
     CorInputRadio,
     CorInputCheckbox,
+    CorInputMoney,
     CorModal,
     handleModalState,
 };
