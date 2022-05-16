@@ -6,7 +6,6 @@ import { MainLayout } from './components/LayoutSystem/MainLayout/MainLayout';
 import { Sidebar } from './components/LayoutSystem/Sidebar/Sidebar';
 import CorInputText from './components/Inputs/CorInputText/CorInputText';
 import CorInputNumber from './components/Inputs/CorInputNumber/CorInputNumber';
-import CorInputMoney from './components/Inputs/CorInputMoney/CorInputMoney';
 import CorTextarea from './components/Inputs/CorTextarea/CorTextarea';
 import CorInputRadio from './components/Inputs/CorInputRadio/CorInputRadio';
 import CorInputCheckbox from './components/Inputs/CorInputCheckbox/CorInputCheckbox';
@@ -18,7 +17,6 @@ export {
     Sidebar,
     CorInputText,
     CorInputNumber,
-    CorInputMoney,
     CorTextarea,
     CorInputRadio,
     CorInputCheckbox,
