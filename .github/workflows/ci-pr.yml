@@ -30,10 +30,8 @@ jobs:
         run: yarn test
       - name: Test storybook
         run: yarn build-storybook
-      - name: lint-ts
+      - name: lint ts
         run: yarn lint:markup
-      - name: lint-ts
-        run: yarn vue-tsc
       - name: Lint scripts
         run: yarn lint:script
       - name: Lint style

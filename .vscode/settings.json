@@ -12,5 +12,15 @@
     ],
     "[typescript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "cssModules.camelCase": true,
+    "cssPeek.supportTags": true,
+    "css.hover.references": true,
+    "scss.hover.references": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
     }
 }
