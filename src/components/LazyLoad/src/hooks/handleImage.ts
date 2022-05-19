@@ -6,7 +6,7 @@ import setImageBackground from '../tools/setImageBackground';
 import handleLifecycle from './handleLifecycle';
 
 /**
- * 
+ *
  * @param el { HTMLElement }
  * @param src { sting }
  * @param error { sting }
@@ -19,14 +19,13 @@ export default function handleImage(
     error?: string,
     lifecycle?: Lifecycle
 ) {
-
     if (checkIsImgTag(el)) {
         const preSrc = src && el.getAttribute('src');
-        
+
         if (preSrc !== src) {
             setAttributeSrc(el, src);
         }
-        
+
         listenImageStatus(
             el as HTMLImageElement,
             () => {
