@@ -2,7 +2,7 @@ import HelloWorld from './HelloWorld';
 import logo from '../assets/logo.png';
 import { Card } from './Card/Card';
 import { LazyLoadImplement } from './LazyLoad/Implementation';
-import { handleModalState, Modal, modalState } from './Modal/modal';
+import { Modal, HandleModalState } from './Modal/Modal';
 
 
 export default () => {
@@ -14,16 +14,13 @@ export default () => {
             <Card borderRadius={false} primary={true}>
                 YOLO
             </Card>
-            <button onClick={() => handleModalState.open() }> open Modal</button>
-            <div>{`modalState.isOpen ${modalState.isOpen}`}</div>
+            <button onClick={() => HandleModalState.open() }> open Modal</button>
             <Modal 
                 target='#myModal'
-                open={modalState.isOpen}
-                escKeyClose
                 v-slots={()=> 
                     <>
                         <p>HOLAAAA</p>
-                        <button onClick={() => {handleModalState.close()}}> 
+                        <button onClick={() => {HandleModalState.close()}}> 
                             close Modal
                         </button>
                     </>

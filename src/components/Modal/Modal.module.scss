@@ -1,7 +1,9 @@
 .modal {
+    align-items: center;
     background-color: rgb(0 0 0 / 50%);
-    display: table;
+    display: flex;
     height: 100%;
+    justify-content: center;
     left: 0;
     position: fixed;
     top: 0;
@@ -24,16 +26,16 @@
     }
 }
 
-.coModal-enter-from {
+.modalEnterFrom {
     opacity: 0;
 }
 
-.coModal-leave-to {
+.modalLeaveTo {
     opacity: 0;
 }
 
-.coModal-enter-from .modal,
-.coModal-leave-to .modal {
+.modalEnterFrom :first-child,
+.modalLeaveTo :first-child {
     transform: scale(1.1);
     transform: scale(1.1);
 }

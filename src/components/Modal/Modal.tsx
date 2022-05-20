@@ -1,32 +1,20 @@
-import { FunctionalComponent, shallowReactive, Teleport, Transition, onMounted, ref } from "vue"
+import { FunctionalComponent, Teleport, Transition, ref } from "vue"
 import CSS from "./Modal.module.scss"
+import { ModalContainerType, ModalProps } from "./Modal.type"
+import handleCloseEscKey  from "./modalHooks/handleCloseEscKey"
+import handleModalState  from "./modalHooks/handleModalState"
+import modalState  from "./modalState/ModalState"
 
-export const modalState = shallowReactive({
-    isOpen: false
-})
+const modalContainer = ref<ModalContainerType>(null)
 
-export const handleModalState = {
-    open() {
-        modalState.isOpen = true
-
-    },
-    close() {
-        modalState.isOpen = false
-    }
-}
-
-const closeModalWithEscKey = (e: KeyboardEvent, observer: boolean) => {
-    if (e.key === 'Escape' && observer) handleModalState.close();
-}
-
-const modalContainer = ref<HTMLDivElement | null>(null)
-
-
-export const Modal: FunctionalComponent<{ target: string, open: boolean, escKeyClose: boolean }> = (
+const Modal: FunctionalComponent<ModalProps> = (
     {
-        escKeyClose = false,
         target,
-        open = modalState
+        escKeyClose = false,
+        closeOnFocusOut = false,
+        open = modalState.isOpen, 
+        onEnter, 
+        onLeave,
     },
     { slots }
 ) => {
@@ -36,12 +24,17 @@ export const Modal: FunctionalComponent<{ target: string, open: boolean, escKeyC
         }
     }
 
-
     return (
         <Teleport to={target}>
-            <Transition>
+            <Transition 
+                name="modal" 
+                onEnter={(e, done)=>onEnter(e, done)}
+                onLeave={(e, done)=>onLeave(e, done)}
+                enterFromClass={CSS.modalEnterFrom}
+                enterToClass={CSS.modalEnterTo}
+                leaveToClass={CSS.modalLeaveTo}
+                appear>
                 {
-
                     open &&
                     <div
                         id='modal-background'
@@ -51,8 +44,8 @@ export const Modal: FunctionalComponent<{ target: string, open: boolean, escKeyC
                             tabindex="1"
                             class={CSS.modal__container}
                             ref={modalContainer}
-                            onFocusout={handleModalState.close}
-                            onKeydown={(e) => {closeModalWithEscKey(e, escKeyClose)}}
+                            onFocusout={() => closeOnFocusOut && handleModalState.close}
+                            onKeydown={(e) => { handleCloseEscKey({e:e, observer: escKeyClose})} }
                         >
                             {slots.default && slots.default()}
                         </div>
@@ -63,4 +56,6 @@ export const Modal: FunctionalComponent<{ target: string, open: boolean, escKeyC
         </Teleport>
     )
 }
+
+export  { handleModalState as HandleModalState, Modal}
 
