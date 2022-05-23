@@ -1,8 +1,9 @@
-import { shallowReactive } from 'vue';
+import { ref } from 'vue';
 import { modalStateType } from './ModalState.type';
 
-const modalState = shallowReactive<modalStateType>({
+const modalState = ref<modalStateType>({
     isOpen: false,
+    ref: '',
 });
 
 export default modalState;
