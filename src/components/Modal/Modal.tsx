@@ -1,29 +1,33 @@
-import { FunctionalComponent, Teleport, Transition, ref } from "vue"
+import { FunctionalComponent, Teleport, Transition, ref, VNode } from "vue"
 import CSS from "./Modal.module.scss"
 import { ModalContainerType, ModalProps } from "./Modal.type"
-import handleCloseEscKey  from "./modalHooks/handleCloseEscKey"
-import handleModalState  from "./modalHooks/handleModalState"
-import modalState  from "./modalState/ModalState"
+import handleCloseEscKey  from "./hooks/handleCloseEscKey"
+import handleModalState  from "./hooks/handleModalState"
+import modalState  from "./state/ModalState"
 
 const modalContainer = ref<ModalContainerType>(null)
 
 const Modal: FunctionalComponent<ModalProps> = (
     {
-        target,
+        target="body",
+        id ="",
+        state = modalState.value,
         escKeyClose = false,
         closeOnFocusOut = false,
-        open = modalState.isOpen, 
-        onEnter, 
-        onLeave,
+        open = false, 
+        onEnter = (e, done) => null, 
+        onLeave = (e, done) => null, 
     },
     { slots }
 ) => {
-    if (modalState.isOpen) {
+    state.ref = id
+   const {toOpen, toClose } = handleModalState(state)
+    if (state.isOpen) {
         if (modalContainer.value !== null) {
             modalContainer?.value?.focus()
         }
     }
-
+    
     return (
         <Teleport to={target}>
             <Transition 
@@ -35,7 +39,7 @@ const Modal: FunctionalComponent<ModalProps> = (
                 leaveToClass={CSS.modalLeaveTo}
                 appear>
                 {
-                    open &&
+                    open || state.isOpen &&
                     <div
                         id='modal-background'
                         class={CSS.modal}
@@ -44,8 +48,8 @@ const Modal: FunctionalComponent<ModalProps> = (
                             tabindex="1"
                             class={CSS.modal__container}
                             ref={modalContainer}
-                            onFocusout={() => closeOnFocusOut && handleModalState.close}
-                            onKeydown={(e) => { handleCloseEscKey({e:e, observer: escKeyClose})} }
+                            onFocusout={() => closeOnFocusOut && toClose()}
+                            onKeydown={(e) => { handleCloseEscKey({e:e, observer: escKeyClose,  callback: toClose})} }
                         >
                             {slots.default && slots.default()}
                         </div>

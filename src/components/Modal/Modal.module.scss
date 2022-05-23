@@ -24,18 +24,14 @@
             outline: none;
         }
     }
-}
 
-.modalEnterFrom {
-    opacity: 0;
-}
+    &.modalEnterFrom,
+    &.modalLeaveTo {
+        opacity: 0;
+    }
 
-.modalLeaveTo {
-    opacity: 0;
-}
-
-.modalEnterFrom :first-child,
-.modalLeaveTo :first-child {
-    transform: scale(1.1);
-    transform: scale(1.1);
+    &.modalEnterFrom :first-child,
+    &.modalLeaveTo :first-child {
+        transform: scale(1.1);
+    }
 }

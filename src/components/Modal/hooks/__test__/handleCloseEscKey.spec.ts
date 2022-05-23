@@ -1,15 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import handleCloseEscKey from '../handleCloseEscKey';
-import modalState from '../../modalState/ModalState';
+import modalState from '../../state/ModalState';
 import handleModalState from '../handleModalState';
 
 describe('handle modal state', () => {
     it('should change to false state of modal when exp key is press ', () => {
-        handleModalState.open();
-        expect(modalState.isOpen).toBe(true);
+        const { toClose } = handleModalState(modalState.value);
+        expect(modalState.value.isOpen).toBe(true);
 
         document.onkeydown = (ev) => {
-            handleCloseEscKey({ e: ev, observer: true });
+            handleCloseEscKey({ e: ev, observer: true, callback: toClose });
         };
 
         document.dispatchEvent(
@@ -21,6 +21,6 @@ describe('handle modal state', () => {
             })
         );
 
-        expect(modalState.isOpen).toBe(false);
+        expect(modalState.value.isOpen).toBe(false);
     });
 });
