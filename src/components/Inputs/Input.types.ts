@@ -1,10 +1,13 @@
-export interface CorInputProps {
-    value?: string;
+export interface CorInputProps<T = string> {
+    value?: T;
     disabled?: boolean;
     label?: string;
     statusMessage?: string;
     placeholder?: string;
     status?: 'success' | 'warning' | 'error' | undefined;
+    class?: string;
     onChange?(value: string): void;
     onSubmit?(e: Event): void;
+    onBlur?(e: FocusEvent): void;
+    onKeydown?(e: KeyboardEvent): void;
 }

@@ -80,6 +80,7 @@
     "@vue/eslint-config-airbnb": "^6.0.0",
     "@vue/runtime-core": "^3.2.33",
     "classnames": "^2.3.1",
+    "dayjs": "^1.11.2",
     "normalize-scss": "^7.0.1",
     "stylelint-selector-bem-pattern": "^2.1.1",
     "vite": "^2.9.2",
