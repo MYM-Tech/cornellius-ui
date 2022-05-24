@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FunctionalComponent } from 'vue';
+import { FunctionalComponent, ref } from 'vue';
 import CSS from './CorInputText.module.scss';
 import { CorInputTextProps } from './CorInputText.types';
 
@@ -25,8 +25,8 @@ const CorInputText: FunctionalComponent<CorInputTextProps> = ({
 
     const onInput = (e: Event) => {
         if (!onChange) return;
-
         const inputElement = e.target as HTMLInputElement;
+        // if (value !== inputElement.value) value = inputElement.value;
         onChange(inputElement.value);
     };
 
@@ -34,6 +34,7 @@ const CorInputText: FunctionalComponent<CorInputTextProps> = ({
         <div class={classes}>
             {label && <label>{label}</label>}
             <input
+                v-model={value}
                 value={value}
                 disabled={disabled}
                 placeholder={placeholder}
