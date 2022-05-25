@@ -3,7 +3,7 @@ import { modalStateType } from './state/ModalState.type';
 export interface ModalProps {
     target?: string;
     id: string;
-    state?: modalStateType;
+    state: modalStateType;
     open?: boolean;
     escKeyClose?: boolean;
     closeOnFocusOut?: boolean;
