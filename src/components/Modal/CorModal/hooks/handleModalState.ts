@@ -1,6 +1,6 @@
-import { modalStateType } from '../state/ModalState.type';
+import { ModalStateType } from '../state/ModalState.type';
 
-const handleModalState = (state: modalStateType) => {
+const handleModalState = (state: ModalStateType) => {
     function toOpen() {
         state.isOpen = true;
     }

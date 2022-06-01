@@ -1,12 +1,12 @@
 import { FunctionalComponent, Teleport, Transition, ref } from 'vue';
-import CSS from './Modal.module.scss';
-import { ModalContainerType, ModalProps } from './Modal.type';
+import CSS from './CorModal.module.scss';
+import { ModalContainerType, CorModalProps } from './CorModal.type';
 import handleCloseEscKey from './hooks/handleCloseEscKey';
 import handleModalState from './hooks/handleModalState';
 
 const modalContainer = ref<ModalContainerType>(null);
 
-const Modal: FunctionalComponent<ModalProps> = (
+const CorModal: FunctionalComponent<CorModalProps> = (
     {
         target = 'body',
         id = '',
@@ -23,7 +23,7 @@ const Modal: FunctionalComponent<ModalProps> = (
     const { toClose } = handleModalState(state);
     if (state.isOpen) {
         if (modalContainer.value !== null) {
-            modalContainer?.value?.focus();
+            modalContainer.value.focus();
         }
     }
     const leavingModal = (e: Element, done: () => void) => {
@@ -71,4 +71,4 @@ const Modal: FunctionalComponent<ModalProps> = (
     );
 };
 
-export { handleModalState as HandleModalState, Modal };
+export { handleModalState, CorModal };

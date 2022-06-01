@@ -1,9 +1,9 @@
-import { modalStateType } from './state/ModalState.type';
+import { ModalStateType } from './state/ModalState.type';
 
-export interface ModalProps {
+export interface CorModalProps {
     target?: string;
     id: string;
-    state: modalStateType;
+    state: ModalStateType;
     open?: boolean;
     escKeyClose?: boolean;
     closeOnFocusOut?: boolean;

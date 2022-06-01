@@ -2,11 +2,11 @@ import HelloWorld from './HelloWorld';
 import logo from '../assets/logo.png';
 import { Card } from './Card/Card';
 import { LazyLoadImplement } from './LazyLoad/Implementation';
-import { Modal, HandleModalState } from './Modal/Modal';
-import modalState from './Modal/state/ModalState';
+import { CorModal, handleModalState } from './Modal/CorModal/CorModal';
+import modalState from './Modal/CorModal/state/ModalState';
 
 export default () => {
-    const { toClose, toOpen } = HandleModalState(modalState.value);
+    const { toClose, toOpen } = handleModalState(modalState.value);
     return (
         <div>
             <img alt="Vue logo" src={logo} />
@@ -14,11 +14,13 @@ export default () => {
             <Card borderRadius={false} primary={true}>
                 YOLO
             </Card>
-            <button onClick={() => toOpen}> open Modal</button>
-            <Modal
+            <button onClick={() => toOpen()}> open Modal</button>
+            <CorModal
                 state={modalState.value}
                 target="#myModal"
                 id="myModal"
+                closeOnFocusOut
+                escKeyClose
                 v-slots={() => (
                     <>
                         <p>HOLAAAA</p>
@@ -31,7 +33,7 @@ export default () => {
                         </button>
                     </>
                 )}
-            ></Modal>
+            ></CorModal>
             <LazyLoadImplement numberOfImage={10} />
         </div>
     );

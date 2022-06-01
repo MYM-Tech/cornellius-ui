@@ -1,13 +1,13 @@
 import { Meta, StoryFn } from '@storybook/vue3';
 import { ref } from 'vue';
-import { HandleModalState, Modal } from './Modal';
-import { ModalProps } from './Modal.type';
+import { handleModalState, CorModal } from './CorModal';
+import { CorModalProps } from './CorModal.type';
 import modalState from './state/ModalState';
-import { modalStateType } from './state/ModalState.type';
+import { ModalStateType } from './state/ModalState.type';
 
 export default {
-    title: 'Feedback/Modal',
-    component: Modal,
+    title: 'Feedback/CorModal',
+    component: CorModal,
 } as Meta;
 
 const Button = ({ title, callback }: { title: string; callback: () => void }) => (
@@ -20,25 +20,25 @@ const ModalContainer = ({ title, callback }) => (
     </>
 );
 
-const Template: StoryFn<ModalProps> = (args) => {
+const Template: StoryFn<CorModalProps> = (args) => {
     const modalId = 'modal1';
     const firstModal = ref({
         isOpen: false,
         ref: modalId,
     });
 
-    const handlerOpen = HandleModalState(firstModal.value);
+    const handlerOpen = handleModalState(firstModal.value);
     console.log(firstModal.value);
 
     return (
         <div>
             <Button callback={() => handlerOpen.toOpen()} title={'open modal'} />
-            <Modal v-bind={args} id={modalId} state={firstModal.value}>
+            <CorModal v-bind={args} id={modalId} state={firstModal.value}>
                 <ModalContainer
                     title="this is an example of simple Modal"
                     callback={() => handlerOpen.toClose()}
                 />
-            </Modal>
+            </CorModal>
         </div>
     );
 };
@@ -48,22 +48,22 @@ ModalStory.args = {
     escKeyClose: false,
 };
 
-const doubleModal: StoryFn<{ Modal1: ModalProps; Modal2: ModalProps }> = (args) => {
+const doubleModal: StoryFn<{ Modal1: CorModalProps; Modal2: CorModalProps }> = (args) => {
     const firstModal = 'modal1';
-    const secondModal = 'modal3';
+    const secondModal = 'modal2';
 
-    const firstModalState = ref<modalStateType>({
+    const firstModalState = ref<ModalStateType>({
         isOpen: false,
         ref: firstModal,
     });
-    const { toClose, toOpen } = HandleModalState(firstModalState.value);
-    const handlerSecondModal = HandleModalState(modalState.value);
+    const { toClose, toOpen } = handleModalState(firstModalState.value);
+    const handlerSecondModal = handleModalState(modalState.value);
 
     return (
         <div id="ContainerModal">
             <div>
                 <Button title={'open Modal 1'} callback={toOpen} />
-                <Modal
+                <CorModal
                     state={firstModalState.value}
                     v-bind={args.Modal1}
                     id={firstModal}
@@ -77,14 +77,14 @@ const doubleModal: StoryFn<{ Modal1: ModalProps; Modal2: ModalProps }> = (args) 
                 />
                 <br />
                 <Button title={'open Modal 2'} callback={handlerSecondModal.toOpen} />
-                <Modal
+                <CorModal
                     state={modalState.value}
                     v-bind={args.Modal2}
                     id={secondModal}
                     v-slots={() => (
                         <ModalContainer
                             title="Example Modal 2"
-                            ref="modal3"
+                            ref={secondModal}
                             callback={handlerSecondModal.toClose}
                         />
                     )}
