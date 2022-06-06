@@ -5,9 +5,12 @@ export interface CorInputTextProps extends CorInputProps {
     disabled?: boolean;
     label?: string;
     statusMessage?: string;
+    class: string;
     maxLength?: number;
     minLength?: number;
     placeholder?: string;
     status?: 'success' | 'warning' | 'error' | undefined;
-    onChange?(value: string): void;
+    onChange?: (value: string) => void;
+    onBlur?: (event: FocusEvent) => void;
+    onKeydown?: (event: KeyboardEvent) => void;
 }
