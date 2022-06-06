@@ -5,7 +5,7 @@ export interface CorInputProps<T = string> {
     statusMessage?: string;
     placeholder?: string;
     status?: 'success' | 'warning' | 'error' | undefined;
-    class?: string;
+    clases?: string | string[];
     onChange?(value: string): void;
     onSubmit?(e: Event): void;
     onBlur?(e: FocusEvent): void;
