@@ -10,12 +10,14 @@ import CorTextarea from './components/Inputs/CorTextarea/CorTextarea';
 import CorInputRadio from './components/Inputs/CorInputRadio/CorInputRadio';
 import CorInputCheckbox from './components/Inputs/CorInputCheckbox/CorInputCheckbox';
 import { CorModal, handleModalState } from './components/Modal/CorModal/CorModal';
+import CorButton from './components/CorButton/CorButton';
 
 export {
     Card,
     Content,
     MainLayout,
     Sidebar,
+    CorButton,
     CorInputText,
     CorInputNumber,
     CorTextarea,
