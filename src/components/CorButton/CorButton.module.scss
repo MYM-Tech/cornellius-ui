@@ -11,18 +11,10 @@
 
     &:hover:not(:disabled) {
         transform: translate(-4px, -4px);
-
-        &::after {
-            opacity: 1;
-        }
     }
 
     &:active:not(:disabled) {
         transform: translate(0, 0);
-
-        &::after {
-            opacity: 0;
-        }
     }
 
     &:disabled {
