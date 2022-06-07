@@ -1,6 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { describe, expect, it } from 'vitest';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { render, fireEvent } from '@testing-library/vue';
 import changeOnPressArrows from '../changeOnPressArrows';
 
 describe('change value pressing arrow key', () => {
@@ -14,7 +13,7 @@ describe('change value pressing arrow key', () => {
         // eslint-disable-next-line no-use-before-define
         inputElement?.addEventListener('keydown', (ev: KeyboardEvent) => {
             changeOnPressArrows(ev, value, formatTime, 'hours', 23, 0, (e, v) =>
-                console.log(ev, v)
+                console.log('done')
             );
         });
 

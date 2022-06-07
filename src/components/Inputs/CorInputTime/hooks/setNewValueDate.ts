@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 
-import { limitedHoursValue, limitedTimeValue } from './formatValue';
+import { limitedHoursValue, limitedTimeValue } from './limitedValue';
 
 function setNewValueDate(
     type: string,

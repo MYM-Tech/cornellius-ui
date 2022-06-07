@@ -19,6 +19,10 @@ export default defineConfig({
         cssInjectedByJsPlugin(),
         vueJsx(),
     ],
+    test: {
+        globals: true,
+        environment: 'happy-dom',
+    },
     build: {
         lib: {
             name: 'cornellius-ui',
@@ -44,13 +48,7 @@ export default defineConfig({
         minify: true,
         ssr: false,
     },
-    test: {
-        globals: true,
-        environment: 'happy-dom',
-        transformMode: {
-            web: [/.[tj]sx$/],
-        },
-    },
+
     css: {
         devSourcemap: false,
     },
