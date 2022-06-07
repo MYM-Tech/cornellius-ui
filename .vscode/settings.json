@@ -26,5 +26,7 @@
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
     },
+    "vitest.enable": true,
+    // https://github.com/vitest-dev/vitest/issues/107#issuecomment-1055132256
     "jestrunner.jestCommand": "npx vitest"
 }

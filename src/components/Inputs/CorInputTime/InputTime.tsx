@@ -1,11 +1,15 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable no-param-reassign  */
+/* eslint-disable prefer-const */
 import classNames from 'classnames';
+import handle12hValueDate from './hooks/handle12hValueDate';
 import changeOnPressArrows from './hooks/changeOnPressArrows';
-import { parsingTypeFormat, parsingValue } from './hooks/formatValue';
+
 import handleOnBlur from './hooks/handleOnBlur';
 import handleOnChange from './hooks/handleOnChange';
+import { parsingTypeFormat, parsingValue } from './hooks/parsingValue';
 import CSS from './InputTime.module.scss';
 import { InputTimeType } from './InputTime.type';
+import setInitialValue from './hooks/setInitialValue';
 
 const defaultMaxValue = {
     hour: 23,
@@ -34,8 +38,12 @@ const InputTime = ({
 }: InputTimeType) => {
     const className = classNames(CSS.inputTime, classes);
     const { hasMilliseconds, hasSeconds, has12H } = parsingTypeFormat(timeFormat);
-    // eslint-disable-next-line prefer-const
+
     let hours = parsingValue.hours(value, has12H);
+    let minutes = parsingValue.minutes(value);
+    let seconds = parsingValue.seconds(value);
+    let milliseconds = parsingValue.milliseconds(value);
+
     if (maxTime !== undefined) {
         defaultMaxValue.hour = maxTime.getHours();
         defaultMaxValue.min = maxTime.getMinutes();
@@ -49,6 +57,8 @@ const InputTime = ({
         defaultMinValue.sec = minTime.getSeconds();
         defaultMinValue.ms = minTime.getMilliseconds();
     }
+    console.log(value);
+    
 
     return (
         <div class={className}>
@@ -93,22 +103,143 @@ const InputTime = ({
                         );
                     }}
                 />
-                {/* <span>:</span>
+                <span>:</span>
                 <input
                     v-model={minutes}
-                    value={limitedTimeValue(minutes, 59)}
+                    value={minutes}
                     disabled={disabled}
+                    onInput={(e) =>
+                        handleOnChange(
+                            e,
+                            timeFormat,
+                            value,
+                            'minutes',
+                            defaultMaxValue.min,
+                            defaultMinValue.min,
+                            onChange
+                        )
+                    }
+                    onBlur={(e) => {
+                        handleOnBlur(
+                            e,
+                            timeFormat,
+                            value,
+                            'minutes',
+                            defaultMaxValue.min,
+                            defaultMinValue.min,
+                            onBlur
+                        );
+                    }}
+                    onKeydown={(e) => {
+                        changeOnPressArrows(
+                            e,
+                            value,
+                            timeFormat,
+                            'minutes',
+                            defaultMaxValue.min,
+                            defaultMinValue.min,
+                            onKeydown
+                        );
+                    }}
                 />
-                {hasSeconds && <input v-model={seconds} value={seconds} disabled={disabled} />}
-                {hasMilliseconds && (
-                    <input v-model={milliseconds} value={milliseconds} disabled={disabled} />
+                {hasSeconds && (
+                    <>
+                        <span>:</span>
+                        <input
+                            v-model={seconds}
+                            value={seconds}
+                            disabled={disabled}
+                            onInput={(e) =>
+                                handleOnChange(
+                                    e,
+                                    timeFormat,
+                                    value,
+                                    'seconds',
+                                    defaultMaxValue.sec,
+                                    defaultMinValue.sec,
+                                    onChange
+                                )
+                            }
+                            onBlur={(e) => {
+                                handleOnBlur(
+                                    e,
+                                    timeFormat,
+                                    value,
+                                    'seconds',
+                                    defaultMaxValue.sec,
+                                    defaultMinValue.sec,
+                                    onBlur
+                                );
+                            }}
+                            onKeydown={(e) => {
+                                changeOnPressArrows(
+                                    e,
+                                    value,
+                                    timeFormat,
+                                    'seconds',
+                                    defaultMaxValue.sec,
+                                    defaultMinValue.sec,
+                                    onKeydown
+                                );
+                            }}
+                        />
+                    </>
                 )}
-                {useAmPmSelector && has12H && (
-                    <select>
+                {hasMilliseconds && (
+                    <>
+                        <span>:</span>
+                        <input
+                            v-model={milliseconds}
+                            value={milliseconds}
+                            disabled={disabled}
+                            onInput={(e) =>
+                                handleOnChange(
+                                    e,
+                                    timeFormat,
+                                    value,
+                                    'millisecond',
+                                    defaultMaxValue.ms,
+                                    defaultMinValue.ms,
+                                    onChange
+                                )
+                            }
+                            onBlur={(e) => {
+                                handleOnBlur(
+                                    e,
+                                    timeFormat,
+                                    value,
+                                    'millisecond',
+                                    defaultMaxValue.ms,
+                                    defaultMinValue.ms,
+                                    onBlur
+                                );
+                            }}
+                            onKeydown={(e) => {
+                                changeOnPressArrows(
+                                    e,
+                                    value,
+                                    timeFormat,
+                                    'millisecond',
+                                    defaultMaxValue.ms,
+                                    defaultMinValue.ms,
+                                    onKeydown
+                                );
+                            }}
+                        />
+                    </>
+                )}
+                {has12H && (
+                    <select
+                        value={setInitialValue(value)}
+                        onChange={(e) => {
+                            const element = e.target as HTMLSelectElement;
+                            handle12hValueDate(value, hours, element.value);
+                        }}
+                    >
                         <option>AM</option>
                         <option>PM</option>
                     </select>
-                )} */}
+                )}
             </div>
             <div class={CSS.inputTime__bottomArrow}></div>
         </div>
