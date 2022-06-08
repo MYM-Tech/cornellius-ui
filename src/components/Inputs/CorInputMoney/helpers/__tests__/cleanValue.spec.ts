@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
-import { cleanValue } from "../cleanValue";
+import { describe, expect, it } from 'vitest';
+import cleanValue from '../cleanValue';
 
 describe('cleanValue', () => {
     it('should return value without any letters or symbols', () => {
@@ -19,4 +19,4 @@ describe('cleanValue', () => {
 
         expect(value).toEqual('10.45');
     });
-})
+});

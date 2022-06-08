@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { FunctionalComponent } from 'vue';
 import CSS from './CorInputMoney.module.scss';
 import { CorInputMoneyProps } from './CorInputMoney.types';
-import { formatValue } from './helpers/formatValue';
+import formatValue from './helpers/formatValue';
 
 const CorInputMoney: FunctionalComponent<CorInputMoneyProps> = ({
     disabled,

@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
-import { formatValue } from "../formatValue";
+import { describe, expect, it } from 'vitest';
+import formatValue from '../formatValue';
 
 describe('formatValue', () => {
     it('should return value without decimals when decimals is not set', () => {
