@@ -3,7 +3,7 @@ import CorInputText from './CorInputText';
 import { CorInputTextProps } from './CorInputText.types';
 
 export default {
-    title: 'Inputs/Input Text',
+    title: 'Cornellius/Inputs/Input Text/Component',
     component: CorInputText,
     argTypes: {
         label: { type: 'string' },
