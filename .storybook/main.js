@@ -1,10 +1,9 @@
 const {
   mergeConfig
 } = require('vite');
-
 const vue = require('@vitejs/plugin-vue');
-
 const vueJsx = require('@vitejs/plugin-vue-jsx');
+
 
 module.exports = {
   "stories": ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
