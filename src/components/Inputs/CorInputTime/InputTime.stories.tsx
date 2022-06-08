@@ -1,11 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { Meta, StoryFn } from '@storybook/vue3';
-import InputTime from './InputTime';
+import CorInputTime from './CorInputTime';
 import { InputTimeType } from './InputTime.type';
 
 export default {
     title: 'Inputs/Input Time/jose version',
-    component: InputTime,
+    component: CorInputTime,
     argTypes: {
         disabled: { type: 'boolean' },
         value: new Date(),
@@ -22,7 +22,7 @@ export default {
 } as Meta<InputTimeType>;
 
 const Template: StoryFn<InputTimeType> = (args) => (
-    <InputTime
+    <CorInputTime
         value={args.value}
         onBlur={args.onBlur}
         onKeydown={args.onKeydown}

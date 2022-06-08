@@ -12,6 +12,7 @@ import CorInputCheckbox from './components/Inputs/CorInputCheckbox/CorInputCheck
 import CorInputMoney from './components/Inputs/CorInputMoney/CorInputMoney';
 import { CorModal, handleModalState } from './components/Modal/CorModal/CorModal';
 import CorButton from './components/CorButton/CorButton';
+import CorInputTime from './components/Inputs/CorInputTime/CorInputTime';
 
 export {
     Card,
@@ -27,4 +28,5 @@ export {
     CorInputMoney,
     CorModal,
     handleModalState,
+    CorInputTime,
 };

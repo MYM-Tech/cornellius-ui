@@ -27,7 +27,7 @@ const defaultMinValue = {
     ms: 0,
 };
 
-const InputTime = ({
+const CorInputTime = ({
     classes,
     value = new Date(),
     disabled,
@@ -245,4 +245,4 @@ const InputTime = ({
     );
 };
 
-export default InputTime;
+export default CorInputTime;
