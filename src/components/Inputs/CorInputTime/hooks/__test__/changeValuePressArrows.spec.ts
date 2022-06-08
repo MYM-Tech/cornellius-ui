@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { describe, expect, it } from 'vitest';
 import changeOnPressArrows from '../changeOnPressArrows';
 
@@ -12,9 +11,7 @@ describe('change value pressing arrow key', () => {
 
         // eslint-disable-next-line no-use-before-define
         inputElement?.addEventListener('keydown', (ev: KeyboardEvent) => {
-            changeOnPressArrows(ev, value, formatTime, 'hours', 23, 0, (e, v) =>
-                console.log('done')
-            );
+            changeOnPressArrows(ev, value, formatTime, 'hours', 23, 0, (e, v) => console.log(e, v));
         });
 
         inputElement.dispatchEvent(

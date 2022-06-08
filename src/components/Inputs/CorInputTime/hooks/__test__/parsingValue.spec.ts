@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { describe, expect, it } from 'vitest';
 import { parsingTypeFormat, parsingValue } from '../parsingValue';
 
@@ -63,9 +62,8 @@ describe('tesgint parsing value script', () => {
 
     it('shoudl return the good number of milliseconds when we pass and date', () => {
         const value = new Date('August 19, 1975 15:30:45:12');
-        const getHours = parsingValue.seconds(value);
+        const getHours = parsingValue.milliseconds(value);
 
         expect(getHours).toBe(12);
     });
-
 });

@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-expressions */
 function setInitialValue(value: Date) {
     const hours = value.getHours();
-    if (hours > 12){
-        return 'PM'
+    if (hours > 12) {
+        return 'PM';
     }
-    return 'AM'
+    return 'AM';
 }
 
 export default setInitialValue;
