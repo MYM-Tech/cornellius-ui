@@ -1,5 +1,7 @@
 /* eslint-disable no-param-reassign  */
 /* eslint-disable prefer-const */
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
+
 import classNames from 'classnames';
 import handle12hValueDate from './hooks/handle12hValueDate';
 import changeOnPressArrows from './hooks/changeOnPressArrows';
@@ -57,13 +59,10 @@ const InputTime = ({
         defaultMinValue.sec = minTime.getSeconds();
         defaultMinValue.ms = minTime.getMilliseconds();
     }
-    console.log(value);
-    
 
     return (
         <div class={className}>
-            <div class={CSS.inputTime__topArrow}></div>
-            <div class={CSS.inputTime__blockTIme}>
+            <div class={CSS.inputTime__blockTime}>
                 <input
                     v-model={hours}
                     value={hours}
@@ -187,7 +186,7 @@ const InputTime = ({
                 )}
                 {hasMilliseconds && (
                     <>
-                        <span>:</span>
+                        <span>.</span>
                         <input
                             v-model={milliseconds}
                             value={milliseconds}
@@ -230,6 +229,7 @@ const InputTime = ({
                 )}
                 {has12H && (
                     <select
+                        class={CSS.inputTime__blockTime__selectAMPM}
                         value={setInitialValue(value)}
                         onChange={(e) => {
                             const element = e.target as HTMLSelectElement;
@@ -241,7 +241,6 @@ const InputTime = ({
                     </select>
                 )}
             </div>
-            <div class={CSS.inputTime__bottomArrow}></div>
         </div>
     );
 };
