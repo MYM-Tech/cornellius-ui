@@ -38,7 +38,7 @@ module.exports = {
                 peerDependencies: true,
             },
         ],
-        'no-useless-espace': 'never',
+        'no-useless-space': 0,
     },
     overrides: [
         {
