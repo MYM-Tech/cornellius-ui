@@ -1,9 +1,10 @@
 import { Meta, StoryFn } from '@storybook/vue3';
 import CorButton from './CorButton';
 import { CorButtonProps } from './CorButton.types';
+import CorCheckIcon from '../Icons/CorCheckIcon/CorCheckIcon';
 
 export default {
-    title: 'Inputs/Button',
+    title: 'Button',
     component: CorButton,
     argTypes: {
         label: { type: 'string' },
@@ -15,7 +16,7 @@ export default {
 } as Meta;
 
 const Template: StoryFn<CorButtonProps> = (args) => ({
-    components: { CorButton },
+    components: { CorButton, CorCheckIcon },
     setup() {
         return { args };
     },
@@ -32,4 +33,10 @@ export const Disabled = Template.bind({});
 Disabled.args = {
     label: 'Disabled button',
     disabled: true,
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+    leftIcon: `👍`,
+    label: 'Like',
 };

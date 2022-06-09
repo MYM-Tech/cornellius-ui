@@ -9,6 +9,16 @@
     padding: 0 22px;
     transition: all 0.1s ease-in-out;
 
+    &_icon {
+        &--left {
+            margin-right: 12px;
+        }
+
+        &--right {
+            margin-left: 12px;
+        }
+    }
+
     &:hover:not(:disabled) {
         transform: translate(-4px, -4px);
     }
@@ -20,6 +30,7 @@
     &:disabled {
         background: #e4e5f1;
         color: #b3b5cc;
+        transform: unset;
     }
 
     &--primary {
