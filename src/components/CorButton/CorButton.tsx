@@ -25,9 +25,9 @@ const CorButton: FunctionalComponent<CorButtonProps> = ({
 
     return (
         <button class={classes} onClick={onClick} {...props}>
-            {leftIcon}
+            {leftIcon && <div class={CSS['cor_button_icon--left']}>{leftIcon}</div>}
             {label}
-            {rightIcon}
+            {rightIcon && <div class={CSS['cor_button_icon--right']}>{rightIcon}</div>}
         </button>
     );
 };
