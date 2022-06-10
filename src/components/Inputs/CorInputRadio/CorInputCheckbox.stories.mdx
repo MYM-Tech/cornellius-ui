@@ -1,0 +1,24 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Cornellius/Inputs/Input Radio/Introduction" />
+
+# CorInputRadio
+
+A `CorInputRadio` allows the user to select an option between multiple by checking it.
+
+## Props
+
+| Prop  | Description | Type | Required? | Default Value |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| id | radio id (similar to HTML id) | string | ✅ | |
+| label | label shown next to input | string | ✅ | |
+| checked | whether the radio is checked or not by default | boolean | | true |
+| disabled | whether the input is disabled or not | boolean | | false |
+| name | form name (similar to HTML name) | string | ✅ | |
+| radioPosition | set radio position | 'left' | 'right' | | 'left' |
+
+## Methods
+
+| Prop | Description | Type | Required? | Default Value |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| onChange | called when value changes | (value: string) => void | ✅ | |
