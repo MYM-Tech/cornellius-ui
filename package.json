@@ -1,6 +1,6 @@
 {
   "name": "@mym-tech/cornellius-ui",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "description": "MYM's Frontend Components library.",
   "repository": {
     "type": "git",
@@ -62,8 +62,8 @@
     "vue-tsc": "^0.34.8"
   },
   "publishConfig": {
-    "access": "restricted",
-    "registry": "http://localhost:4873/"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --fix",
