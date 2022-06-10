@@ -1,0 +1,28 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Cornellius/Inputs/Input Text/Introduction" />
+
+# CorInputText
+
+A `CorInputText` allows the user to specify a text.
+
+## Props
+
+| Prop  | Description | Type | Required? | Default Value |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| maxLength | the maximum input length in input | number | | |
+| minLength | the minimum input length in input | number | | |
+| disabled | whether the input is disabled or not | boolean | | false |
+| value | the value of the button can be binded to `v-model` | string | | |
+| label | label shown above the input | string | | |
+| statusMessage | a small message shown under the input | string | | |
+| placeholder | a placeholder that will shown when the input is empty | string | | |
+| status | input status | 'success', 'warning', 'error' | | |
+| class | CSS classes | string | | |
+
+## Methods
+
+| Prop | Description | Type | Required? | Default Value |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| onChange | called when value changes | (value: string) => void | ✅ | |
+| onSubmit | called when user presses enter or submit a form | (e: Event) => void | | |
