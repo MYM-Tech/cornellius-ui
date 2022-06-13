@@ -13,7 +13,6 @@ const CorInputMoney: FunctionalComponent<CorInputMoneyProps> = ({
     placeholder,
     value = '0',
     status,
-    showButtons = true,
     symbol = '$',
     symbolPosition = 'left',
     decimals = 2,
@@ -24,7 +23,6 @@ const CorInputMoney: FunctionalComponent<CorInputMoneyProps> = ({
         [CSS['cor_input_money--success']]: status === 'success',
         [CSS['cor_input_money--warning']]: status === 'warning',
         [CSS['cor_input_money--error']]: status === 'error',
-        [CSS['cor_input_money--no-btn']]: !showButtons,
     });
 
     const symbolClasses = classNames(CSS.cor_input_money__symbol_group, {

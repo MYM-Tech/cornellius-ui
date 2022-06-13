@@ -17,7 +17,6 @@ export default {
         decimals: { type: 'number' },
         min: { type: 'number' },
         max: { type: 'number' },
-        showButtons: { type: 'boolean', defaultValue: true },
         symbolPosition: { control: 'select', options: ['left', 'right'] },
         symbol: { type: 'string', defaultValue: '$' },
     },
