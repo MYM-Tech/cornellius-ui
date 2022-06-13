@@ -38,7 +38,7 @@ const CorInputTime = ({
     onKeydown = (e) => e,
     timeFormat = 'HH:mm',
 }: InputTimeType) => {
-    const className = classNames(CSS.inputTime, classes);
+    const className = classNames(CSS.input__time, classes);
     const { hasMilliseconds, hasSeconds, has12H } = parsingTypeFormat(timeFormat);
 
     let hours = parsingValue.hours(value, has12H);
@@ -196,7 +196,7 @@ const CorInputTime = ({
                                     e,
                                     timeFormat,
                                     value,
-                                    'millisecond',
+                                    'milliseconds',
                                     defaultMaxValue.ms,
                                     defaultMinValue.ms,
                                     onChange
@@ -207,7 +207,7 @@ const CorInputTime = ({
                                     e,
                                     timeFormat,
                                     value,
-                                    'millisecond',
+                                    'milliseconds',
                                     defaultMaxValue.ms,
                                     defaultMinValue.ms,
                                     onBlur
@@ -218,7 +218,7 @@ const CorInputTime = ({
                                     e,
                                     value,
                                     timeFormat,
-                                    'millisecond',
+                                    'milliseconds',
                                     defaultMaxValue.ms,
                                     defaultMinValue.ms,
                                     onKeydown

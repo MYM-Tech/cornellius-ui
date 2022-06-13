@@ -4,7 +4,7 @@ function changeOnPressArrows(
     e: KeyboardEvent,
     value: Date,
     formatTime: string,
-    type: 'hours' | 'minutes' | 'seconds' | 'millisecond',
+    type: 'hours' | 'minutes' | 'seconds' | 'milliseconds',
     maxTime: number,
     minTime: number,
     onKeydownFunction: (event: KeyboardEvent, newTime: Date) => void

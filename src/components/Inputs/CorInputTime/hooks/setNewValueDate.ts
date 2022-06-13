@@ -3,7 +3,7 @@
 import { limitedHoursValue, limitedTimeValue } from './limitedValue';
 
 function setNewValueDate(
-    type: string,
+    type: 'milliseconds' | 'seconds' | 'minutes' | 'hours',
     cloneValue: Date,
     target: HTMLInputElement,
     formatTime: string,
@@ -12,7 +12,7 @@ function setNewValueDate(
 ) {
     const numberValue = limitedTimeValue(parseInt(target.value, 10), maxTime, minTime);
     switch (type) {
-        case 'millisecond':
+        case 'milliseconds':
             cloneValue.setHours(0, 0, 0, numberValue);
             target.value = `${cloneValue.getMilliseconds()}`;
             return cloneValue;

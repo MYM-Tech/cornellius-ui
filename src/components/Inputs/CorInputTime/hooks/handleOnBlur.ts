@@ -4,7 +4,7 @@ function handleOnBlur(
     event: FocusEvent,
     formatTime: string,
     value: Date,
-    type: 'hours' | 'minutes' | 'seconds' | 'millisecond',
+    type: 'hours' | 'minutes' | 'seconds' | 'milliseconds',
     maxTime: number,
     minTime: number,
     onBlurFunction?: (e: Event, newTime: Date) => void
