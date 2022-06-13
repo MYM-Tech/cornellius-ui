@@ -3,13 +3,6 @@
 .cor_input_money {
     @extend .cor_input;
 
-    &--no-btn {
-        input::-webkit-inner-spin-button,
-        input::-webkit-outer-spin-button {
-            appearance: none;
-        }
-    }
-
     input {
         display: inline-block;
         min-width: 160px;
@@ -41,14 +34,7 @@
         }
 
         .cor_currency_symbol {
-            align-items: center;
-            color: $grey-7;
-            display: flex;
-            line-height: 1;
-            padding: 0 16px;
-            position: absolute;
             top: 0;
-            z-index: 2;
         }
     }
 
@@ -61,13 +47,19 @@
         }
 
         .cor_currency_symbol {
+            right: 0;
+        }
+    }
+
+    &__symbol_group,
+    &__symbol_group--right {
+        .cor_currency_symbol {
             align-items: center;
             color: $grey-7;
             display: flex;
             line-height: 1;
             padding: 0 16px;
             position: absolute;
-            right: 0;
             z-index: 2;
         }
     }
