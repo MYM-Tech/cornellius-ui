@@ -4,7 +4,7 @@ function handleOnChange(
     event: Event,
     formatTime: string,
     value: Date,
-    type: 'hours' | 'minutes' | 'seconds' | 'millisecond',
+    type: 'hours' | 'minutes' | 'seconds' | 'milliseconds',
     maxTime: number,
     minTime: number,
     onChangeFunction?: (e: Event, newTime: Date) => void

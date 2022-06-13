@@ -26,7 +26,6 @@ const CorInputText: FunctionalComponent<CorInputTextProps> = ({
     const onInput = (e: Event) => {
         if (!onChange) return;
         const inputElement = e.target as HTMLInputElement;
-        // if (value !== inputElement.value) value = inputElement.value;
         onChange(inputElement.value);
     };
 

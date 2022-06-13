@@ -4,7 +4,7 @@ import CorInputTime from './CorInputTime';
 import { InputTimeType } from './InputTime.type';
 
 export default {
-    title: 'Inputs/Input Time/jose version',
+    title: 'Inputs/Input Time',
     component: CorInputTime,
     argTypes: {
         disabled: { type: 'boolean' },
