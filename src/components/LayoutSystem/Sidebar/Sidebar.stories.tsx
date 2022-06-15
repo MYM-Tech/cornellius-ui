@@ -3,21 +3,21 @@ import { MainLayout } from '../MainLayout/MainLayout';
 import { Sidebar, SidebarProps } from './Sidebar';
 
 export default {
-  title: 'Layout System/Sidebar',
-  component: Sidebar,
+    title: 'Layout System/Sidebar',
+    component: Sidebar,
 } as Meta;
 
 type SidebarStoryProps = SidebarProps & {
-  style: string;
-  reverse: boolean;
+    style: string;
+    reverse: boolean;
 };
 
 const sideBarStory: StoryFn<SidebarStoryProps> = (args) => ({
-  components: { Sidebar, MainLayout },
-  setup() {
-    return { args };
-  },
-  template: `
+    components: { Sidebar, MainLayout },
+    setup() {
+        return { args };
+    },
+    template: `
     <MainLayout  v-bind:reverseSidebar="args.reverse" v-bind:style="args.style">
       <Sidebar v-bind="args">
         <div style="background: #0AD561; height: 100%;"></div>
@@ -29,16 +29,16 @@ const sideBarStory: StoryFn<SidebarStoryProps> = (args) => ({
 export const SidebarStory = sideBarStory.bind({});
 
 SidebarStory.args = {
-  style: 'background: white',
-  reverse: false,
+    style: 'background: white',
+    reverse: false,
 };
 
 const sidebarStoryReversed: StoryFn<SidebarStoryProps> = (args) => ({
-  components: { Sidebar, MainLayout },
-  setup() {
-    return { args };
-  },
-  template: `
+    components: { Sidebar, MainLayout },
+    setup() {
+        return { args };
+    },
+    template: `
     <MainLayout v-bind:reverseSidebar="args.reverse">
     <Sidebar v-bind="args">
       <div style="background: #0AD561; height: 100%;"></div>
@@ -50,5 +50,5 @@ const sidebarStoryReversed: StoryFn<SidebarStoryProps> = (args) => ({
 export const SidebarReversed = sidebarStoryReversed.bind({});
 
 SidebarReversed.args = {
-  reverse: true,
+    reverse: true,
 };
