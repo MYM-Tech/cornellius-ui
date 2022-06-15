@@ -49,7 +49,7 @@ const contentStory: StoryFn<ContentStoryArgs> = (args) => ({
     <MainLayout v-bind:style="args.style" v-bind:reverseSidebar="args.reverse">
       <Content v-bind:fullSize="args.fullSize">
         <div style='background: args.backgroundColor; height: 100%;'></div>
-      <Content/>
+      </Content>
     </MainLayout>`,
 });
 
