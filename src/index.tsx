@@ -12,8 +12,11 @@ import CorInputCheckbox from './components/Inputs/CorInputCheckbox/CorInputCheck
 import CorInputMoney from './components/Inputs/CorInputMoney/CorInputMoney';
 import { CorModal, handleModalState } from './components/Modal/CorModal/CorModal';
 import CorButton from './components/CorButton/CorButton';
+import CorPopup from './components/CorPopup/CorPopup';
+import usePopper from './composable/usePopper/usePopper';
 
 export {
+    // Components
     Card,
     Content,
     MainLayout,
@@ -26,5 +29,11 @@ export {
     CorInputCheckbox,
     CorInputMoney,
     CorModal,
+    CorPopup,
+
+    // Helpers
     handleModalState,
+
+    // Composables
+    usePopper,
 };
