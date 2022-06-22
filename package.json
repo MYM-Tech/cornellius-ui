@@ -74,6 +74,8 @@
     "*": "prettier -w -u"
   },
   "dependencies": {
+    "@floating-ui/core": "^0.7.3",
+    "@floating-ui/dom": "^0.5.3",
     "@vitejs/plugin-vue": "^2.3.1",
     "@vitejs/plugin-vue-jsx": "^1.3.10",
     "@vue/eslint-config-airbnb": "^6.0.0",
@@ -100,5 +102,6 @@
       "import": "./dist/cornellius-ui.es.js",
       "require": "./dist/cornellius-ui.umd.js"
     }
-  }
+  },
+  "packageManager": "yarn@3.2.1"
 }
