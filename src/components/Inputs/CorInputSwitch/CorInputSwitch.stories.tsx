@@ -3,11 +3,12 @@ import CorInputSwitch from './CorInputSwitch';
 import { CorInputSwitchPorps } from './CorInputSwitch.types';
 
 export default {
-    title: 'Inputs/Input Switch',
+    title: 'Cornellius/Inputs/Input Switch',
     component: CorInputSwitch,
     argTypes: {
         label: { type: 'string' },
         disabled: { type: 'boolean' },
+        labelPosition: { control: 'select', options: ['left', 'right'] },
     },
 } as Meta;
 
@@ -24,6 +25,7 @@ Default.args = {
     label: 'Label',
     disabled: false,
     checked: true,
+    inline: false,
     onChange: (e) => console.log(e),
 };
 
@@ -34,8 +36,6 @@ Disabled.args = {
     checked: true,
     onChange: (e) => console.log(e),
 };
-
-
 
 const MultiTemplate: StoryFn = (args) => ({
     components: { CorInputSwitch },

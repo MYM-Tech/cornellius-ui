@@ -2,6 +2,26 @@
     display: flex;
     flex-direction: column;
 
+
+    &__inline {
+        @extend .CorInpurSwitch;
+        flex-direction: initial;
+       
+        &--right {
+            @extend .CorInpurSwitch__inline;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+           
+            .CorInpurSwitch__label {
+                margin-left: 32px;
+            }
+        }
+        
+        .CorInpurSwitch__label {
+            margin-right: 32px;
+        }
+    }
+
     &__label {
         color: #6666;
     }
