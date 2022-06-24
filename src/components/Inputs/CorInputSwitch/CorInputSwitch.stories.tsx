@@ -1,6 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3';
 import CorInputSwitch from './CorInputSwitch';
-import { CorInputSwitchPorps } from './CorInputSwitch.types';
 
 export default {
     title: 'Cornellius/Inputs/Input Switch',
@@ -8,17 +7,12 @@ export default {
     argTypes: {
         label: { type: 'string' },
         disabled: { type: 'boolean' },
+        checked: { type: 'boolean' },
         labelPosition: { control: 'select', options: ['left', 'right'] },
     },
 } as Meta;
 
-const Template: StoryFn<CorInputSwitchPorps> = (args) => ({
-    components: { CorInputSwitch },
-    setup() {
-        return { args };
-    },
-    template: `<CorInputSwitch v-bind="args"/>`,
-});
+const Template: StoryFn = (args) => <CorInputSwitch {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -26,7 +20,7 @@ Default.args = {
     disabled: false,
     checked: true,
     inline: false,
-    onChange: (e) => console.log(e),
+    onChange: (e) => console.log(e.target.value),
 };
 
 export const Disabled = Template.bind({});
@@ -34,7 +28,7 @@ Disabled.args = {
     label: 'Label',
     disabled: true,
     checked: true,
-    onChange: (e) => console.log(e),
+    onChange: (e) => console.log(e.target.value),
 };
 
 const MultiTemplate: StoryFn = (args) => ({
