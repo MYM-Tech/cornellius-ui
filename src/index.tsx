@@ -13,6 +13,7 @@ import CorInputMoney from './components/Inputs/CorInputMoney/CorInputMoney';
 import { CorModal, handleModalState } from './components/Modal/CorModal/CorModal';
 import CorButton from './components/CorButton/CorButton';
 import CorInputTime from './components/Inputs/CorInputTime/CorInputTime';
+import CorInputSwitch from './components/Inputs/CorInputSwitch/CorInputSwitch';
 
 export {
     Card,
@@ -29,4 +30,5 @@ export {
     CorModal,
     handleModalState,
     CorInputTime,
+    CorInputSwitch,
 };
