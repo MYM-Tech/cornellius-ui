@@ -5,13 +5,14 @@ import STYLE from './MainLayout.module.scss';
 export interface MainLayoutProps {
     reverseSidebar?: boolean;
     className?: string;
+    style?: string
 }
 
 export const MainLayout: FunctionalComponent<MainLayoutProps> = (
-    { className, reverseSidebar = false },
+    { className, reverseSidebar = false, style },
     { slots }
 ) => (
-    <div class={classNames(className, STYLE.main)}>
+    <div style={style} class={classNames(className, STYLE.main)}>
         <div class={classNames(STYLE.main__center, reverseSidebar ? STYLE.reverse : '')}>
             {slots.default && slots.default()}
         </div>

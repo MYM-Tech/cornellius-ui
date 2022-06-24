@@ -17,21 +17,18 @@ type ContentStoryArgs = ContentProps & {
     backgroundColor: string;
 };
 
-const contentStorySidebar: StoryFn<ContentStoryArgs> = (args) => ({
-    components: { MainLayout, Sidebar, Content },
-    setup() {
-        return { args };
-    },
-    template: `
-    <MainLayout v-bind:reverseSidebar="args.reverse" v-bind:style="args.style">
-      <Sidebar>
-        <div style="background: #e0efe7; height: 100%;"></div>
-      </Sidebar>
-      <Content>
-        <div style="background: #0AD561; height: 100%;"></div>
-      </Content>
-    </MainLayout>`,
-});
+const contentStorySidebar: StoryFn<ContentStoryArgs> = (args) => (
+    <MainLayout
+        v-bind:reverseSidebar={args.reverse}
+        v-bind:style={args.style}
+        v-slots={
+            <>
+                <Sidebar v-slots={<div style={{ background: '#e0efe7', height: '100%' }}></div>} />
+                <Content v-slots={<div style={{ background: '#0AD561', height: '100%;' }}></div>} />
+            </>
+        }
+    />
+);
 
 export const ContentWithSidebar = contentStorySidebar.bind({});
 
@@ -40,18 +37,20 @@ ContentWithSidebar.args = {
     style: 'background: white; border:1px solid red',
 };
 
-const contentStory: StoryFn<ContentStoryArgs> = (args) => ({
-    components: { MainLayout, Content },
-    setup() {
-        return { args };
-    },
-    template: `
-    <MainLayout v-bind:style="args.style" v-bind:reverseSidebar="args.reverse">
-      <Content v-bind:fullSize="args.fullSize">
-        <div style='background: args.backgroundColor; height: 100%;'></div>
-      </Content>
-    </MainLayout>`,
-});
+const contentStory: StoryFn<ContentStoryArgs> = (args) => (
+    <MainLayout
+        style={args.style}
+        reverseSidebar={args.reverse}
+        v-slots={
+            <Content
+                fullSize={args.fullSize}
+                v-slots={() => (
+                    <div style={{ background: args.backgroundColor, height: '100%' }}></div>
+                )}
+            />
+        }
+    />
+);
 
 export const ContentWithoutSidebar = contentStory.bind({});
 
