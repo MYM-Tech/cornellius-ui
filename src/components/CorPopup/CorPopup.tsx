@@ -7,54 +7,57 @@ import CSS from './CorPopup.module.scss';
 
 const CorPopup = defineComponent({
     props: {
-        offset: {
-            type: Object as PropType<OffsetOptions>,
-            default: () => ({ mainAxis: 8, alignmentAxis: 0 }),
+        arrowClasses: {
+            default: () => [],
+            type: Array as PropType<Array<string>>,
         },
         autoFocus: {
-            type: Boolean,
             default: true,
-        },
-        position: {
-            type: String as PropType<Placement | 'auto'>,
-            default: 'auto',
-        },
-        keyEscClose: {
             type: Boolean,
-            default: true,
-        },
-        withArrow: {
-            type: Boolean,
-            default: true,
-        },
-        disabled: {
-            type: Boolean,
-            default: false,
-        },
-        show: {
-            type: Boolean,
-            default: false,
         },
         classes: {
-            type: Array as PropType<Array<string>>,
             default: () => [],
-        },
-        arrowClasses: {
             type: Array as PropType<Array<string>>,
-            default: () => [],
         },
-        trigger: {
-            type: String as PropType<'click' | 'hover' | 'manual'>,
-            default: 'click',
+        disabled: {
+            default: false,
+            type: Boolean,
         },
-        onOpen: {
-            type: Function as PropType<() => void>,
+        keyEscClose: {
+            default: true,
+            type: Boolean,
+        },
+        offset: {
+            default: () => ({
+                mainAxis: 8,
+                alignmentAxis: 0,
+            }),
+            type: Object as PropType<OffsetOptions>,
         },
         onClose: {
             type: Function as PropType<() => void>,
         },
         onHover: {
             type: Function as PropType<() => void>,
+        },
+        onOpen: {
+            type: Function as PropType<() => void>,
+        },
+        position: {
+            default: 'auto',
+            type: String as PropType<Placement | 'auto'>,
+        },
+        show: {
+            default: false,
+            type: Boolean,
+        },
+        trigger: {
+            default: 'click',
+            type: String as PropType<'click' | 'hover' | 'manual'>,
+        },
+        withArrow: {
+            default: false,
+            type: Boolean,
         },
     },
     setup(props, { slots }) {
@@ -125,6 +128,7 @@ const CorPopup = defineComponent({
             <>
                 <div
                     ref={triggerRef}
+                    class={CSS.cor_popup_trigger}
                     onClick={props.trigger === 'click' ? togglePopper : undefined}
                     onMouseenter={props.trigger === 'hover' ? showPopper : undefined}
                     onMouseleave={props.trigger === 'hover' ? closePopper : undefined}

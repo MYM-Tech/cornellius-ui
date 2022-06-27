@@ -3,13 +3,16 @@
 .cor_popup {
     position: relative;
 
+    &_trigger {
+        width: fit-content;
+    }
+
     &_content {
         background: $grey-2;
         border-radius: 8px;
         color: white;
         display: none;
         padding: 4px 8px;
-        pointer-events: none;
         position: absolute;
     }
 

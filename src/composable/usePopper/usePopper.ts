@@ -1,7 +1,7 @@
 import { autoPlacement } from '@floating-ui/core';
 import { arrow, autoUpdate, computePosition, flip, shift } from '@floating-ui/dom';
 import { onMounted, onUnmounted, ref, Ref } from 'vue';
-import { PopperOptions, UsePopper } from './popper.types';
+import { PopperOptions, UsePopper } from './usePopper.types';
 
 const usePopper = (triggerRef: Ref, popperRef: Ref, options?: PopperOptions): UsePopper => {
     /**

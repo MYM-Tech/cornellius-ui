@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import CorPopup from './CorPopup';
+
+<Meta title="Cornellius/Popup/Introduction" component={CorPopup} />
+
+# CorPopup
+
+CorPopup is a component that implements [floating-ui](https://github.com/floating-ui/floating-ui) poppers.
+It shows floating elements such as tooltips or context menus.
+
+## Props
+
+| Prop         | Description                                                      | Type                                                                                                                                 | Required ? | Default value                       |
+|--------------|------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|------------|-------------------------------------|
+| arrowClasses | HTML Classes that should be passed to arrow                      | `string[]`                                                                                                                           |            |                                     |
+| autoFocus    | Whether focus should be set on the popup when shown              | `boolean`                                                                                                                            |            | `true`                              |
+| classes      | HTML Classes for the popup                                       | `string[]`                                                                                                                           |            |                                     |
+| disabled     | Whether listeners are disabled                                   | `boolean`                                                                                                                            |            | `false`                             |
+| keyEscClose  | Whether ESCAPE key should hide popup                             | `boolean`                                                                                                                            |            | `true`                              |
+| offset       | Popup position offset from its trigger component                 | `{ mainAxis: number; alignmentAxis: number; }`                                                                                       |            | `{ mainAxis: 8, alignmentAxis: 0 }` |
+| position     | Popup position relative to its trigger                           | `top, top-start, top-end,` `right, right-start, right-end,` `bottom, bottom-start, bottom-end,` `left, left-start, left-end,` `auto` |            | `auto`                              |
+| show         | Whether popup should be shown (only works with `manual` trigger) | `boolean`                                                                                                                            |            | `false`                             |
+| trigger      | How popup should trigger                                         | `click, hover, manual`                                                                                                               | ✅         | `click`                             |
+| withArrow    | Whether an arrow should be shown                                 | `boolean`                                                                                                                            |            | `false`                             |
+
+## Methods
+
+| Prop    | Description                      | Type       | Required ? |
+|---------|----------------------------------|------------|------------|
+| onClose | Callback when popup is closed    | () => void |            |
+| onHover | Callback when trigger is hovered | () => void |            |
+| onOpen  | Callback when popup is opened    | () => void |            |
