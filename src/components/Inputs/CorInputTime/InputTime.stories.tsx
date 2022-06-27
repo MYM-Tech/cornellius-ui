@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { Meta, StoryFn } from '@storybook/vue3';
 import CorInputTime from './CorInputTime';
-import { CorInputTimeType } from './InputTime.type';
+import { CorInputTimeType } from './CorInputTime.type';
 
 export default {
     title: 'Inputs/Input Time',
