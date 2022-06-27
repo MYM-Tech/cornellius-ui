@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { Meta, StoryFn } from '@storybook/vue3';
 import CorInputTime from './CorInputTime';
-import { InputTimeType } from './InputTime.type';
+import { CorInputTimeType } from './InputTime.type';
 
 export default {
     title: 'Inputs/Input Time',
@@ -19,9 +19,9 @@ export default {
         onKeyUp: { action: 'onKeyUp' },
         onKeydown: { action: 'onKeydown' },
     },
-} as Meta<InputTimeType>;
+} as Meta<CorInputTimeType>;
 
-const Template: StoryFn<InputTimeType> = (args) => (
+const Template: StoryFn<CorInputTimeType> = (args) => (
     <CorInputTime
         value={args.value}
         onBlur={args.onBlur}

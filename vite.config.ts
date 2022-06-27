@@ -6,7 +6,6 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { resolve } from 'path';
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
-import svgLoader from 'vite-svg-loader';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,7 +19,6 @@ export default defineConfig({
         }),
         cssInjectedByJsPlugin(),
         vueJsx(),
-        svgLoader(),
     ],
     test: {
         globals: true,
