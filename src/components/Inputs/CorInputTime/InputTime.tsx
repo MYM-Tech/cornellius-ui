@@ -2,7 +2,7 @@ import { FunctionalComponent } from 'vue';
 import changeOnPressArrows from './hooks/changeOnPressArrows';
 import handleOnBlur from './hooks/handleOnBlur';
 import handleOnChange from './hooks/handleOnChange';
-import { InputTimeType } from './InputTime.type';
+import { InputTimeType } from './CorInputTime.type';
 
 const InputTime: FunctionalComponent<InputTimeType> = ({
     maxValue,

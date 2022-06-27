@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import handle12hValueDate from './hooks/handle12hValueDate';
 import { parsingTypeFormat, parsingValue } from './hooks/parsingValue';
 import CSS from './InputTime.module.scss';
-import { CorInputTimeType } from './InputTime.type';
+import { CorInputTimeType } from './CorInputTime.type';
 import setInitialValue from './hooks/setInitialValue';
 import InputTime from './InputTime';
 
