@@ -25,7 +25,7 @@ export function limitedHoursValue(
     const { has12H } = parsingTypeFormat(formatTime);
     if (has12H && maxTime > 12) {
         /* 
-            we subtract 12 of the maxTime to have a rigth value in format 12h
+            we substract 12 of the maxTime to have a right value in format 12h
             exp:  15 - 12 = 3pm
         */
         if (minTime > 12) limitedTimeValue(v, maxTime - 12, minTime - 12);

@@ -4,7 +4,7 @@ import CorInputTime from './CorInputTime';
 import { CorInputTimeType } from './CorInputTime.type';
 
 export default {
-    title: 'Inputs/Input Time',
+    title: 'Cornellius/Inputs/Input Time/Components',
     component: CorInputTime,
     argTypes: {
         disabled: { type: 'boolean' },
@@ -21,22 +21,32 @@ export default {
     },
 } as Meta<CorInputTimeType>;
 
-const Template: StoryFn<CorInputTimeType> = (args) => (
-    <CorInputTime
-        value={args.value}
-        onBlur={args.onBlur}
-        onKeydown={args.onKeydown}
-        onChange={args.onChange}
-        timeFormat={args.timeFormat}
-        disabled={args.disabled}
-        minTime={args.minTime}
-        maxTime={args.maxTime}
-    />
-);
+const Template: StoryFn<CorInputTimeType> = (args) => <CorInputTime {...args} />;
 
 export const Default = Template.bind({});
 
 Default.args = {
     timeFormat: 'HH:mm',
+    onblur: (e, time) => console.log(e, time),
+};
+
+export const WithSecconds = Template.bind({});
+
+WithSecconds.args = {
+    timeFormat: 'HH:mm:ss',
+    onblur: (e, time) => console.log(e, time),
+};
+
+export const Format12h = Template.bind({});
+
+Format12h.args = {
+    timeFormat: 'h:mm:ss',
+    onblur: (e, time) => console.log(e, time),
+};
+
+export const WithMillisecconds = Template.bind({});
+
+WithMillisecconds.args = {
+    timeFormat: 'h:mm:ss:S',
     onblur: (e, time) => console.log(e, time),
 };
