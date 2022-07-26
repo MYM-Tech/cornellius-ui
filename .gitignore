@@ -153,3 +153,6 @@ package-lock.json
 # storybook
 
 storybook-static/
+
+# IDE related
+.vscode
