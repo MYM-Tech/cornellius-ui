@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Cornellius/Inputs/Input Money/Introduction" />
+
+# CorInputMoney
+
+A `CorInputNumber` allows the user to specify an amount of money in specified currency.
+
+## Props
+
+| Prop  | Description | Type | Required? | Default Value |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| max  | the maximum possible value of the input | number | | |
+| min | the minimum possible value of the input | number | | |
+| maxLength | the maximum input length in input | number | | |
+| minLength | the minimum input length in input | number | | |
+| symbol | the symbol to show next to the input | number | | '$' |
+| symbolPosition | position of the symbol | 'left', 'right' | | 'left' |
+| decimals | numbers of decimals to show | number | | 2 |
+| disabled | whether the input is disabled or not | boolean | | false |
+| step | how much the number should increment/decrement when using arrows | number | | |
+| value | the value of the button can be binded to `v-model` | string | | '0' |
+| label | label shown above the input | string | | |
+| statusMessage | a small message shown under the input | string | | |
+| placeholder | a placeholder that will shown when the input is empty | string | | |
+| status | input status | 'success', 'warning', 'error' | | |
+| class | CSS classes | string | | |
+
+## Methods
+
+| Prop | Description | Type | Required? | Default Value |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| onChange | called when value changes | (value: string) => void | ✅ | |
+| onBlur | called when user loses focus on input | (value: FocusEvent) => void | | |
+| onKeydown | called when user presses on key when focused on input | (value: KeyboardEvent) => void | | |
