@@ -17,10 +17,9 @@ const InputTime: FunctionalComponent<InputTimeType> = ({
     onKeydown,
 }) => (
     <input
-        v-model={value}
+        v-models={[[value], [value, 'update']]}
         value={value}
         disabled={disable}
-        v-model:update={value}
         onInput={(e) => handleOnChange(e, timeFormat, time, type, maxValue, minValue, onChange)}
         onBlur={(e) => {
             handleOnBlur(e, timeFormat, time, 'hours', value, value, onBlur);
