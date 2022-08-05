@@ -1,17 +1,18 @@
 import { Meta } from '@storybook/addon-docs';
 
-<Meta title="Cornellius/Inputs/Input Text/Introduction" />
+<Meta title="Cornellius/Inputs/Input Number/Introduction" />
 
-# CorInputText
+# CorInputNumber
 
-A `CorInputText` allows the user to specify a text.
+A `CorInputNumber` allows the user to specify a number.
 
 ## Props
 
 | Prop  | Description | Type | Required? | Default Value |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| maxLength | the maximum input length in input | number | | |
-| minLength | the minimum input length in input | number | | |
+| max  | the maximum possible value of the input | number | | |
+| min | the minimum possible value of the input | number | | |
+| showButtons | whether arrow buttons are shown or not | boolean | | true |
 | disabled | whether the input is disabled or not | boolean | | false |
 | value | the value of the button can be binded to `v-model` | string | | |
 | label | label shown above the input | string | | |
@@ -25,4 +26,5 @@ A `CorInputText` allows the user to specify a text.
 | Prop | Description | Type | Required? | Default Value |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | onChange | called when value changes | (value: string) => void | ✅ | |
-| onSubmit | called when user presses enter or submit a form | (e: Event) => void | | |
+| onBlur | called when user loses focus on input | (value: FocusEvent) => void | | |
+| onKeydown | called when user presses on key when focused on input | (value: KeyboardEvent) => void | | |

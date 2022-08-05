@@ -3,7 +3,7 @@ import CorInputNumber from './CorInputNumber';
 import { CorInputNumberProps } from './CorInputNumber.types';
 
 export default {
-    title: 'Inputs/Input Number',
+    title: 'Cornellius/Inputs/Input Number/Component',
     component: CorInputNumber,
     argTypes: {
         label: { type: 'string' },

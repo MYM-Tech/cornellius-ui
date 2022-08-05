@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Cornellius/Inputs/Input Checkbox/Introduction" />
+
+# CorInputCheckbox
+
+A `CorInputCheckbox` allows the user to select an option by checking it.
+
+## Props
+
+| Prop  | Description | Type | Required? | Default Value |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| id | checkbox id (similar to HTML id) | string | ✅ | |
+| label | label shown next to input | string | ✅ | |
+| checked | whether the checkbox is checked or not by default | boolean | | true |
+| disabled | whether the input is disabled or not | boolean | | false |
+| name | form name (similar to HTML name) | string | ✅ | |
+| customIcon | override the default checkbox SVG | VNode, VNode[] | | |
+| checkPosition | set checkbox position | 'left' | 'right' | | 'left' |
+
+## Methods
+
+| Prop | Description | Type | Required? | Default Value |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| onChange | called when value changes | (value: string) => void | ✅ | |
