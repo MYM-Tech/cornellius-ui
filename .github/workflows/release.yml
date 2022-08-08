@@ -6,9 +6,29 @@ on:
       - master
 
 jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+    steps:
+        # 👇 Version 2 of the action
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # 👈 Required to retrieve git history
+
+      - name: Install dependencies
+        run: yarn
+        # 👇 Adds Chromatic as a step in the workflow
+        
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        # Options required to the GitHub Chromatic Action
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
   release:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.chromatic-deployment == 'success' }}
+    needs: chromatic-deployment
     steps:
       - uses: actions/checkout@v3
         with:
@@ -31,4 +51,26 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_PUSH_GH }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          
+  
+  github-page:
+    runs-on: ubuntu-latest
+    needs: release
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Install and Build 
+        run: | # Install npm packages and build the Storybook files
+          yarn install
+          yarn build-storybook
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_PUSH_GH }}
+          branch: docs
+          FOLDER: docs
+          CLEAN: true
+          TARGET_FOLDER: docs
