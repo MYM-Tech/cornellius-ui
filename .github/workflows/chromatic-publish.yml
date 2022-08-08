@@ -8,6 +8,7 @@ on:
 jobs:
  chromatic-deployment:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.CI == 'success' }}
     steps:
         # 👇 Version 2 of the action
       - name: Checkout repository

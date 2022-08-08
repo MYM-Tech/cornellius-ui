@@ -5,10 +5,10 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
+  storybook:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.release == 'success' }}
     steps:
-
       - name: Checkout 
         uses: actions/checkout@v3
         with:
