@@ -74,8 +74,4 @@ jobs:
           FOLDER: docs
           CLEAN: true
           TARGET_FOLDER: docs
-<<<<<<< HEAD
           
-=======
-          
->>>>>>> b36aaeb (Build: New CI-CD flow)
