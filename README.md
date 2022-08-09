@@ -117,13 +117,13 @@ In a project with Vue 3 and JSX, import components you use and use them in your 
 
 - [x] Add initial config
 - [ ] Wave 1 first components
-    - [ ] Basics Inputs
+    - [x] Basics Inputs
     - [x] Layout systems
     - [x] Basics Cards
-    - [ ] Modals
+    - [x] Modals
 - [ ] Wave 2 
     - [ ] Complex Inputs
-    - [ ] Lazy load
+    - [x] Lazy load
     - [ ] Infinite Scroll
 - [ ] Wave 3
     - [ ] Popups & dialogs
