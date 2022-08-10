@@ -72,7 +72,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           GITHUB_TOKEN: ${{ secrets.TOKEN_PUSH_GH }}
-          branch: docs
+          branch: pages
           FOLDER: docs
           CLEAN: true
           TARGET_FOLDER: docs
