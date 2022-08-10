@@ -102,5 +102,6 @@
       "import": "./dist/cornellius-ui.es.js",
       "require": "./dist/cornellius-ui.umd.js"
     }
-  }
+  },
+  "packageManager": "yarn@3.2.2"
 }
