@@ -32,9 +32,6 @@
   </ol>
 </details>
 
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -50,8 +47,6 @@ This library is dedicated to the good implementation of mobile-first (responsive
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 ### Built With
 
 This library uses the following tools
@@ -65,11 +60,8 @@ This library uses the following tools
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
-
 
 ### Installation
 
@@ -82,10 +74,7 @@ This library uses the following tools
   yarn add cornellius@latest 
   ```
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -109,8 +98,6 @@ In a project with Vue 3 and JSX, import components you use and use them in your 
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -137,8 +124,6 @@ In a project with Vue 3 and JSX, import components you use and use them in your 
 See [open issues](https://github.com/MYM-Tech/frontend-library/issues/) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -192,7 +177,6 @@ You should now be able to use cornelius components in your Vue 3 project.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 <!-- LICENSE -->
 ## License
 
@@ -210,8 +194,6 @@ Use this space to list resources you find helpful and would like to give credit 
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
