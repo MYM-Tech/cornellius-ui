@@ -72,8 +72,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           GITHUB_TOKEN: ${{ secrets.TOKEN_PUSH_GH }}
-          branch: pages
-          FOLDER: docs
+          FOLDER: storybook-static
           CLEAN: true
-          TARGET_FOLDER: docs
-          
