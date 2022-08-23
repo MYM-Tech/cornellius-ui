@@ -1,6 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3';
 import CorInputCheckbox from './CorInputCheckbox';
-import { CorInputCheckboxProps } from './CorInputCheckbox.types';
 
 export default {
     title: 'Inputs/Input Checkbox',
@@ -9,10 +8,11 @@ export default {
         label: { type: 'string' },
         disabled: { type: 'boolean' },
         checkPosition: { control: 'select', options: ['left', 'right'] },
+        onChange: { action: 'onChange' },
     },
 } as Meta;
 
-const Template: StoryFn<CorInputCheckboxProps> = (args) => ({
+const Template: StoryFn = (args) => ({
     components: { CorInputCheckbox },
     setup() {
         return { args };
@@ -48,4 +48,7 @@ Disabled.args = {
     label: 'Disabled checkbox input',
     disabled: true,
     value: 'Not editable',
+    onChange: (e) => {
+        console.log(e);
+    },
 };
