@@ -3,7 +3,7 @@ import { MainLayout } from '../MainLayout/MainLayout';
 import { Sidebar, SidebarProps } from './Sidebar';
 
 export default {
-    title: 'Layout System/Sidebar',
+    title: 'Cornellius/Layout System/Sidebar',
     component: Sidebar,
 } as Meta;
 

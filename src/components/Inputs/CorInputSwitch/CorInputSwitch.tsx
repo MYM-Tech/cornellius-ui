@@ -9,7 +9,7 @@ const CorInputSwitch = defineComponent({
             required: false,
         },
         label: {
-            type: String as PropType<'left' | 'right'>,
+            type: String,
             required: false,
         },
         onChange: {
@@ -31,12 +31,9 @@ const CorInputSwitch = defineComponent({
             default: false,
         },
         labelPosition: {
-            type: String,
+            type: String as PropType<'left' | 'right'>,
             required: false,
-            validator(value: string) {
-                // The value must match one of these strings
-                return ['left', 'rigth'].includes(value);
-            },
+            default: 'left',
         },
         className: {
             type: String,
@@ -52,26 +49,26 @@ const CorInputSwitch = defineComponent({
 
         if (props.inline) {
             if (props.labelPosition === 'right') {
-                defaultClass = CSS['CorInpurSwitch__inline--right'];
+                defaultClass = CSS['corInpurSwitch__inline--right'];
             } else {
-                defaultClass = CSS.CorInpurSwitch__inline;
+                defaultClass = CSS.corInpurSwitch__inline;
             }
         } else {
-            defaultClass = CSS.CorInpurSwitch;
+            defaultClass = CSS.corInpurSwitch;
         }
 
         const classes = classNames(defaultClass, props.className);
         const switchClass = classNames(
-            CSS.CorInpurSwitch__switchElement__circle,
+            CSS.corInpurSwitch__switchElement__circle,
             props.classSwitch
         );
         const checked = ref(props.checked);
 
         return () => (
             <div class={classes}>
-                {props.label && <div class={CSS.CorInpurSwitch__label}>{props.label}</div>}
+                {props.label && <div class={CSS.corInpurSwitch__label}>{props.label}</div>}
 
-                <div class={CSS.CorInpurSwitch__switchElement}>
+                <div class={CSS.corInpurSwitch__switchElement}>
                     <input
                         v-model={checked.value}
                         value={checked.value}

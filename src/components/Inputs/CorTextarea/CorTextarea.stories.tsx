@@ -3,7 +3,7 @@ import CorTextarea from './CorTextarea';
 import { CorTextareaProps } from './CorTextarea.types';
 
 export default {
-    title: 'Inputs/Textarea',
+    title: 'Cornellius/Inputs/Textarea',
     component: CorTextarea,
     argTypes: {
         label: { type: 'string' },

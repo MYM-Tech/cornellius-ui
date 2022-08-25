@@ -3,7 +3,7 @@ import CorInputMoney from './CorInputMoney';
 import { CorInputMoneyProps } from './CorInputMoney.types';
 
 export default {
-    title: 'Inputs/Input Money',
+    title: 'Cornellius/Inputs/Input Money',
     component: CorInputMoney,
     argTypes: {
         label: { type: 'string' },

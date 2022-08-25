@@ -9,6 +9,7 @@ export default {
         disabled: { type: 'boolean' },
         checked: { type: 'boolean' },
         labelPosition: { control: 'select', options: ['left', 'right'] },
+        onChange: { action: 'onChange' },
     },
 } as Meta;
 

@@ -4,7 +4,7 @@ import { CorButtonProps } from './CorButton.types';
 import CorCheckIcon from '../Icons/CorCheckIcon/CorCheckIcon';
 
 export default {
-    title: 'Button',
+    title: 'Cornellius/Button',
     component: CorButton,
     argTypes: {
         label: { type: 'string' },

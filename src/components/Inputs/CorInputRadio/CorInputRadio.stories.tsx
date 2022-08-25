@@ -3,7 +3,7 @@ import CorInputRadio from './CorInputRadio';
 import { CorInputRadioProps } from './CorInputRadio.types';
 
 export default {
-    title: 'Inputs/Input Radio',
+    title: 'Cornellius/Inputs/Input Radio',
     component: CorInputRadio,
     argTypes: {
         label: { type: 'string' },

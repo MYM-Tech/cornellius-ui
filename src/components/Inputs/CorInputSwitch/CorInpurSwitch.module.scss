@@ -1,23 +1,24 @@
-.CorInpurSwitch {
+.corInpurSwitch {
     display: flex;
     flex-direction: column;
 
-
     &__inline {
-        @extend .CorInpurSwitch;
+        @extend .corInpurSwitch;
+
         flex-direction: initial;
-       
+
         &--right {
-            @extend .CorInpurSwitch__inline;
+            @extend .corInpurSwitch__inline;
+
             flex-direction: row-reverse;
             justify-content: flex-end;
-           
-            .CorInpurSwitch__label {
+
+            .corInpurSwitch__label {
                 margin-left: 32px;
             }
         }
-        
-        .CorInpurSwitch__label {
+
+        .corInpurSwitch__label {
             margin-right: 32px;
         }
     }
@@ -27,43 +28,41 @@
     }
 
     &__switchElement {
-        width: 68px;
         height: 28px;
         position: relative;
+        width: 68px;
 
         &__circle {
-            border-radius: 34px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
             background-color: #ccc;
-            transition: .33s ease-in-out;
+            border-radius: 34px;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: 0.33s ease-in-out;
 
             &::before {
-                position: absolute;
-                content: "";
-                height: 20px;
-                width: 20px;
-                left: 5px;
-                bottom: 4px;
                 background-color: white;
-                transition: .33s ease-in-out;
                 border-radius: 50%;
+                bottom: 4px;
+                content: '';
+                height: 20px;
+                left: 5px;
+                position: absolute;
+                transition: 0.33s ease-in-out;
+                width: 20px;
             }
-
-
         }
 
         & input {
-            position: relative;
-            width: 100%;
+            cursor: pointer;
             height: 100%;
-            padding: 0;
             margin: 0;
             opacity: 0;
-            cursor: pointer;
+            padding: 0;
+            position: relative;
+            width: 100%;
             z-index: 3;
 
             &:disabled {
@@ -71,24 +70,21 @@
             }
         }
 
-        & input:disabled+&__circle {
+        & input:disabled + &__circle {
             background-color: #ccc;
-            box-shadow: none
+            box-shadow: none;
         }
 
-        & input:checked:not(:disabled)+&__circle {
-            background-color: #2196F3;
+        & input:checked:not(:disabled) + &__circle {
+            background-color: #2196f3;
         }
 
-        & input:checked:not(:disabled)+&__circle:before {
+        & input:checked:not(:disabled) + &__circle::before {
             transform: translateX(38px);
         }
 
-        & input:focus+&__circle {
-            box-shadow: 0 0 1px #2196F3;
+        & input:focus + &__circle {
+            box-shadow: 0 0 1px #2196f3;
         }
-
-
     }
-
 }

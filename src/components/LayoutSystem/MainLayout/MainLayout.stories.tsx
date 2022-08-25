@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/vue3';
 import { MainLayout, MainLayoutProps } from './MainLayout';
 
 export default {
-    title: 'Layout System/MainLayout',
+    title: 'Cornellius/Layout System/MainLayout',
     component: MainLayout,
     argTypes: {
         backgroundColor: { control: 'color' },

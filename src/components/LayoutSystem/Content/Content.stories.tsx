@@ -4,7 +4,7 @@ import { Sidebar } from '../Sidebar/Sidebar';
 import { Content, ContentProps } from './Content';
 
 export default {
-    title: 'Layout System/Content',
+    title: 'Cornellius/Layout System/Content',
     component: Content,
     argTypes: {
         backgroundColor: { control: 'color' },
