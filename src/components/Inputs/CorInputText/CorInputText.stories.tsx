@@ -12,6 +12,7 @@ export default {
         value: { type: 'string' },
         status: { control: 'select', options: ['success', 'warning', 'error', undefined] },
         statusMessage: { type: 'string' },
+        variant: { control: 'select', options: ['text', 'password', 'email'] },
         onChange: { action: 'onChange' },
         onSubmit: { action: 'onSubmit' },
     },
@@ -29,6 +30,7 @@ export const Default = Template.bind({});
 Default.args = {
     label: 'Label',
     disabled: false,
+    variant: 'text',
     placeholder: 'Placeholder',
 };
 
@@ -36,6 +38,7 @@ export const Disabled = Template.bind({});
 Disabled.args = {
     label: 'Disabled text input',
     disabled: true,
+    variant: 'text',
     value: 'Not editable',
 };
 
@@ -45,5 +48,6 @@ ErrorWithMessage.args = {
     disabled: false,
     status: 'error',
     statusMessage: 'This is an error message',
+    variant: 'text',
     value: 'Wrong value',
 };

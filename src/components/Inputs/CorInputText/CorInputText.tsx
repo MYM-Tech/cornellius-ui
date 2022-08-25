@@ -12,6 +12,7 @@ const CorInputText: FunctionalComponent<CorInputTextProps> = ({
     placeholder,
     value,
     status,
+    variant = 'text',
     onBlur,
     onChange,
     onSubmit,
@@ -33,7 +34,7 @@ const CorInputText: FunctionalComponent<CorInputTextProps> = ({
                 placeholder={placeholder}
                 maxlength={maxLength}
                 minlength={minLength}
-                type="text"
+                type={variant}
                 onInput={onChange}
                 onBlur={onBlur}
                 onSubmit={onSubmit}
