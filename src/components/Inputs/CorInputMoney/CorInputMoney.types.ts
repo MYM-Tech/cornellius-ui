@@ -1,11 +1,12 @@
 import { VNode } from 'vue';
 import { CorInputTextProps } from '../CorInputText/CorInputText.types';
 
-export interface CorInputMoneyProps extends CorInputTextProps {
+export interface CorInputMoneyProps extends Omit<CorInputTextProps, 'onChange'> {
     symbol?: string | VNode;
     symbolPosition?: 'left' | 'right';
     max?: number;
     min?: number;
     decimals?: number;
     step?: number;
+    onChange: (value: string) => void;
 }

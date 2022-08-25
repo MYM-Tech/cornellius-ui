@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FunctionalComponent, ref } from 'vue';
+import { FunctionalComponent } from 'vue';
 import CSS from './CorInputText.module.scss';
 import { CorInputTextProps } from './CorInputText.types';
 
@@ -23,12 +23,6 @@ const CorInputText: FunctionalComponent<CorInputTextProps> = ({
         [CSS['cor_input_text--error']]: status === 'error',
     });
 
-    const onInput = (e: Event) => {
-        if (!onChange) return;
-        const inputElement = e.target as HTMLInputElement;
-        onChange(inputElement.value);
-    };
-
     return (
         <div class={classes}>
             {label && <label>{label}</label>}
@@ -40,7 +34,7 @@ const CorInputText: FunctionalComponent<CorInputTextProps> = ({
                 maxlength={maxLength}
                 minlength={minLength}
                 type="text"
-                onInput={onInput}
+                onInput={onChange}
                 onBlur={onBlur}
                 onSubmit={onSubmit}
                 onKeydown={onKeydown}
