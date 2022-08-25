@@ -5,7 +5,7 @@ export interface CorInputTextProps extends CorInputProps {
     disabled?: boolean;
     label?: string;
     statusMessage?: string;
-    class: string;
+    class?: string;
     maxLength?: number;
     minLength?: number;
     placeholder?: string;
