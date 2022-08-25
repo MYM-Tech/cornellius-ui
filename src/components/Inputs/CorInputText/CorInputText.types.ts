@@ -10,6 +10,7 @@ export interface CorInputTextProps extends CorInputProps {
     minLength?: number;
     placeholder?: string;
     status?: 'success' | 'warning' | 'error' | undefined;
+    variant?: 'text' | 'password' | 'email';
     onChange?: (event: Event) => void;
     onBlur?: (event: FocusEvent) => void;
     onKeydown?: (event: KeyboardEvent) => void;

@@ -122,7 +122,8 @@ A `CorInputText` allows the user to specify a text.
 | maxLength | number | undefined, **default**: undefined  |
 | minLength | number | undefined, **default**: undefined  |
 | placeholder | string | undefined, **default**: undefined  |
-| status | string: 'success' | 'warning' | 'error' | undefined, **default**: undefined  |
+| status | string: 'success' \| 'warning' \| 'error' \| undefined, **default**: undefined  |
+| variant | string: 'text' \| 'password' \| 'email', **default**: 'text'  |
 | onChange | (value: string) => void | undefined, **default**: undefined  |
 | onBlur | (value: FocusEvent) => void | undefined, **default**: undefined  |
 | onKeydown | (value: KeyboardEvent) => void | undefined, **default**: undefined  |
