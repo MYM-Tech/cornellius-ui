@@ -1,4 +1,12 @@
-export interface CorInputProps<T = string> {
+type TypeOmitHTMLInput = Omit<HTMLInputElement, 'value' | 'max' | 'min' | 'step'>;
+type HTMLInputProps<T> = Partial<TypeOmitHTMLInput> & {
+    value?: T;
+    min?: number;
+    max?: number;
+    step?: number;
+};
+
+export interface CorInputProps<T = string> extends HTMLInputProps<T> {
     value?: T;
     disabled?: boolean;
     label?: string;
