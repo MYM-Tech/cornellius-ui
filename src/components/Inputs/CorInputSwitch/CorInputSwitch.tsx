@@ -9,7 +9,7 @@ const CorInputSwitch = defineComponent({
             required: false,
         },
         label: {
-            type: String,
+            type: String as PropType<'left' | 'right'>,
             required: false,
         },
         onChange: {
