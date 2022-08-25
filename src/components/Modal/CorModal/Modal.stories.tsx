@@ -6,7 +6,7 @@ import modalState from './state/ModalState';
 import { ModalStateType } from './state/ModalState.type';
 
 export default {
-    title: 'Feedback/CorModal',
+    title: 'Cornellius/Feedback/CorModal',
     component: CorModal,
 } as Meta;
 

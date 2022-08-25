@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/vue3';
 import CorInputCheckbox from './CorInputCheckbox';
 
 export default {
-    title: 'Inputs/Input Checkbox',
+    title: 'Cornellius/Inputs/Input Checkbox',
     component: CorInputCheckbox,
     argTypes: {
         label: { type: 'string' },

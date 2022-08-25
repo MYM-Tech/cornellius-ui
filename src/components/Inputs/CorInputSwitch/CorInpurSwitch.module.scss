@@ -1,0 +1,90 @@
+.corInpurSwitch {
+    display: flex;
+    flex-direction: column;
+
+    &__inline {
+        @extend .corInpurSwitch;
+
+        flex-direction: initial;
+
+        &--right {
+            @extend .corInpurSwitch__inline;
+
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+
+            .corInpurSwitch__label {
+                margin-left: 32px;
+            }
+        }
+
+        .corInpurSwitch__label {
+            margin-right: 32px;
+        }
+    }
+
+    &__label {
+        color: #6666;
+    }
+
+    &__switchElement {
+        height: 28px;
+        position: relative;
+        width: 68px;
+
+        &__circle {
+            background-color: #ccc;
+            border-radius: 34px;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: 0.33s ease-in-out;
+
+            &::before {
+                background-color: white;
+                border-radius: 50%;
+                bottom: 4px;
+                content: '';
+                height: 20px;
+                left: 5px;
+                position: absolute;
+                transition: 0.33s ease-in-out;
+                width: 20px;
+            }
+        }
+
+        & input {
+            cursor: pointer;
+            height: 100%;
+            margin: 0;
+            opacity: 0;
+            padding: 0;
+            position: relative;
+            width: 100%;
+            z-index: 3;
+
+            &:disabled {
+                cursor: default;
+            }
+        }
+
+        & input:disabled + &__circle {
+            background-color: #ccc;
+            box-shadow: none;
+        }
+
+        & input:checked:not(:disabled) + &__circle {
+            background-color: #2196f3;
+        }
+
+        & input:checked:not(:disabled) + &__circle::before {
+            transform: translateX(38px);
+        }
+
+        & input:focus + &__circle {
+            box-shadow: 0 0 1px #2196f3;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+<!-- CorInputSwitch.stories.mdx -->
+
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import CorInputSwitch from './CorInputSwitch';
+
+<Meta title="Cornellius/Inputs/Input Switch/Introduction" />
+
+# CorInputSwitch
+
+A `CorInputSwitch` allows the user to switch two option.
+
+
+<Canvas>
+  <Story name="default">
+    {() => {
+      return {
+        components: { CorInputSwitch },
+        template: `
+            <CorInputSwitch />
+            `,
+      };
+    }}
+  </Story>
+</Canvas>
+
+## Props
+
+| Prop  | Description | Type | Required? | Default Value |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| id | switch id (similar to HTML id) | string |  | |
+| className | class to apply on component| string or string[] |  | |
+| label | label shown next to input | string | | |
+| checked | whether the switch is checked or not by default | boolean | | false |
+| disabled | whether the input is disabled or not | boolean | | false |
+| inline | set the position of switch and label in one line | boolean |  |false |
+| labelPosition | set label position | 'left' , 'right' | | 'left' |
+
+## Methods
+
+| Prop | Description | Type | Required? | Default Value |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| onChange | called when value changes | (value: boolean) => void |  | |
