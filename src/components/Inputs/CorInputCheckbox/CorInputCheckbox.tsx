@@ -32,7 +32,9 @@ const CorInputCheckbox = defineComponent({
 
         const onChange = (e: Event) => {
             state.value = !state.value;
-            props.onChange?.(e);
+            if (props.onChange) {
+                props.onChange(e);
+            }
         };
 
         return () => (
