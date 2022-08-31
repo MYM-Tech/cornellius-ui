@@ -12,10 +12,11 @@ const CorTextarea: FunctionalComponent<CorTextareaProps> = ({
     placeholder,
     value,
     status,
+    className,
     onChange,
     onSubmit,
 }) => {
-    const classes = classNames(CSS.cor_textarea, {
+    const classes = classNames(CSS.cor_textarea, className, {
         [CSS['cor_textarea--success']]: status === 'success',
         [CSS['cor_textarea--warning']]: status === 'warning',
         [CSS['cor_textarea--error']]: status === 'error',
