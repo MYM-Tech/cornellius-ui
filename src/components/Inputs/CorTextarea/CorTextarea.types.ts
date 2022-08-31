@@ -7,6 +7,7 @@ export interface CorTextareaProps {
     minLength?: number;
     placeholder?: string;
     status?: 'success' | 'warning' | 'error' | undefined;
+    className: string;
     onChange?(value: string): void;
     onSubmit?(e: Event): void;
 }

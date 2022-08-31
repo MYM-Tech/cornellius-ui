@@ -12,13 +12,14 @@ const CorInputText: FunctionalComponent<CorInputTextProps> = ({
     placeholder,
     value,
     status,
+    className = '',
     variant = 'text',
     onBlur,
     onChange,
     onSubmit,
     onKeydown,
 }) => {
-    const classes = classNames(CSS.cor_input_text, {
+    const classes = classNames(CSS.cor_input_text, className, {
         [CSS['cor_input_text--success']]: status === 'success',
         [CSS['cor_input_text--warning']]: status === 'warning',
         [CSS['cor_input_text--error']]: status === 'error',

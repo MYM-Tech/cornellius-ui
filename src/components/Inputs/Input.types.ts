@@ -13,7 +13,7 @@ export interface CorInputProps<T = string> extends HTMLInputProps<T> {
     statusMessage?: string;
     placeholder?: string;
     status?: 'success' | 'warning' | 'error' | undefined;
-    class?: string | string[];
+    className?: string;
     onChange?(value: string | Event): void;
     onSubmit?(e: Event): void;
     onBlur?(e: FocusEvent): void;
