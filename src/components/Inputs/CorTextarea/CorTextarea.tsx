@@ -13,6 +13,7 @@ const CorTextarea: FunctionalComponent<CorTextareaProps> = ({
     value,
     status,
     className,
+    textareaClassName,
     onChange,
     onSubmit,
 }) => {
@@ -40,6 +41,7 @@ const CorTextarea: FunctionalComponent<CorTextareaProps> = ({
                 minlength={minLength}
                 onInput={onInput}
                 onSubmit={onSubmit}
+                class={textareaClassName}
             />
             {statusMessage && <div class={CSS.cor_textarea__status}>{statusMessage}</div>}
         </div>
