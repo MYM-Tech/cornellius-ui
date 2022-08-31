@@ -14,6 +14,7 @@ const CorInputText: FunctionalComponent<CorInputTextProps> = ({
     status,
     className = '',
     variant = 'text',
+    inputClassName,
     onBlur,
     onChange,
     onSubmit,
@@ -40,6 +41,7 @@ const CorInputText: FunctionalComponent<CorInputTextProps> = ({
                 onBlur={onBlur}
                 onSubmit={onSubmit}
                 onKeydown={onKeydown}
+                class={inputClassName}
             />
             {statusMessage && <div class={CSS.cor_input_text__status}>{statusMessage}</div>}
         </div>

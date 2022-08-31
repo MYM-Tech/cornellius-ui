@@ -8,6 +8,7 @@ export interface CorTextareaProps {
     placeholder?: string;
     status?: 'success' | 'warning' | 'error' | undefined;
     className: string;
+    textareaClassName?: string;
     onChange?(value: string): void;
     onSubmit?(e: Event): void;
 }
