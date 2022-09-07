@@ -1,0 +1,53 @@
+// Since we are dynamically constructing classes in Notifier/Notice
+// I need these to be global, it's too much effort to get post css generated
+// local names
+:global {
+    ._cor_toast {
+        left: 0;
+        pointer-events: none;
+        position: fixed;
+        top: 8px;
+        width: 100%;
+        z-index: 999;
+
+        &_notice {
+            padding: 8px;
+            text-align: center;
+
+            // toast-move-up is in local scope so we need that to be aware of
+            // local scope
+            &.move_up_leave.move_up_leave_active :local {
+                animation-duration: 0.3s;
+                animation-name: toast-move-out;
+            }
+
+            &_content {
+                background: #fff;
+                border-radius: 2px;
+                box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%), 0 9px 28px 8px rgb(0 0 0 / 5%);
+                display: inline-block;
+                padding: 10px 16px;
+                pointer-events: all;
+            }
+        }
+
+        &_info {
+            color: #1890ff;
+        }
+    }
+}
+
+// this as a global doesn't seems to work
+@keyframes toast-move-out {
+    0% {
+        max-height: 150px;
+        opacity: 1;
+        padding: 8px;
+    }
+
+    100% {
+        max-height: 0;
+        opacity: 0;
+        padding: 0;
+    }
+}

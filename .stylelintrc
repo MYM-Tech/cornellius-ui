@@ -1,5 +1,7 @@
 {
-  "extends": ["stylelint-config-standard-scss"],
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
   "plugins": [
     "stylelint-selector-bem-pattern",
     "stylelint-order"
@@ -20,6 +22,8 @@
       },
       "utilitySelectors": "^\\.util-[a-z]+$"
     },
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "selector-pseudo-class-no-unknown": null,
+    "max-line-length": null
   }
 }

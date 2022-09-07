@@ -14,6 +14,8 @@ import { CorModal, handleModalState } from './components/Modal/CorModal/CorModal
 import CorButton from './components/CorButton/CorButton';
 import CorInputTime from './components/Inputs/CorInputTime/CorInputTime';
 import CorInputSwitch from './components/Inputs/CorInputSwitch/CorInputSwitch';
+import { default as toast } from './components/Toast/Toast';
+import { default as notification } from './components/Notification/Notification';
 
 export {
     Card,
@@ -31,4 +33,6 @@ export {
     handleModalState,
     CorInputTime,
     CorInputSwitch,
+    toast,
+    notification,
 };
