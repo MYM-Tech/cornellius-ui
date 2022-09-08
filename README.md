@@ -67,11 +67,11 @@ This library uses the following tools
 
 * npm
   ```sh
-  npm install cornellius@latest 
+  npm install @mym-tech/cornellius-ui@latest 
   ```
 * yarn
   ```sh
-  yarn add cornellius@latest 
+  yarn add @mym-tech/cornellius-ui@latest 
   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -82,7 +82,7 @@ This library uses the following tools
 In a project with Vue 3 and JSX, import components you use and use them in your component return.
 
    ```jsx
-   import CorInput from 'cornellius';
+   import CorInput from '@mym-tech/cornellius-ui';
 
    const componentX = () => {
        return (
@@ -138,42 +138,46 @@ Example: `feat/add-user-company`.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 ### Local Testing
 
-To test components, you'll need to install [verdaccio](https://verdaccio.org/fr-fr/). Install and launch it in a terminal for local test. Then, install your local package in the project you want to use Cornellius. 
+To locally test this package, you can simply use `npm link`.
+
+There is two ways of doing that:
 
 ```sh
-npm publish --registry http://localhost:4873  
+cd cornellius-ui/
+npm link
+cd my-vue-project/
+npm link @mym-tech/cornellius-ui
 ```
 
-Create a .npmrc file with the following:
+or you can simply do
 
 ```sh
-registry=http://localhost:4873
+cd my-vue-project/
+npm link ../path/to/cornellius-ui
 ```
 
-In your terminal run:
+Now you can start using cornellius-ui in your local Vue 3 project
+ and when you modify your local cornellius-ui repository and run the build
+ command, it will automatically update in your local Vue project.
+
+### Publish
+
+To publish a new version in the npm registry, you will need to increment the
+package version in the `package.json` file and run the npm publish command.
 
 ```sh
-npm set registry http://localhost:4873
+npm publish --registry https://registry.npmjs.org  
 ```
 
-Then in your Vue 3 project use the following command to install Cornellius:
+Now you should be able to install the new version in your Vue 3 project
+ by using the following command:
 
 ```sh
-npm i cornellius@0.0.1 --registry http://localhost:4873 
+npm i @mym-tech/cornellius-ui@latest
 
 ```
-
-***remember: to rollback your NPM registry and continue to install other packages you'll need reset the normal registy with:***
-
-```sh
-npm set registry https://registry.npmjs.org/
-```
-and delete or comment the ***.npmrc*** file.
-
-You should now be able to use cornelius components in your Vue 3 project.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
