@@ -44,6 +44,7 @@ module.exports = {
             },
         ],
         'no-useless-space': 0,
+        'import/prefer-default-export': 0,
     },
     overrides: [
         {

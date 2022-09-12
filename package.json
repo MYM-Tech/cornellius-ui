@@ -18,17 +18,27 @@
     "chromatic": "chromatic --exit-zero-on-changes --allow-console-errors  --project-token=CHROMATIC_PROJECT_TOKEN",
     "dev": "vite",
     "install": "yarn postinstall",
+    "commitlint": "commitlint",
+    "lint-staged": "lint-staged",
     "lint:markup": "vue-tsc",
-    "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore . --fix",
-    "lint:style": "stylelint src/**/*.{css,scss,vue} --fix",
+    "lint": "npm run lint:script && npm run lint:style",
+    "lint:fix": "npm run lint:script:fix && npm run lint:style:fix",
+    "lint:script": "eslint --ext .ts,.tsx,.vue --ignore-path .gitignore .",
+    "lint:script:fix": "npm run lint:script -- --fix",
+    "lint:style": "stylelint src/**/*.{css,scss,sass}",
+    "lint:style:fix": "npm run lint:style -- --fix",
     "preview": "vite preview",
-    "postinstall": "rm -rf ./node_modules/@types/react",
+    "postinstall": "rm -rf ./node_modules/@types/react && husky install",
     "release": "release-it",
     "storybook": "start-storybook -p 6006",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@storybook/addon-actions": "^6.5.4",
     "@storybook/addon-essentials": "^6.5.4",
     "@storybook/addon-links": "^6.5.4",
@@ -50,7 +60,10 @@
     "eslint-plugin-vue": "^8.6.0",
     "eslint-plugin-vuejs-accessibility": "^1.1.1",
     "happy-dom": "^2.55.0",
+    "husky": "^8.0.0",
     "lazy-load-vue3": "^1.2.8",
+    "lint-staged": "^13.0.3",
+    "pinst": "^3.0.0",
     "postcss": "8",
     "release-it": "^14.13.1",
     "sass": "^1.50.1",
@@ -60,6 +73,7 @@
     "stylelint-config-standard": "^25.0.0",
     "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-order": "^5.0.0",
+    "stylelint-selector-bem-pattern": "^2.1.1",
     "ts-loader": "^9.2.8",
     "typescript": "^4.6.3",
     "vitest": "^0.14.1",
@@ -71,9 +85,8 @@
     "registry": "https://registry.npmjs.org"
   },
   "lint-staged": {
-    "*.{ts,tsx}": "eslint --fix",
-    "*.{css,scss,vue}": "stylelint --fix",
-    "*": "prettier -w -u"
+    "*.{ts,tsx,vue}": "eslint --fix",
+    "*.{css,scss,sass}": "stylelint --fix"
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^2.3.1",
@@ -83,7 +96,6 @@
     "classnames": "^2.3.1",
     "dayjs": "^1.11.2",
     "normalize-scss": "^7.0.1",
-    "stylelint-selector-bem-pattern": "^2.1.1",
     "vite": "^2.9.2",
     "vite-plugin-css-injected-by-js": "^1.4.0",
     "vue": "^3.2.25"
