@@ -7,11 +7,14 @@ import {NotifierInstance} from "../Notifier/Notifier.types";
 import {ConfigProps, IconType, NotificationApi, NotificationArgsProps, NotificationPlacement} from "./Notification.types";
 import './Notification.module.scss'
 
+// cached instances
 const notificationInstances: { [key: string]: NotifierInstance } = {};
-let defaultDuration = 4.5;
+
+// default values
+let defaultDuration = 5;
 let defaultTop = '24px';
 let defaultBottom = '24px';
-let defaultPrefixCls = '_cor_notification';
+let defaultPrefixCls = 'cor_notification';
 let defaultPlacement: NotificationPlacement = 'topRight';
 let defaultGetContainer = () => document.body;
 let defaultCloseIcon: any  = null;
@@ -19,6 +22,7 @@ let defaultClosable = true;
 let rtl = false;
 let maxCount: number;
 
+// set the config to override defaults
 function setNotificationConfig(options: ConfigProps) {
   const {
     duration,
@@ -61,6 +65,7 @@ function setNotificationConfig(options: ConfigProps) {
   }
 }
 
+// return style based on placement
 function getPlacementStyle(
   placement: NotificationPlacement,
   top: string = defaultTop,
@@ -71,16 +76,16 @@ function getPlacementStyle(
   switch (placement) {
     case 'top':
       style = {
-        //TODO: calc width /2 - notice width - 2
-        left: '40%',
+        left: '50%',
+        transform: 'translate(-50%, 0)',
         top,
         bottom: 'auto',
       }
       break;
     case 'bottom':
       style = {
-        //TODO: calc width /2 - notice width - 2
-        left: '40%',
+        left: '50%',
+        transform: 'translate(-50%, 0)',
         bottom,
         top: 'auto',
       }
@@ -118,6 +123,9 @@ function getPlacementStyle(
   return style;
 }
 
+// we are using the notification instance
+// as a singleton so we need to call this
+// function to retrieve the current instance
 function getNotificationInstance(
   {
     prefixCls: customPrefixCls,
@@ -150,6 +158,7 @@ function getNotificationInstance(
       style: getPlacementStyle(placement, top, bottom),
       appContext,
       getContainer,
+      // TODO: replace by an actual icon
       closeIcon: ({ prefixCls: prefix } : { prefixCls : string }) => {
         return (
           <span class={`${prefix}_close_x`}>
@@ -173,6 +182,7 @@ function getNotificationInstance(
   )
 }
 
+// TODO; not implemented
 const typeToIcon = {
   success: CorCheckIcon,
   info: CorCheckIcon,
@@ -180,8 +190,10 @@ const typeToIcon = {
   warning: CorCheckIcon,
 };
 
-function create(args: NotificationArgsProps) {
-  const { icon, type, title, description, btn, onClick, onClose, key } = args;
+
+// open a notification by calling notify of the notifier instance
+function open(args: NotificationArgsProps) {
+  const { icon, type, title, description, btn, onClick, onClose, key, render } = args;
 
   getNotificationInstance(args, instance => {
     instance.notify({
@@ -194,6 +206,12 @@ function create(args: NotificationArgsProps) {
       class: args.class,
       content: ({ prefixCls: componentPrefixCls } : { prefixCls: string }) => {
         const prefixCls = `${componentPrefixCls}_notice`
+
+        // custom render
+        if (render) {
+          return renderHelper(render, Object.assign({ prefixCls }, args));
+        }
+
         let iconNode = null;
         if (icon) {
           iconNode = () => <span class={`${prefixCls}_icon`}>{renderHelper(icon)}</span>
@@ -221,8 +239,9 @@ function create(args: NotificationArgsProps) {
   })
 }
 
+// api we are exposing to the users
 const api: any = {
-  open: create,
+  open,
   close(key: string) {
     Object.keys(notificationInstances).forEach(cacheKey =>
       notificationInstances[cacheKey].removeNotice(key)
@@ -232,20 +251,21 @@ const api: any = {
   destroy() {
     Object.keys(notificationInstances).forEach(cacheKey => {
       notificationInstances[cacheKey].destroy();
-      delete notificationInstances[cacheKey]; // lgtm[js/missing-await]
+      delete notificationInstances[cacheKey];
     });
   },
 };
 
-const iconTypes: IconType[] = ['success', 'info', 'warning', 'error'];
-iconTypes.forEach(type => {
-  api[type] = (args: NotificationArgsProps) =>
-    api.open({
-      ...args,
-      type,
-    });
-});
+// TODO: implement support for success, error, info, warning
+// const iconTypes: IconType[] = ['success', 'info', 'warning', 'error'];
+// iconTypes.forEach(type => {
+//   api[type] = (args: NotificationArgsProps) =>
+//     api.open({
+//       ...args,
+//       type,
+//     });
+// });
 
-api.warn = api.warning;
+// api.warn = api.warning;
 
 export default api as NotificationApi;

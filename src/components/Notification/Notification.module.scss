@@ -11,7 +11,7 @@ $border-radius-base: 2px;
 $heading-color: fade(#000, 85%);
 
 :global {
-    ._cor_notification {
+    .cor_notification {
         margin-right: $notification-margin-edge;
         position: fixed;
         z-index: 1000;
@@ -39,8 +39,8 @@ $heading-color: fade(#000, 85%);
             width: $notification-width;
             word-wrap: break-word;
 
-            ._cor_notification_topLeft &,
-            ._cor_notification_bottomLeft & {
+            .cor_notification_topLeft &,
+            .cor_notification_bottomLeft & {
                 margin-left: 0;
                 margin-right: auto;
             }
@@ -91,7 +91,7 @@ $heading-color: fade(#000, 85%);
                 position: absolute;
             }
 
-            ._cor_icon {
+            .cor_icon {
                 &_success {
                     color: green;
                 }
@@ -125,6 +125,41 @@ $heading-color: fade(#000, 85%);
                 float: right;
                 margin-top: 15px;
             }
+        }
+
+        &_rtl {
+          direction: rtl;
+
+          .cor_notification_notice {
+            &_closable &_title {
+              padding-right: 0;
+              padding-left: 24px;
+            }
+
+            &_with_icon &_title {
+              padding-right: 0;
+              padding-left: 24px;
+            }
+
+            &_with_icon &_description {
+              margin-right: 48px;
+              margin-left: 0;
+            }
+
+            &_icon {
+              margin-right: 4px;
+              margin-left: 0;
+            }
+
+            &_close {
+              right: auto;
+              left: 22px;
+            }
+
+            &_btn {
+              float: left;
+            }
+          }
         }
 
         @mixin cor-notification-fade-effect {

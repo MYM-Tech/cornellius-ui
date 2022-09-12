@@ -76,7 +76,6 @@ export default defineComponent<NoticeProps>({
     return () => {
       const { prefixCls, closable, closeIcon = slots.closeIcon?.(), onClick } = props;
       const { class: className, style } = attrs;
-      // TODO: comment construire la classe css avec le hash d'ici?
       const componentClass = `${prefixCls}_notice`;
 
       const dataOrAriaAttributeProps = Object.keys(attrs).reduce(

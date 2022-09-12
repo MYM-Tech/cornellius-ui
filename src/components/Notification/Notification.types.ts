@@ -25,7 +25,7 @@ export interface ConfigProps {
 }
 
 export interface NotificationArgsProps {
-    title: VueNode | (() => VueNode);
+    title?: VueNode | (() => VueNode);
     description?: VueNode | (() => VueNode);
     btn?: VueNode | (() => VueNode);
     key?: string;
@@ -44,18 +44,21 @@ export interface NotificationArgsProps {
     closeIcon?: VueNode | (() => VueNode);
     appContext?: any;
     closable?: boolean;
+    render?: VueNode | ((config: NotificationArgsProps) => VueNode);
 }
 
+
+// TODO: implement support for success, error, info, warning
 export interface NotificationInstance {
-    success(args: NotificationArgsProps): void;
-    error(args: NotificationArgsProps): void;
-    info(args: NotificationArgsProps): void;
-    warning(args: NotificationArgsProps): void;
+    // success(args: NotificationArgsProps): void;
+    // error(args: NotificationArgsProps): void;
+    // info(args: NotificationArgsProps): void;
+    // warning(args: NotificationArgsProps): void;
     open(args: NotificationArgsProps): void;
 }
 
 export interface NotificationApi extends NotificationInstance {
-    warn(args: NotificationArgsProps): void;
+    // warn(args: NotificationArgsProps): void;
     close(key: string): void;
     config(options: ConfigProps): void;
     destroy(): void;

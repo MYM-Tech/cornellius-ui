@@ -23,6 +23,7 @@ function getUuid() {
   return `notifier_${now}_${id}`;
 }
 
+// Notifier is wrapping notices in a TransitionGroup
 const Notifier = defineComponent<NotifierProps>({
   name: 'Notifier',
   inheritAttrs: false,
@@ -30,6 +31,8 @@ const Notifier = defineComponent<NotifierProps>({
   setup(props, { attrs, expose, slots }) {
 
     const hookRefs = new Map<Key, HTMLDivElement>();
+
+    // ref containing all currently displayed notices
     const notices = ref<NotifierState>([]);
 
     const transitionProps = computed(() => {
@@ -43,6 +46,7 @@ const Notifier = defineComponent<NotifierProps>({
       return getTransitionGroupProps(name!);
     });
 
+    // method we expose to add a notice to the notice list
     const add = (originNotice: NoticeContent, holderCallback?: HolderReadyCallback) => {
       const key = originNotice.key || getUuid();
       const notice: NoticeContent & { key: Key; userPassKey?: Key } = {
@@ -67,6 +71,7 @@ const Notifier = defineComponent<NotifierProps>({
       notices.value = updatedNotices;
     };
 
+    // method we expose to remove a notice to the notice list
     const remove = (removeKey: Key) => {
       notices.value = notices.value.filter(({ notice: { key, userPassKey } }) => {
         const mergedKey = userPassKey || key;
@@ -156,6 +161,7 @@ const Notifier = defineComponent<NotifierProps>({
   },
 });
 
+// Create a new Notifier instance
 Notifier.newInstance = function newNotifierInstance(
   properties: Record<string, any>,
   callback: (instance: any) => void
@@ -177,6 +183,7 @@ Notifier.newInstance = function newNotifierInstance(
     const root = getContainer();
     root.appendChild(div);
   } else {
+    // by default we append our wrapper to the document's body
     document.body.appendChild(div);
   }
 
@@ -187,6 +194,7 @@ Notifier.newInstance = function newNotifierInstance(
       const notiRef = ref();
 
       onMounted(() => {
+        // we return the exposed api
         callback({
           notify(noticeProps: NoticeContent) {
             notiRef.value?.add(noticeProps);
