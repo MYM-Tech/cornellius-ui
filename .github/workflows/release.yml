@@ -6,8 +6,10 @@ on:
       - master
 
 jobs:
+ 
   release:
     runs-on: ubuntu-latest
+    needs: chromatic-deployment
     steps:
       - uses: actions/checkout@v3
         with:

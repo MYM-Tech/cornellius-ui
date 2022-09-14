@@ -1,0 +1,7 @@
+.checkboxRed {
+    input {
+        &:checked {
+            background: red;
+        }
+    }
+}
