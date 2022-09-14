@@ -26,7 +26,7 @@ const CorInputCheckbox = defineComponent({
     setup(props) {
         const state = reactive({ value: props.defaultValue });
 
-        const classes = classNames(CSS.cor_input_checkbox, {
+        const classes = classNames(props.class, CSS.cor_input_checkbox, {
             [CSS[`cor_input_checkbox--right`]]: props.checkPosition === 'right',
         });
 
