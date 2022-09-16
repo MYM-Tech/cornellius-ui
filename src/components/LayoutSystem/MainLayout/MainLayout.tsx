@@ -5,7 +5,7 @@ import STYLE from './MainLayout.module.scss';
 export interface MainLayoutProps {
     reverseSidebar?: boolean;
     className?: string;
-    style?: string
+    style?: string;
 }
 
 export const MainLayout: FunctionalComponent<MainLayoutProps> = (

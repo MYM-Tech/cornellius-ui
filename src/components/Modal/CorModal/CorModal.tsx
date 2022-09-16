@@ -14,8 +14,8 @@ const CorModal: FunctionalComponent<CorModalProps> = (
         escKeyClose = false,
         closeOnFocusOut = false,
         open = false,
-        onEnter = (e, done) => null,
-        onLeave = (e, done) => null,
+        onEnter = () => null,
+        onLeave = () => null,
     },
     { slots }
 ) => {
