@@ -35,11 +35,19 @@ const CorInputSwitch = defineComponent({
             required: false,
             default: 'left',
         },
-        className: {
+        classWrapper: {
             type: String,
             required: false,
         },
-        classSwitch: {
+        classLabel: {
+            type: String,
+            required: false,
+        },
+        classSwitchWrapper: {
+            type: String,
+            required: false,
+        },
+        classSwitchLever: {
             type: String,
             required: false,
         },
@@ -49,26 +57,37 @@ const CorInputSwitch = defineComponent({
 
         if (props.inline) {
             if (props.labelPosition === 'right') {
-                defaultClass = CSS['corInpurSwitch__inline--right'];
+                defaultClass = CSS['cor_input_switch--inline--right'];
             } else {
-                defaultClass = CSS.corInpurSwitch__inline;
+                defaultClass = CSS['cor_input_switch--inline'];
             }
         } else {
-            defaultClass = CSS.corInpurSwitch;
+            defaultClass = CSS.cor_input_switch;
         }
 
-        const classes = classNames(defaultClass, props.className);
-        const switchClass = classNames(
-            CSS.corInpurSwitch__switchElement__circle,
-            props.classSwitch
-        );
+        const classesWrapper = classNames(defaultClass, {
+            [props.classWrapper as string]: !!props.classWrapper,
+        });
+
+        const classesLabel = classNames(CSS.cor_input_switch_label, {
+            [props.classLabel as string]: !!props.classLabel,
+        });
+
+        const classesSwitchWrapper = classNames(CSS.cor_input_switch_wrapper, {
+            [props.classSwitchWrapper as string]: !!props.classSwitchWrapper,
+        });
+
+        const classesSwitchLever = classNames(CSS.cor_input_switch_wrapper_lever, {
+            [props.classSwitchLever as string]: !!props.classSwitchLever,
+        });
+
         const checked = ref(props.checked);
 
         return () => (
-            <div class={classes}>
-                {props.label && <div class={CSS.corInpurSwitch__label}>{props.label}</div>}
+            <div class={classesWrapper}>
+                {props.label && <span class={classesLabel}>{props.label}</span>}
 
-                <div class={CSS.corInpurSwitch__switchElement}>
+                <div class={classesSwitchWrapper}>
                     <input
                         v-model={checked.value}
                         value={checked.value}
@@ -76,7 +95,7 @@ const CorInputSwitch = defineComponent({
                         onInput={props.onChange}
                         disabled={props.disabled}
                     />
-                    <span class={switchClass}></span>
+                    <span class={classesSwitchLever}></span>
                 </div>
             </div>
         );
