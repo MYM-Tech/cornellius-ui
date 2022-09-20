@@ -1,38 +1,38 @@
-.corInpurSwitch {
+.cor_input_switch {
     display: flex;
     flex-direction: column;
 
-    &__inline {
-        @extend .corInpurSwitch;
+    &--inline {
+        @extend .cor_input_switch;
 
         flex-direction: initial;
 
         &--right {
-            @extend .corInpurSwitch__inline;
+            @extend .cor_input_switch--inline;
 
             flex-direction: row-reverse;
             justify-content: flex-end;
 
-            .corInpurSwitch__label {
-                margin-left: 32px;
+            .cor_input_switch_label {
+                margin-left: 7px;
             }
         }
 
-        .corInpurSwitch__label {
-            margin-right: 32px;
+        .cor_input_switch_label {
+            margin-right: 7px;
         }
     }
 
-    &__label {
+    &_label {
         color: #6666;
     }
 
-    &__switchElement {
+    &_wrapper {
         height: 28px;
         position: relative;
         width: 68px;
 
-        &__circle {
+        &_lever {
             background-color: #ccc;
             border-radius: 34px;
             bottom: 0;
@@ -70,21 +70,21 @@
             }
         }
 
-        & input:disabled + &__circle {
+        & input:disabled + &_lever {
             background-color: #ccc;
-            box-shadow: none;
+            outline: none;
         }
 
-        & input:checked:not(:disabled) + &__circle {
+        & input:checked:not(:disabled) + &_lever {
             background-color: #2196f3;
         }
 
-        & input:checked:not(:disabled) + &__circle::before {
+        & input:checked:not(:disabled) + &_lever::before {
             transform: translateX(38px);
         }
 
-        & input:focus + &__circle {
-            box-shadow: 0 0 1px #2196f3;
+        & input:focus + &_lever {
+            outline: 1px solid #2196f3;
         }
     }
 }
