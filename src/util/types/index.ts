@@ -9,5 +9,5 @@ export type VueNode = VNodeChildAtom | VNodeChildAtom[] | JSX.Element;
 export type MouseEventHandler = (e: MouseEvent) => void;
 
 export interface ThenableArgument {
-    (val: any): void;
+    (val: unknown): void;
 }

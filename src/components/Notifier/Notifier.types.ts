@@ -1,4 +1,4 @@
-import { Key } from '../../util/types';
+import { Key, VueNode } from '../../util/types';
 import { NoticeContent, NoticeFunc, NoticeProps } from './Notice.types';
 
 export interface NotifierInstance {
@@ -13,7 +13,7 @@ export interface NotifierProps {
     transitionName?: string;
     animation?: string;
     maxCount?: number;
-    closeIcon?: any;
+    closeIcon?: VueNode;
 }
 
 export type HolderReadyCallback = (

@@ -53,7 +53,7 @@ export default defineConfig({
     css: {
         devSourcemap: false,
         modules: {
-          // scopeBehaviour: 'global',
-        }
+            // scopeBehaviour: 'global',
+        },
     },
 });

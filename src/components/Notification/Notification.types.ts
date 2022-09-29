@@ -1,4 +1,4 @@
-import { CSSProperties } from 'vue';
+import { AppContext, CSSProperties } from 'vue';
 import { VueNode } from '../../util/types';
 
 export type NotificationPlacement =
@@ -36,29 +36,22 @@ export interface NotificationArgsProps {
     style?: CSSProperties;
     prefixCls?: string;
     class?: string;
-    readonly type?: IconType;
     onClick?: () => void;
     top?: string;
     bottom?: string;
     getContainer?: () => HTMLElement;
     closeIcon?: VueNode | (() => VueNode);
-    appContext?: any;
+    appContext?: AppContext;
     closable?: boolean;
     render?: VueNode | ((config: NotificationArgsProps) => VueNode);
 }
 
-
 // TODO: implement support for success, error, info, warning
 export interface NotificationInstance {
-    // success(args: NotificationArgsProps): void;
-    // error(args: NotificationArgsProps): void;
-    // info(args: NotificationArgsProps): void;
-    // warning(args: NotificationArgsProps): void;
     open(args: NotificationArgsProps): void;
 }
 
 export interface NotificationApi extends NotificationInstance {
-    // warn(args: NotificationArgsProps): void;
     close(key: string): void;
     config(options: ConfigProps): void;
     destroy(): void;

@@ -1,0 +1,288 @@
+$notification-margin-edge: 24px;
+$notification-margin-bottom: 16px;
+$notification-width: 384px;
+$notification-padding-vertical: 16px;
+$notification-padding-horizontal: 24px;
+$notification-padding: $notification-padding-vertical $notification-padding-horizontal;
+$font-size-base: 14px;
+$font-size-lg: $font-size-base + 2px;
+$font-size-sm: $font-size-base - 2px;
+$border-radius-base: 2px;
+$heading-color: fade(#000, 85%);
+
+.cor_notification {
+    margin-right: $notification-margin-edge;
+    position: fixed;
+    z-index: 1000;
+
+    &_close_icon {
+        cursor: pointer;
+        font-size: $font-size-base;
+    }
+
+    &_hook_holder {
+        position: relative;
+    }
+
+    &_notice {
+        background: #fff;
+        border-radius: $border-radius-base;
+        box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%), 0 9px 28px 8px rgb(0 0 0 / 5%);
+        margin-bottom: $notification-margin-bottom;
+        margin-left: auto;
+        max-width: 100%;
+        overflow: hidden;
+        padding: $notification-padding;
+        position: relative;
+        width: $notification-width;
+        word-wrap: break-word;
+
+        .cor_notification_topLeft &,
+        .cor_notification_bottomLeft & {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        &_title {
+            color: $heading-color;
+            font-size: $font-size-lg;
+            line-height: 24px;
+            margin-bottom: 8px;
+
+            &_single_line_auto_margin {
+                background-color: transparent;
+                display: block;
+                max-width: 4px;
+                pointer-events: none;
+                width: calc($notification-width - $notification-padding-horizontal * 2 - 24px - 48px - 100%);
+
+                &::before {
+                    content: '';
+                    display: block;
+                }
+            }
+        }
+
+        &_closable &_title {
+            padding-right: 24px;
+        }
+
+        &_with_icon &_title {
+            font-size: $font-size-lg;
+            margin-bottom: 4px;
+            margin-left: 48px;
+        }
+
+        &_description {
+            font-size: $font-size-base;
+        }
+
+        &_with_icon &_description {
+            font-size: $font-size-base;
+            margin-left: 48px;
+        }
+
+        &_icon {
+            font-size: 24px;
+            line-height: 24px;
+            margin-left: 4px;
+            position: absolute;
+        }
+
+        .cor_icon {
+            &_success {
+                color: green;
+            }
+
+            &_info {
+                color: blue;
+            }
+
+            &_warning {
+                color: yellow;
+            }
+
+            &_error {
+                color: red;
+            }
+        }
+
+        &_close {
+            color: $heading-color;
+            outline: none;
+            position: absolute;
+            right: 22px;
+            top: 16px;
+
+            &:hover {
+                color: fade(#fff, 85%);
+            }
+        }
+
+        &_btn {
+            float: right;
+            margin-top: 15px;
+        }
+    }
+
+    &_rtl {
+        direction: rtl;
+
+        .cor_notification_notice {
+            &_closable &_title {
+                padding-left: 24px;
+                padding-right: 0;
+            }
+
+            &_with_icon &_title {
+                padding-left: 24px;
+                padding-right: 0;
+            }
+
+            &_with_icon &_description {
+                margin-left: 0;
+                margin-right: 48px;
+            }
+
+            &_icon {
+                margin-left: 0;
+                margin-right: 4px;
+            }
+
+            &_close {
+                left: 22px;
+                right: auto;
+            }
+
+            &_btn {
+                float: left;
+            }
+        }
+    }
+
+    @mixin cor-notification-fade-effect {
+        animation-duration: 0.33s;
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); // ease-in-out
+    }
+
+    .fade_enter,
+    .fade_appear {
+        @include cor-notification-fade-effect;
+
+        animation-play-state: paused;
+        opacity: 0;
+    }
+
+    .fade_leave {
+        @include cor-notification-fade-effect;
+
+        animation-play-state: paused;
+        opacity: 0;
+    }
+
+    &_topLeft,
+    &_bottomLeft {
+        margin-left: $notification-margin-edge;
+        margin-right: 0;
+
+        .fade_enter.fade_enter_active,
+        .fade_appear.fade_appear_active {
+            animation-name: notification-left-fade-in;
+            animation-play-state: running;
+        }
+    }
+
+    &_topRight,
+    &_bottomRight {
+        .fade_enter.fade_enter_active,
+        .fade_appear.fade_appear_active {
+            animation-name: notification-right-fade-in;
+            animation-play-state: running;
+        }
+    }
+
+    &_top {
+        .fade_enter.fade_enter_active,
+        .fade_appear.fade_appear_active {
+            animation-name: notification-top-fade-in;
+            animation-play-state: running;
+        }
+    }
+
+    &_bottom {
+        .fade_enter.fade_enter_active,
+        .fade_appear.fade_appear_active {
+            animation-name: notification-bottom-fade-in;
+            animation-play-state: running;
+        }
+    }
+
+    .fade_leave.fade_leave_active {
+        animation-name: notification-fade-out;
+        animation-play-state: running;
+    }
+}
+
+@keyframes notification-right-fade-in {
+    0% {
+        left: $notification-width;
+        opacity: 0;
+    }
+
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes notification-left-fade-in {
+    0% {
+        opacity: 0;
+        right: $notification-width;
+    }
+
+    100% {
+        opacity: 1;
+        right: 0;
+    }
+}
+
+@keyframes notification-top-fade-in {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes notification-bottom-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes notification-fade-out {
+    0% {
+        margin-bottom: $notification-margin-bottom;
+        max-height: 150px;
+        opacity: 1;
+    }
+
+    100% {
+        margin-bottom: 0;
+        max-height: 0;
+        opacity: 0;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+}
