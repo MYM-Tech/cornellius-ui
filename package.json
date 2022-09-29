@@ -78,7 +78,7 @@
     "typescript": "^4.6.3",
     "vitest": "^0.14.1",
     "vue-loader": "^16.8.3",
-    "vue-tsc": "^0.34.8"
+    "vue-tsc": "^0.40.13"
   },
   "publishConfig": {
     "access": "public",
@@ -107,12 +107,12 @@
     "dist"
   ],
   "types": "./dist/index.d.ts",
-  "main": "./dist/cornellius-ui.umd.js",
+  "main": "./dist/cornellius-ui.cjs.js",
   "module": "./dist/cornellius-ui.es.js",
   "exports": {
     ".": {
       "import": "./dist/cornellius-ui.es.js",
-      "require": "./dist/cornellius-ui.umd.js"
+      "require": "./dist/cornellius-ui.cjs.js"
     }
   },
   "packageManager": "yarn@3.2.2"
