@@ -15,6 +15,10 @@ import CorButton from './components/CorButton/CorButton';
 import CorInputTime from './components/Inputs/CorInputTime/CorInputTime';
 import CorInputSwitch from './components/Inputs/CorInputSwitch/CorInputSwitch';
 import notification from './components/Notification/Notification';
+import {
+    NotificationArgsProps,
+    NotificationApi,
+} from './components/Notification/Notification.types';
 
 export {
     Card,
@@ -34,3 +38,5 @@ export {
     CorInputSwitch,
     notification,
 };
+
+export type { NotificationApi, NotificationArgsProps };
