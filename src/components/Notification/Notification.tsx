@@ -203,12 +203,14 @@ function open(args: NotificationArgsProps) {
 
                 return (
                     <div class={iconNode ? `${prefixCls}_with_icon` : ''}>
-                        {iconNode && iconNode()}
-                        <div class={`${prefixCls}_title`}>
-                            {!description && iconNode ? (
-                                <span class={`${prefixCls}_title_single_line_auto_margin`} />
-                            ) : null}
-                            {renderHelper(title)}
+                        <div class={`${prefixCls}_top_container`}>
+                            {iconNode && iconNode()}
+                            <div class={`${prefixCls}_title`}>
+                                {!description && iconNode ? (
+                                    <span class={`${prefixCls}_title_single_line_auto_margin`} />
+                                ) : null}
+                                {renderHelper(title)}
+                            </div>
                         </div>
                         <div class={`${prefixCls}_description`}>{renderHelper(description)}</div>
                         {btn ? <span class={`${prefixCls}_btn`}>{renderHelper(btn)}</span> : null}
