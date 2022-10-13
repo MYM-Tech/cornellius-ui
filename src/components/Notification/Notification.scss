@@ -43,11 +43,18 @@ $heading-color: fade(#000, 85%);
             margin-right: auto;
         }
 
+        &_top_container {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 8px;
+            padding-right: 16px;
+        }
+
         &_title {
             color: $heading-color;
             font-size: $font-size-lg;
             line-height: 24px;
-            margin-bottom: 8px;
 
             &_single_line_auto_margin {
                 background-color: transparent;
@@ -63,30 +70,16 @@ $heading-color: fade(#000, 85%);
             }
         }
 
-        &_closable &_title {
-            padding-right: 24px;
-        }
-
         &_with_icon &_title {
             font-size: $font-size-lg;
-            margin-bottom: 4px;
-            margin-left: 48px;
         }
 
         &_description {
             font-size: $font-size-base;
         }
 
-        &_with_icon &_description {
-            font-size: $font-size-base;
-            margin-left: 48px;
-        }
-
         &_icon {
-            font-size: 24px;
-            line-height: 24px;
-            margin-left: 4px;
-            position: absolute;
+            margin-right: 8px;
         }
 
         .cor_icon {
@@ -112,7 +105,7 @@ $heading-color: fade(#000, 85%);
             outline: none;
             position: absolute;
             right: 22px;
-            top: 16px;
+            top: 14px;
 
             &:hover {
                 color: fade(#fff, 85%);
@@ -129,24 +122,14 @@ $heading-color: fade(#000, 85%);
         direction: rtl;
 
         .cor_notification_notice {
-            &_closable &_title {
-                padding-left: 24px;
+            &_top_container {
+                padding-left: 16px;
                 padding-right: 0;
-            }
-
-            &_with_icon &_title {
-                padding-left: 24px;
-                padding-right: 0;
-            }
-
-            &_with_icon &_description {
-                margin-left: 0;
-                margin-right: 48px;
             }
 
             &_icon {
-                margin-left: 0;
-                margin-right: 4px;
+                margin-left: 8px;
+                margin-right: 0;
             }
 
             &_close {
