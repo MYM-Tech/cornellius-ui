@@ -11,7 +11,7 @@ export type NotificationPlacement =
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
-export interface ConfigProps {
+export type ConfigProps = {
     top?: string | number;
     bottom?: string | number;
     duration?: number;
@@ -22,9 +22,9 @@ export interface ConfigProps {
     rtl?: boolean;
     maxCount?: number;
     closable?: boolean;
-}
+};
 
-export interface NotificationArgsProps {
+export type NotificationArgsProps = {
     title?: VueNode | (() => VueNode);
     description?: VueNode | (() => VueNode);
     btn?: VueNode | (() => VueNode);
@@ -44,15 +44,14 @@ export interface NotificationArgsProps {
     appContext?: AppContext;
     closable?: boolean;
     render?: VueNode | ((config: NotificationArgsProps) => VueNode);
-}
+};
 
-// TODO: implement support for success, error, info, warning
-export interface NotificationInstance {
+export type NotificationInstance = {
     open(args: NotificationArgsProps): void;
-}
+};
 
-export interface NotificationApi extends NotificationInstance {
+export type NotificationApi = NotificationInstance & {
     close(key: string): void;
     config(options: ConfigProps): void;
     destroy(): void;
-}
+};
