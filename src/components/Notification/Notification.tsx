@@ -198,7 +198,7 @@ function open(args: NotificationArgsProps) {
 
                 let iconNode = null;
                 if (icon) {
-                    iconNode = () => <span class={`${prefixCls}_icon`}>{renderHelper(icon)}</span>;
+                    iconNode = () => <div class={`${prefixCls}_icon`}>{renderHelper(icon)}</div>;
                 }
 
                 return (
@@ -213,7 +213,7 @@ function open(args: NotificationArgsProps) {
                             </div>
                         </div>
                         <div class={`${prefixCls}_description`}>{renderHelper(description)}</div>
-                        {btn ? <span class={`${prefixCls}_btn`}>{renderHelper(btn)}</span> : null}
+                        {btn ? <div class={`${prefixCls}_btn`}>{renderHelper(btn)}</div> : null}
                     </div>
                 );
             },

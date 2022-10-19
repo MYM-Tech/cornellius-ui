@@ -8,5 +8,10 @@ export function renderHelper<T = Record<string, unknown>>(
     if (typeof node === 'function') {
         return node(props || ({} as T));
     }
+
+    if (typeof node === 'string' || typeof node === 'number') {
+        return <span>{node}</span>;
+    }
+
     return node ?? defaultNode;
 }
