@@ -7,13 +7,13 @@ describe('handle modal state', () => {
         expect(modalState.value.isOpen).toBeFalsy();
     });
     it('should change to false state of modal when is close ', () => {
-        const { toClose } = handleModalState(modalState.value);
-        toClose();
+        const { close } = handleModalState(modalState.value);
+        close();
         expect(modalState.value.isOpen).toBeFalsy();
     });
     it('should change to true state of modal when is open ', () => {
-        const { toOpen } = handleModalState(modalState.value);
-        toOpen();
+        const { open } = handleModalState(modalState.value);
+        open();
         expect(modalState.value.isOpen).toBeTruthy();
     });
 });

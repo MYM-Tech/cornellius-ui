@@ -22,7 +22,7 @@ const CorModal: FunctionalComponent<CorModalProps> = (
     { slots }
 ) => {
     state.ref = id;
-    const { toClose } = handleModalState(state);
+    const { close } = handleModalState(state);
     if (state.isOpen) {
         if (modalContainer.value !== null) {
             modalContainer.value.focus();
@@ -63,12 +63,12 @@ const CorModal: FunctionalComponent<CorModalProps> = (
                             tabindex="1"
                             class={classesContainer}
                             ref={modalContainer}
-                            onFocusout={() => closeOnFocusOut && toClose()}
+                            onFocusout={() => closeOnFocusOut && close()}
                             onKeydown={(e) => {
                                 handleCloseEscKey({
                                     e,
                                     observer: escKeyClose,
-                                    callback: toClose,
+                                    callback: close,
                                 });
                             }}
                         >

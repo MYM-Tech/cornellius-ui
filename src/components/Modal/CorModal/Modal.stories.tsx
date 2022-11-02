@@ -32,11 +32,11 @@ const Template: StoryFn<CorModalProps> = (args) => {
 
     return (
         <div>
-            <Button callback={() => handlerOpen.toOpen()} title={'open modal'} />
+            <Button callback={() => handlerOpen.open()} title={'open modal'} />
             <CorModal v-bind={args} id={modalId} state={firstModal.value}>
                 <ModalContainer
                     title="this is an example of simple Modal"
-                    callback={() => handlerOpen.toClose()}
+                    callback={() => handlerOpen.close()}
                 />
             </CorModal>
         </div>
@@ -56,27 +56,23 @@ const doubleModal: StoryFn<{ Modal1: CorModalProps; Modal2: CorModalProps }> = (
         isOpen: false,
         ref: firstModal,
     });
-    const { toClose, toOpen } = handleModalState(firstModalState.value);
+    const { close, open } = handleModalState(firstModalState.value);
     const handlerSecondModal = handleModalState(modalState.value);
 
     return (
         <div id="ContainerModal">
             <div>
-                <Button title={'open Modal 1'} callback={toOpen} />
+                <Button title={'open Modal 1'} callback={open} />
                 <CorModal
                     state={firstModalState.value}
                     v-bind={args.Modal1}
                     id={firstModal}
                     v-slots={() => (
-                        <ModalContainer
-                            title="example Modal 1"
-                            ref={firstModal}
-                            callback={toClose}
-                        />
+                        <ModalContainer title="example Modal 1" ref={firstModal} callback={close} />
                     )}
                 />
                 <br />
-                <Button title={'open Modal 2'} callback={handlerSecondModal.toOpen} />
+                <Button title={'open Modal 2'} callback={handlerSecondModal.open} />
                 <CorModal
                     state={modalState.value}
                     v-bind={args.Modal2}
@@ -85,7 +81,7 @@ const doubleModal: StoryFn<{ Modal1: CorModalProps; Modal2: CorModalProps }> = (
                         <ModalContainer
                             title="Example Modal 2"
                             ref={secondModal}
-                            callback={handlerSecondModal.toClose}
+                            callback={handlerSecondModal.close}
                         />
                     )}
                 />
