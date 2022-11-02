@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { FunctionalComponent, Teleport, Transition, ref } from 'vue';
 import CSS from './CorModal.module.scss';
 import { ModalContainerType, CorModalProps } from './CorModal.type';
@@ -16,11 +17,12 @@ const CorModal: FunctionalComponent<CorModalProps> = (
         open = false,
         onEnter = () => null,
         onLeave = () => null,
+        ...props
     },
     { slots }
 ) => {
     state.ref = id;
-    const { toClose } = handleModalState(state);
+    const { close } = handleModalState(state);
     if (state.isOpen) {
         if (modalContainer.value !== null) {
             modalContainer.value.focus();
@@ -35,6 +37,14 @@ const CorModal: FunctionalComponent<CorModalProps> = (
         onLeave(e, done);
     };
 
+    const classes = classNames(CSS.modal, {
+        [props.class as string]: !!props.class,
+    });
+
+    const classesContainer = classNames(CSS.modal__container, {
+        [props.classContainer as string]: !!props.classContainer,
+    });
+
     return (
         <Teleport to={target}>
             <Transition
@@ -48,17 +58,17 @@ const CorModal: FunctionalComponent<CorModalProps> = (
                 persisted
             >
                 {(open || state.isOpen) && (
-                    <div id="modal-background" class={CSS.modal}>
+                    <div id="modal-background" class={classes}>
                         <div
                             tabindex="1"
-                            class={CSS.modal__container}
+                            class={classesContainer}
                             ref={modalContainer}
-                            onFocusout={() => closeOnFocusOut && toClose()}
+                            onFocusout={() => closeOnFocusOut && close()}
                             onKeydown={(e) => {
                                 handleCloseEscKey({
                                     e,
                                     observer: escKeyClose,
-                                    callback: toClose,
+                                    callback: close,
                                 });
                             }}
                         >

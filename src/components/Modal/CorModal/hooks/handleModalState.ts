@@ -1,13 +1,13 @@
 import { ModalStateType } from '../state/ModalState.type';
 
 const handleModalState = (state: ModalStateType) => {
-    function toOpen() {
+    function open() {
         state.isOpen = true;
     }
-    function toClose() {
+    function close() {
         state.isOpen = false;
     }
-    return { toOpen, toClose };
+    return { open, close };
 };
 
 export default handleModalState;
