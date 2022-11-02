@@ -11,6 +11,7 @@ import CorInputRadio from './components/Inputs/CorInputRadio/CorInputRadio';
 import CorInputCheckbox from './components/Inputs/CorInputCheckbox/CorInputCheckbox';
 import CorInputMoney from './components/Inputs/CorInputMoney/CorInputMoney';
 import { CorModal, handleModalState } from './components/Modal/CorModal/CorModal';
+import { CorModalProps } from './components/Modal/CorModal/CorModal.type';
 import CorButton from './components/CorButton/CorButton';
 import CorInputTime from './components/Inputs/CorInputTime/CorInputTime';
 import CorInputSwitch from './components/Inputs/CorInputSwitch/CorInputSwitch';
@@ -39,4 +40,4 @@ export {
     notification,
 };
 
-export type { NotificationApi, NotificationArgsProps };
+export type { NotificationApi, NotificationArgsProps, CorModalProps };

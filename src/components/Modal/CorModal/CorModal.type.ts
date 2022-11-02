@@ -3,6 +3,8 @@ import { ModalStateType } from './state/ModalState.type';
 export interface CorModalProps {
     target?: string;
     id: string;
+    class?: string;
+    classContainer?: string;
     state: ModalStateType;
     open?: boolean;
     escKeyClose?: boolean;
