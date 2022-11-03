@@ -63,7 +63,12 @@ const CorModal: FunctionalComponent<CorModalProps> = (
                             tabindex="1"
                             class={classesContainer}
                             ref={modalContainer}
-                            onFocusout={() => closeOnFocusOut && close()}
+                            onFocusout={(e) => {
+                                const leavingParent = !(e.currentTarget as Node)?.contains(
+                                    e.relatedTarget as Node
+                                );
+                                if (leavingParent && closeOnFocusOut) close();
+                            }}
                             onKeydown={(e) => {
                                 handleCloseEscKey({
                                     e,
