@@ -43,10 +43,8 @@ const Template: StoryFn<CorModalProps> = (args) => {
     );
 };
 export const ModalStory = Template.bind({});
-
 ModalStory.args = {
-    closeOnFocusOut: false,
-    closeOnBlur: true,
+    closeOnFocusOut: true,
     escKeyClose: false,
 };
 
@@ -66,13 +64,13 @@ const doubleModal: StoryFn<{ Modal1: CorModalProps; Modal2: CorModalProps }> = (
             <div>
                 <Button title={'open Modal 1'} callback={open} />
                 <CorModal
+                    closeOnFocusOut
                     state={firstModalState.value}
                     v-bind={args.Modal1}
                     id={firstModal}
-                    closeOnFocusOut
                     v-slots={() => (
                         <ModalContainer
-                            title="example Modal 1 closeOnFocusOut"
+                            title="close onFocusout"
                             ref={firstModal}
                             callback={close}
                         />
@@ -81,13 +79,12 @@ const doubleModal: StoryFn<{ Modal1: CorModalProps; Modal2: CorModalProps }> = (
                 <br />
                 <Button title={'open Modal 2'} callback={handlerSecondModal.open} />
                 <CorModal
+                    escKeyClose
                     state={modalState.value}
-                    v-bind={args.Modal2}
                     id={secondModal}
-                    closeOnBlur
                     v-slots={() => (
                         <ModalContainer
-                            title="Example Modal 2 closeOnBlur"
+                            title="close onEscapePressed"
                             ref={secondModal}
                             callback={handlerSecondModal.close}
                         />

@@ -9,7 +9,6 @@ export interface CorModalProps {
     open?: boolean;
     escKeyClose?: boolean;
     closeOnFocusOut?: boolean;
-    closeOnBlur?: boolean;
     onEnter?: (e: Element, done: () => void) => void;
     onLeave?: (e: Element, done: () => void) => void;
 }
