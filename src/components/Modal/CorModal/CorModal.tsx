@@ -14,7 +14,6 @@ const CorModal: FunctionalComponent<CorModalProps> = (
         state,
         escKeyClose = false,
         closeOnFocusOut = false,
-        closeOnBlur = false,
         open = false,
         onEnter = () => null,
         onLeave = () => null,
@@ -65,7 +64,6 @@ const CorModal: FunctionalComponent<CorModalProps> = (
                             class={classesContainer}
                             ref={modalContainer}
                             onFocusout={() => closeOnFocusOut && close()}
-                            onBlur={() => closeOnBlur && close()}
                             onKeydown={(e) => {
                                 handleCloseEscKey({
                                     e,

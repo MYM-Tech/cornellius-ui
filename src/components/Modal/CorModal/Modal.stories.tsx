@@ -33,7 +33,7 @@ const Template: StoryFn<CorModalProps> = (args) => {
     return (
         <div>
             <Button callback={() => handlerOpen.open()} title={'open modal'} />
-            <CorModal {...args} id={modalId} state={firstModal.value}>
+            <CorModal v-bind={args} id={modalId} state={firstModal.value}>
                 <ModalContainer
                     title="this is an example of simple Modal"
                     callback={() => handlerOpen.close()}
@@ -43,10 +43,8 @@ const Template: StoryFn<CorModalProps> = (args) => {
     );
 };
 export const ModalStory = Template.bind({});
-
 ModalStory.args = {
-    closeOnFocusOut: false,
-    closeOnBlur: true,
+    closeOnFocusOut: true,
     escKeyClose: false,
 };
 
@@ -69,13 +67,8 @@ const doubleModal: StoryFn<{ Modal1: CorModalProps; Modal2: CorModalProps }> = (
                     state={firstModalState.value}
                     v-bind={args.Modal1}
                     id={firstModal}
-                    closeOnFocusOut
                     v-slots={() => (
-                        <ModalContainer
-                            title="example Modal 1 closeOnFocusOut"
-                            ref={firstModal}
-                            callback={close}
-                        />
+                        <ModalContainer title="example Modal 1" ref={firstModal} callback={close} />
                     )}
                 />
                 <br />
@@ -84,10 +77,9 @@ const doubleModal: StoryFn<{ Modal1: CorModalProps; Modal2: CorModalProps }> = (
                     state={modalState.value}
                     v-bind={args.Modal2}
                     id={secondModal}
-                    closeOnBlur
                     v-slots={() => (
                         <ModalContainer
-                            title="Example Modal 2 closeOnBlur"
+                            title="Example Modal 2"
                             ref={secondModal}
                             callback={handlerSecondModal.close}
                         />
@@ -99,3 +91,13 @@ const doubleModal: StoryFn<{ Modal1: CorModalProps; Modal2: CorModalProps }> = (
 };
 
 export const Doublemodal = doubleModal.bind({});
+Doublemodal.args = {
+    Moda1: {
+        closeOnFocusOut: true,
+        escKeyClose: false,
+    },
+    Modal2: {
+        closeOnFocusOut: true,
+        escKeyClose: false,
+    },
+};
